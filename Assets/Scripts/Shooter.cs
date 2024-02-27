@@ -32,9 +32,9 @@ public class NewBehaviourScript : MonoBehaviour
             GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
             newBullet.transform.right = targetDirection;
 
-            if (newBullet.TryGetComponent(out Projectile projectile)) {
-                projectile.UpdateMoveSpeed(bulletMoveSpeed);
-            }
+            // if (newBullet.TryGetComponent(out Projectile projectile)) {
+            //     projectile.UpdateMoveSpeed(bulletMoveSpeed);
+            // }
             yield return new WaitForSeconds(timeBetweenBursts);
         }
 
@@ -51,9 +51,9 @@ public class NewBehaviourScript : MonoBehaviour
         GameObject newBullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         newBullet.transform.right = targetDirection;
 
-        if (newBullet.TryGetComponent(out Projectile projectile)) {
-            projectile.UpdateMoveSpeed(bulletMoveSpeed);
-        }
+        // if (newBullet.TryGetComponent(out Projectile projectile)) {
+        //     projectile.UpdateMoveSpeed(bulletMoveSpeed);
+        // }
 
         yield return new WaitForSeconds(restTime);
         isShooting = false;
