@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap;
+    private Tilemap floorTilemap, wallTilemap, propTilemap, collideableTilemap;
     [SerializeField]
-    private TileBase floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornerDownLeft, wallInnerCornerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
+    private TileBase leftWallTorch, floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornerDownLeft, wallInnerCornerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
+    public List<TileBase> cornerProps = new();
+    public List<TileBase> collideableProps = new();
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
@@ -30,10 +33,17 @@ public class TileMapVisualizer : MonoBehaviour
         tilemap.SetTile(tilePosition, tile);
     }
 
+    internal void PaintPropTileCorner(Vector2Int position)
+    {
+        PaintSingleTile(propTilemap, cornerProps[Random.Range(0, cornerProps.Count)], position);
+    }
+
     public void Clear()
     {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
+        propTilemap.ClearAllTiles();
+        collideableTilemap.ClearAllTiles();
     }
 
     internal void PaintSingleBasicWall(Vector2Int position, string binaryType)
@@ -106,6 +116,16 @@ public class TileMapVisualizer : MonoBehaviour
 
         if (tile != null)
             PaintSingleTile(wallTilemap, tile, position);
+    }
+
+    internal void PaintLeftTorch(Vector2Int position)
+    {
+        PaintSingleTile(propTilemap, leftWallTorch, position);
+    }
+
+    internal void PaintCollideableTiles(Vector2Int position)
+    {
+        PaintSingleTile(collideableTilemap, collideableProps[Random.Range(0, collideableProps.Count)], position);
     }
 }
  

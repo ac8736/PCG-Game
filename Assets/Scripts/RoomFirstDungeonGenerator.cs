@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 using Random = UnityEngine.Random;
 
 public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
@@ -17,15 +19,18 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [SerializeField]
     private bool randomWalkRooms = false;
 
+    private HashSet<Vector2Int> entireDungeonFloor = new();
+
     protected override void RunProceduralGeneration()
     {
+        entireDungeonFloor.Clear();
         CreateRooms();
     }
 
     private void CreateRooms()
     {
         var roomsList = ProceduralGenerationAlgorithms.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
-        HashSet<Vector2Int> floor = CreateSimpleRooms(roomsList);
+        HashSet<Vector2Int> floor;
         
         if (randomWalkRooms)
         {
@@ -35,6 +40,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         {
             floor = CreateSimpleRooms(roomsList);
         }
+        entireDungeonFloor.UnionWith(floor);
 
         List<Vector2Int> roomCenters = new();
         foreach (var room in roomsList)
@@ -43,10 +49,92 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         }
 
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
-        floor.UnionWith(corridors); 
+        floor.UnionWith(corridors);
+
+        CreateProps(corridors); 
 
         tileMapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tileMapVisualizer);
+    }
+
+    private void CreateProps(HashSet<Vector2Int> corridors)
+    {
+        HashSet<Vector2Int> drawnLocationsForProps = new();
+        foreach (var position in entireDungeonFloor)
+        {
+            bool isCornerPiece = CheckIfCorner(position);
+            if (isCornerPiece)
+            {
+                if (!CheckIfInterceptingCorridor(position, corridors))
+                {
+                    PerformCardinalPaint(position, corridors, drawnLocationsForProps, 2);
+                }
+            }
+            else if (!entireDungeonFloor.Contains(position + Direction2D.cardinalDirectionsList[3]))
+            {
+                if (!CheckIfInterceptingCorridor(position, corridors) && Random.Range(0, 15) == 0 && !drawnLocationsForProps.Contains(position))
+                {
+                    tileMapVisualizer.PaintLeftTorch(position);
+                    drawnLocationsForProps.Add(position);
+                }
+            }
+            else
+            {
+                //if (!CheckIfInterceptingCorridor(position, corridors) && Random.Range(0, 20) == 0 && !drawnLocationsForProps.Contains(position))
+                //{
+                //    tileMapVisualizer.PaintCollideableTiles(position);
+                //    drawnLocationsForProps.Add(position);
+                //}
+            }
+        }
+    }
+
+    private void PerformCardinalPaint(Vector2Int position, HashSet<Vector2Int> corridors, HashSet<Vector2Int> drawnLocationsForProps, int limit)
+    {
+        int draws = 0;
+        if (Random.Range(0, 5) == 2 && !drawnLocationsForProps.Contains(position))
+        {
+            draws++;
+            tileMapVisualizer.PaintPropTileCorner(position);
+            drawnLocationsForProps.Add(position);
+        }
+        foreach (var dir in Direction2D.cardinalDirectionsList)
+        {
+            Vector2Int pos = dir + position;
+            if (!CheckIfInterceptingCorridor(pos, corridors) && draws < limit && entireDungeonFloor.Contains(pos) && Random.Range(0, 5) == 0 && !drawnLocationsForProps.Contains(pos))
+            {
+                tileMapVisualizer.PaintPropTileCorner(pos);
+                drawnLocationsForProps.Add(pos);
+                draws++;
+            }
+        }
+    }
+
+    private bool CheckIfInterceptingCorridor(Vector2Int position, HashSet<Vector2Int> corridors)
+    {
+        if (corridors.Contains(position))
+            return true;
+        foreach(var direction in Direction2D.cardinalDirectionsList)
+        {
+            Vector2Int pos = direction + position;
+            if (corridors.Contains(pos))
+                return true;
+        }
+        return false;
+    }
+
+    private bool CheckIfCorner(Vector2Int position)
+    {
+        int emptySpace = 0;
+        foreach (var direction in Direction2D.cardinalDirectionsList)
+        {
+            Vector2Int pos = direction + position;
+            if (!entireDungeonFloor.Contains(pos))
+            {
+                emptySpace++;
+            }
+        }
+        return emptySpace == 2;
     }
 
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)
@@ -147,6 +235,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
                 }
             }
         }
+
         return floor;
     }
 }
