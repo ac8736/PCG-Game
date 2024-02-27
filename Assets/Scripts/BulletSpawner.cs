@@ -11,6 +11,7 @@ public class BulletSpawner : MonoBehaviour
     public float bulletLife = 1f;
     public float speed = 0.5f;
     public bool needsTracking = true;
+    public bool oscillate = false;
 
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
@@ -44,6 +45,9 @@ public class BulletSpawner : MonoBehaviour
         reloading = false;
         if (spawnerType == SpawnerType.Burst) {
             needsTracking = false;
+        }
+        if (oscillate) {
+            angleChange = -angleChange;
         }
         firingCount = 0;
     }
