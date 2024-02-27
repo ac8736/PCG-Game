@@ -37,7 +37,7 @@ public class EnemyTracking : MonoBehaviour
     }
 
     private void RotateTowardsTarget() {
-        Quaternion targetRotation = Quaternion.LookRotation(transform.forwards, targetDirection);
+        Quaternion targetRotation = Quaternion.LookRotation(transform.forward, targetDirection);
         Quaternion rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
         enemyRigidbody.SetRotation(rotation);
