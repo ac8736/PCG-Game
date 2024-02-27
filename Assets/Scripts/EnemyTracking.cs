@@ -32,9 +32,8 @@ public class EnemyTracking : MonoBehaviour
     private void FixedUpdate() {
         if (enemyNeedsTracking) {
             RotateTowardsTarget();
+            SetVelocity();
         }
-        SetVelocity();
-
     }
 
     private void RotateTowardsTarget() {
@@ -45,8 +44,6 @@ public class EnemyTracking : MonoBehaviour
     }
 
     private void SetVelocity() {
-        if (enemyNeedsTracking) {
-            enemyRigidbody.velocity = transform.up * speed;
-        }
+        enemyRigidbody.velocity = transform.up * speed;
     }
 }
