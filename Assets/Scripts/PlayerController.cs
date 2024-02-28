@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,12 +12,22 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer m_SpriteRenderer;
 
     private int m_Health = 10;
+    private string currentSceneName;
 
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start() 
+    {
+        // Create a temporary reference to the current scene.
+		Scene currentScene = SceneManager.GetActiveScene ();
+
+		// Retrieve the name of this scene.
+		currentSceneName = currentScene.name;
     }
 
     private void Update()
@@ -45,6 +56,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             m_Animator.SetFloat("Speed", 0);
+        }
+
+        if (m_Health == 0) {
+            m_Health = 10;
+            if (currentSceneName == "Death") {
+                SceneManager.LoadScene("GameOver");
+            }
+            else {
+                SceneManager.LoadScene("Death");
+            }
+            
         }
     }
 
