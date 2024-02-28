@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
             m_Animator.SetFloat("Speed", 0);
         }
 
-        if (m_Health == 0) {
+        if (m_Health <= 0) {
             m_Health = 10;
             if (currentSceneName == "Death") {
                 SceneManager.LoadScene("GameOver");
