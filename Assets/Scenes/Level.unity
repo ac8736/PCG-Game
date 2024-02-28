@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &46444166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -381,6 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &67265205
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -642,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &110736839
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1625,6 +1628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &248811080
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1984,6 +1988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &267339210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2147,6 +2152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &309332860
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2408,6 +2414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &332462253
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2571,6 +2578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &389590199
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2638,6 +2646,134 @@ Transform:
   m_Children:
   - {fileID: 1444290323}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &397103912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397103914}
+  - component: {fileID: 397103913}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &397103913
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397103912}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &397103914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397103912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 994958829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417910906
 GameObject:
@@ -2930,6 +3066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &459798757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3093,6 +3230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &460259031
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3452,6 +3590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &488010784
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3713,6 +3852,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &500192668
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4072,6 +4212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &525193480
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4381,6 +4522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &548677676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4544,6 +4686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &552843145
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4707,6 +4850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &567479202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14641,6 +14785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &667980818
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14804,6 +14949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &669424507
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15024,7 +15170,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2830766d0b1ae2a40b4efa573a4c3532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level
 --- !u!4 &720490013
 Transform:
   m_ObjectHideFlags: 0
@@ -15150,6 +15295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &743281148
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15217,6 +15363,134 @@ Transform:
   m_Children:
   - {fileID: 1966312614}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &763235149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 763235151}
+  - component: {fileID: 763235150}
+  m_Layer: 0
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &763235150
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763235149}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &763235151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763235149}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 994958829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765255333
 GameObject:
@@ -15509,6 +15783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &772248241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15672,6 +15947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &811392315
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16423,6 +16699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &976354743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16586,6 +16863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &979544957
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16749,6 +17027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &982508883
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16815,6 +17094,57 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 159295697}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &994958827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 994958829}
+  - component: {fileID: 994958828}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Audio
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &994958828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994958827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02aa7bdf5891349ff8d600e9b9c97afc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSource: {fileID: 397103913}
+  SFXSource: {fileID: 763235150}
+  normalbgm: {fileID: 8300000, guid: c139c1d73be94442a83f67b8e8f87700, type: 3}
+  deathbgm: {fileID: 8300000, guid: 47328483869204a3f881db0ed564abd6, type: 3}
+  magic: {fileID: 8300000, guid: bce328eef65f042b5848d5a81598306f, type: 3}
+--- !u!4 &994958829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994958827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.055164, y: 18.10682, z: -10.219622}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 397103914}
+  - {fileID: 763235151}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1022423363
@@ -35786,6 +36116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1106017994
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36278,6 +36609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1249085708
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36441,6 +36773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1256372549
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36604,6 +36937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1272240285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36767,6 +37101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1276580903
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37028,6 +37363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1280292669
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37289,6 +37625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1283936473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37452,6 +37789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1316066938
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -37877,6 +38215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1389941765
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38040,6 +38379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1393189886
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38203,6 +38543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1426808827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38464,6 +38805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1450155563
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38627,6 +38969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1457522413
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -38986,6 +39329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1547483563
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39345,6 +39689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1605819415
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39508,6 +39853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1669685592
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39671,6 +40017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1708885383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -39932,6 +40279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1743758428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40247,6 +40595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1802265139
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40508,6 +40857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1823111500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -40769,6 +41119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1845849119
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41030,6 +41381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1956941696
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41193,6 +41545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1961356285
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -41356,6 +41709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &1963783730
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42205,6 +42559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &2114887689
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42368,6 +42723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chaseSpeed: 1
+  detection: 10
 --- !u!212 &2118245324
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -42553,3 +42909,4 @@ SceneRoots:
   - {fileID: 2114887690}
   - {fileID: 500192669}
   - {fileID: 309332861}
+  - {fileID: 994958829}

@@ -10,6 +10,15 @@ public class PlayerWeapon : MonoBehaviour
 
     private bool m_CanShoot = true;
 
+    // SFX
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        // audioManager = GameObject.FindGameObjectsWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +56,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void Shoot()
     {
+        audioManager.PlaySFX(audioManager.magic);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         // Calculate direction towards mouse
