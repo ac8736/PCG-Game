@@ -68,7 +68,7 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator ShootCD()
     {
         m_CanShoot = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         m_CanShoot = true;
     }
 }
