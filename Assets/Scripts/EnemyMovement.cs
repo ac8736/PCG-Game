@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     private GameObject player;
     private int health = 5;
     private Animator m_Animator;
+    public int detection = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
     private void ChasePlayer()
     {
         // Move towards the player
-        if (Vector3.Distance(transform.position, player.transform.position) < 10)
+        if (Vector3.Distance(transform.position, player.transform.position) < detection)
             transform.position = Vector2.MoveTowards(transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
     }
 }

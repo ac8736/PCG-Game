@@ -63,14 +63,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4599358067391532239, guid: 1d40f5959d5fb924e9d17821ee64251c, type: 3}
   bulletLife: 5
-  speed: 8
+  speed: 12
   needsTracking: 1
   oscillate: 0
   spawnerType: 0
-  firingRate: 2
-  reloadTime: 1.5
-  maxShots: 3
-  angleChange: 20
+  firingRate: 100
+  reloadTime: 0.1
+  maxShots: 100
+  angleChange: 1
 --- !u!50 &1028681017091948678
 Rigidbody2D:
   serializedVersion: 4
@@ -109,7 +109,8 @@ GameObject:
   - component: {fileID: 7917694426810696635}
   - component: {fileID: 2055249858259176379}
   - component: {fileID: 4168658809287845890}
-  - component: {fileID: 929397507949959215}
+  - component: {fileID: -232771590566048804}
+  - component: {fileID: -7649534165990270403}
   m_Layer: 0
   m_Name: DeathEnemy
   m_TagString: Enemy
@@ -213,7 +214,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!70 &929397507949959215
+--- !u!114 &-232771590566048804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6254808145346264300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23058823c11cc734ca03b1504ce69347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaseSpeed: 3
+  detection: 1000
+--- !u!70 &-7649534165990270403
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -242,11 +257,11 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.29, y: 4.8}
+  m_Size: {x: 4.7999997, y: 4.7999997}
   m_Direction: 0
 --- !u!1 &6527330804276081752
 GameObject:
@@ -315,10 +330,10 @@ MonoBehaviour:
   needsTracking: 0
   oscillate: 0
   spawnerType: 1
-  firingRate: 0.6
-  reloadTime: 2
+  firingRate: 10
+  reloadTime: 0.1
   maxShots: 50
-  angleChange: 0.5
+  angleChange: 1
 --- !u!50 &5568240852611915154
 Rigidbody2D:
   serializedVersion: 4

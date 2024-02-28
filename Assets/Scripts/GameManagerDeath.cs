@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManagerDeath : MonoBehaviour
 {
+    public GameObject m_Death;
+
     private SimpleRandomWalkDungeonGenerator simpleRandomWalkDungeonGenerator;
     private Vector2Int m_PlayerSpawn;
     private GameObject m_Player;
@@ -26,5 +28,7 @@ public class GameManagerDeath : MonoBehaviour
     {
         m_PlayerSpawn = simpleRandomWalkDungeonGenerator.GenerateDungeon();
         m_Player.transform.position = new Vector2(m_PlayerSpawn.x, m_PlayerSpawn.y);
+        Vector3 deathSpawn = new Vector2(m_Player.transform.position.x, m_Player.transform.position.y + 20);
+        Instantiate(m_Death, deathSpawn, Quaternion.identity);
     }
 }
