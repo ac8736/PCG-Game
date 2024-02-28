@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    public bool animate = true;
     [SerializeField] private float chaseSpeed = 0.2f;
     private SpriteRenderer m_SpriteRenderer;
     private GameObject player;
@@ -16,7 +17,8 @@ public class EnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_Animator = GetComponent<Animator>();
+        if (animate)
+            m_Animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,7 +42,8 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player Bullet"))
         {
             health--;
-            m_Animator.SetTrigger("Damage");
+            if (animate)
+                m_Animator.SetTrigger("Damage");
         }
     }
 

@@ -226,6 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23058823c11cc734ca03b1504ce69347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animate: 0
   chaseSpeed: 3
   detection: 1000
 --- !u!70 &-7649534165990270403
