@@ -26,7 +26,7 @@ public class BulletSpawner : MonoBehaviour
     private bool reloading = false;
 
     //whether or not the enemy needs tracking depends on what type of spawner type it is
-    //straight always needs tracking, spin never does, and burst needs tracking when reloading and does not want it when firing
+    //Straight always needs tracking, spin never does, and burst needs tracking when reloading and does not want it when firing
 
     // Start is called before the first frame update
     void Start()
