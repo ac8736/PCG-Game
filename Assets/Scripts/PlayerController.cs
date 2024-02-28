@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 6;
+    public TextMeshProUGUI healthText;
 
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private SpriteRenderer m_SpriteRenderer;
 
-    private int m_Health = 10;
+    private int m_Health = 5;
     private string currentSceneName;
 
     private void Awake()
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        healthText.text = "Heath: " + m_Health;
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
         m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
@@ -72,9 +75,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Enemy"))
         {
             m_Health--;
+            m_Animator.SetTrigger("Damage");
         }
     }
 }

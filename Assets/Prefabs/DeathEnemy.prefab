@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: 0
-  chaseSpeed: 3
+  chaseSpeed: 4
   detection: 1000
 --- !u!70 &-7649534165990270403
 CapsuleCollider2D:
