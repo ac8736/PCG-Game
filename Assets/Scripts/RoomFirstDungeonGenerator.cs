@@ -21,13 +21,13 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
     private HashSet<Vector2Int> entireDungeonFloor = new();
 
-    protected override void RunProceduralGeneration()
+    protected override Vector2Int RunProceduralGeneration()
     {
         entireDungeonFloor.Clear();
-        CreateRooms();
+        return CreateRooms();
     }
 
-    private void CreateRooms()
+    private Vector2Int CreateRooms()
     {
         var roomsList = ProceduralGenerationAlgorithms.BinarySpacePartitioning(new BoundsInt((Vector3Int)startPosition, new Vector3Int(dungeonWidth, dungeonHeight, 0)), minRoomWidth, minRoomHeight);
         HashSet<Vector2Int> floor;
@@ -47,7 +47,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         {
             roomCenters.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
         }
-
+        Vector2Int playerSpawn = roomCenters[0];
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 
@@ -55,6 +55,7 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
 
         tileMapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tileMapVisualizer);
+        return playerSpawn;
     }
 
     private void CreateProps(HashSet<Vector2Int> corridors)
