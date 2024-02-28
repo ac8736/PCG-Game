@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 
 public class TileMapVisualizer : MonoBehaviour
 {
-    [SerializeField]
-    private Tilemap floorTilemap, wallTilemap, propTilemap, collideableTilemap;
+    public Tilemap floorTilemap, wallTilemap, propTilemap, collideableTilemap;
     [SerializeField]
     private TileBase leftWallTorch, floorTile, wallTop, wallSideRight, wallSideLeft, wallBottom, wallFull, wallInnerCornerDownLeft, wallInnerCornerDownRight, wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
     public List<TileBase> cornerProps = new();
