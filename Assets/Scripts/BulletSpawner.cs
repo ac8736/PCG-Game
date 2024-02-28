@@ -9,7 +9,7 @@ public class BulletSpawner : MonoBehaviour
     [Header("Bullet Attributes")]
     public GameObject bullet;
     public float bulletLife = 1f;
-    public float speed = 0.5f;
+    public float speed = 2.0f;
     public bool needsTracking = true;
     public bool oscillate = false;
 

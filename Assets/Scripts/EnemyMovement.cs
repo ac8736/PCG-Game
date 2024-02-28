@@ -32,6 +32,7 @@ public class EnemyMovement : MonoBehaviour
     private void ChasePlayer()
     {
         // Move towards the player
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, player.transform.position) < 10)
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, chaseSpeed * Time.deltaTime);
     }
 }

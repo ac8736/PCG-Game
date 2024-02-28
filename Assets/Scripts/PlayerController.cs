@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
     private Animator m_Animator;
     private SpriteRenderer m_SpriteRenderer;
 
+    private int m_Health = 10;
+
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
@@ -46,8 +48,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.CompareTag("Bullet"))
+        {
+            m_Health--;
+        }
     }
 }

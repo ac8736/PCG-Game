@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using static UnityEditor.PlayerSettings;
 using Random = UnityEngine.Random;
 
@@ -18,12 +19,19 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     private int offset = 1;
     [SerializeField]
     private bool randomWalkRooms = false;
+    [SerializeField]
+    private List<GameObject> enemies = new();
 
     private HashSet<Vector2Int> entireDungeonFloor = new();
 
     protected override Vector2Int RunProceduralGeneration()
     {
         entireDungeonFloor.Clear();
+        GameObject[] enemyList = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(var enemy in enemyList)
+        {
+            DestroyImmediate(enemy);
+        }
         return CreateRooms();
     }
 
@@ -51,11 +59,42 @@ public class RoomFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 
-        CreateProps(corridors); 
-
+        CreateProps(corridors);
+        PlaceEnemies(corridors);
         tileMapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tileMapVisualizer);
         return playerSpawn;
+    }
+
+    private void PlaceEnemies(HashSet<Vector2Int> corridors)
+    {
+        foreach (var position in entireDungeonFloor)
+        {
+            if (Random.Range(0, 20) == 0 && !corridors.Contains(position) && !NearWall(position))
+            {
+                Instantiate(enemies[Random.Range(0, enemies.Count)], TileToWorld(position), Quaternion.identity);
+            }
+        }
+    }
+
+    // This function converts tile coordinates to world coordinates
+    private Vector3 TileToWorld(Vector2Int tileCoordinates)
+    {
+        Vector3 tileCenter = tileMapVisualizer.propTilemap.GetCellCenterWorld((Vector3Int)tileCoordinates);
+        return new Vector3(tileCenter.x, tileCenter.y, 0f); // Assuming your game is in 2D
+    }
+
+    private bool NearWall(Vector2Int position)
+    {
+        foreach (var direction in Direction2D.cardinalDirectionsList)
+        {
+            Vector2Int pos = position + direction * 2;
+            if (!entireDungeonFloor.Contains(pos))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void CreateProps(HashSet<Vector2Int> corridors)

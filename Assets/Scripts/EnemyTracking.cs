@@ -11,21 +11,21 @@ public class EnemyTracking : MonoBehaviour
     [SerializeField] private float rotationSpeed;
 
     private Rigidbody2D enemyRigidbody;
-    private BulletSpawner enemyBulletSpawner;
+    //private BulletSpawner enemyBulletSpawner;
     private Vector2 targetDirection;
 
-    private void Awake() {
+    private void Start() {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerDirection = player.transform;
         enemyRigidbody = GetComponent<Rigidbody2D>();
-        enemyNeedsTracking = enemyBulletSpawner.needsTracking;
+        //enemyNeedsTracking = enemyBulletSpawner.needsTracking;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemyNeedsTracking = enemyBulletSpawner.needsTracking;
+        //enemyNeedsTracking = enemyBulletSpawner.needsTracking;
         targetDirection = playerDirection.position - transform.position;
     }
 

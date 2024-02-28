@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6734371341418207475}
   - component: {fileID: 3674750811206195408}
   - component: {fileID: 6006705027207138045}
+  - component: {fileID: 1007717378667803622}
   m_Layer: 0
   m_Name: EnemyProjectileSpawner
   m_TagString: Untagged
@@ -70,6 +71,33 @@ MonoBehaviour:
   reloadTime: 2
   maxShots: 6
   angleChange: 5
+--- !u!50 &1007717378667803622
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524238376960087900}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1191523532584451688
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +128,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 42.628807, y: 29.339602, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6734371341418207475}
@@ -170,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23058823c11cc734ca03b1504ce69347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseSpeed: 1
 --- !u!70 &6578792759129620389
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,8 +231,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: 0}
-  m_Size: {x: 1.06, y: 1.6}
+  m_Offset: {x: -0.109752655, y: 0.011956215}
+  m_Size: {x: 0.8142624, y: 1.5350132}
   m_Direction: 0
 --- !u!50 &5734730022069758968
 Rigidbody2D:
@@ -231,4 +260,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

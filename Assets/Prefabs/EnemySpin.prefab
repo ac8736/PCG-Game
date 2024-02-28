@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1726032071582452384}
   - component: {fileID: 2707059316251804856}
   - component: {fileID: 3752292288965415516}
+  - component: {fileID: 1033427845241385005}
   m_Layer: 0
   m_Name: EnemyProjectileSpawner
   m_TagString: Untagged
@@ -66,10 +67,37 @@ MonoBehaviour:
   needsTracking: 0
   oscillate: 0
   spawnerType: 1
-  firingRate: 0.8
+  firingRate: 0.4
   reloadTime: 2
-  maxShots: 20
-  angleChange: 20
+  maxShots: 50
+  angleChange: 1
+--- !u!50 &1033427845241385005
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3964402921111469591}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8487907726614336011
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +128,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 42.628807, y: 29.339602, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1726032071582452384}
@@ -170,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23058823c11cc734ca03b1504ce69347, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chaseSpeed: 1
 --- !u!70 &8052187229374737889
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,8 +231,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12, y: 0}
-  m_Size: {x: 1.06, y: 1.6}
+  m_Offset: {x: -0.12170982, y: 0.006832123}
+  m_Size: {x: 0.87421036, y: 1.5334778}
   m_Direction: 0
 --- !u!50 &8950652650026746129
 Rigidbody2D:
@@ -231,4 +260,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
