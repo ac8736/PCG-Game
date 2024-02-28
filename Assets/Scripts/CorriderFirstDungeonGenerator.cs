@@ -12,9 +12,10 @@ public class CorriderFirstDungeonGenerator : SimpleRandomWalkDungeonGenerator
     [Range(0.1f, 1)]
     private float roomPercent = 0.8f;
 
-    protected override void RunProceduralGeneration()
+    protected override Vector2Int RunProceduralGeneration()
     {
         CorriderFirstGeneration();
+        return Vector2Int.zero;
     }
 
     private void CorriderFirstGeneration()

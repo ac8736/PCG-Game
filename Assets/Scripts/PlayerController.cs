@@ -4,58 +4,50 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed;
+    public float moveSpeed = 6;
 
-    private bool isMoving;
-    private Vector2 input; 
-
-    private Animator animator; 
+    private Rigidbody2D m_Rigidbody;
+    private Animator m_Animator;
+    private SpriteRenderer m_SpriteRenderer;
 
     private void Awake()
     {
-        animator = GetComponent<Animator>();
+        m_Animator = GetComponent<Animator>();
+        m_Rigidbody = GetComponent<Rigidbody2D>();
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (!isMoving)
+        float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
+        m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+
+        if (horizontalSpeed < 0)
         {
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
-
-            Debug.Log("input x:" + input.x);
-            Debug.Log("input y:" + input.y);
-
-            
-
-            if(input.x != 0) input.y = 0; // if moving R/L, don't move U/D
-
-            if (input != Vector2.zero)
-            {
-                animator.SetFloat("MoveX", input.x);
-                animator.SetFloat("MoveY", input.y);
-
-                var targetPos = transform.position;
-                targetPos.x += input.x; 
-                targetPos.y += input.y;
-
-                StartCoroutine(Move(targetPos));
-            }
+            m_SpriteRenderer.flipX = true;
+        }
+        if (horizontalSpeed > 0)
+        {
+            m_SpriteRenderer.flipX = false;
         }
 
-        animator.SetBool("isMoving", isMoving);
+        if (Mathf.Abs(horizontalSpeed) > 0)
+        {
+            m_Animator.SetFloat("Speed", Mathf.Abs(horizontalSpeed));
+        }
+        else if (Mathf.Abs(verticalSpeed) > 0)
+        {
+            m_Animator.SetFloat("Speed", Mathf.Abs(verticalSpeed));
+        }
+        else
+        {
+            m_Animator.SetFloat("Speed", 0);
+        }
     }
 
-    IEnumerator Move(Vector3 targetPos)
+    private void FixedUpdate()
     {
-        isMoving = true;
-        while((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            yield return null;
-        }
-        transform.position = targetPos;
 
-        isMoving = false; 
     }
 }
