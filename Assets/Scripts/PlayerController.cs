@@ -18,13 +18,16 @@ public class PlayerController : MonoBehaviour
     private int m_Health = 5;
     private string currentSceneName;
 
+    //feedback 
     public GameObject hitScreen;
+    AudioManager audioManager;
 
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start() 
@@ -90,10 +93,12 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Enemy"))
         {
-            // player hit visual feedback code
+
+            // player hit visual and audio feedback code
             var color = hitScreen.GetComponent<Image>().color;
             color.a = 0.5f;
             hitScreen.GetComponent<Image>().color = color;
+            audioManager.PlaySFX(audioManager.takeDamage);
 
             m_Health--;
             m_Animator.SetTrigger("Damage");
