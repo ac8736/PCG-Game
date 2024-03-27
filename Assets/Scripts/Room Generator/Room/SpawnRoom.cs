@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SpawnRoom : MonoBehaviour
 {
+    public GameObject m_LeftWall;
+    public GameObject m_RightWall;
+    public GameObject m_TopWall;
+    public GameObject m_BottomWall;
     public GameObject m_Door;
     public Vector2 m_Location;
 
@@ -11,6 +15,14 @@ public class SpawnRoom : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void OpenTopWall(Vector2 pos) 
+    {
+        m_TopWall.transform.GetChild(0).gameObject.SetActive(false);
+        m_TopWall.transform.GetChild(1).gameObject.SetActive(true);
+
+        m_TopWall.transform.GetChild(1).GetComponent<Door>().m_Location = pos;
     }
 
     public void SetUpDoor(float posX, float posY)

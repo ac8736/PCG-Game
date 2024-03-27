@@ -46,6 +46,9 @@ TagManager:
   - name: Floor Tiles
     uniqueID: 3541919321
     locked: 0
+  - name: Prop Tiles
+    uniqueID: 1480626209
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

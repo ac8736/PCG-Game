@@ -21,11 +21,10 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Player"))
         {
-            collision.transform.position = m_Location;
+            other.transform.position = m_Location;
         }
     }
 }
