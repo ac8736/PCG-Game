@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        healthText.text = "Heath: " + m_Health;
+        healthText.text = "x "+ m_Health;
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
         m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
