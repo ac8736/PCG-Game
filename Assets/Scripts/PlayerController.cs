@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 6;
-    public TextMeshProUGUI healthText;
+    //public TextMeshProUGUI healthText;
 
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        healthText.text = "Heath: " + m_Health;
+        //healthText.text = "Heath: " + m_Health;
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
         m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
