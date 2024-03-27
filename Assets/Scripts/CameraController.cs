@@ -22,8 +22,10 @@ public class CameraController : MonoBehaviour
         {
             m_FollowPlayer = !m_FollowPlayer;
         }
+
         if (m_FollowPlayer)
         {
+            GetComponent<Camera>().orthographicSize = 5;
             if (m_Player != null)
             {
                 transform.position = m_Player.transform.position + Offset;
@@ -34,19 +36,19 @@ public class CameraController : MonoBehaviour
             GetComponent<Camera>().orthographicSize = 30;
             if (Input.GetKey(KeyCode.I))
             {
-                transform.position += new Vector3(0, 0.2f, 0);
+                transform.position += new Vector3(0, 0.25f, 0);
             }
             if (Input.GetKey(KeyCode.J))
             {
-                transform.position += new Vector3(-0.2f, 0, 0);
+                transform.position += new Vector3(-0.25f, 0, 0);
             }
             if (Input.GetKey(KeyCode.K))
             {
-                transform.position += new Vector3(0, -0.2f, 0);
+                transform.position += new Vector3(0, -0.25f, 0);
             }
             if (Input.GetKey(KeyCode.L))
             {
-                transform.position += new Vector3(0.2f, 0, 0);
+                transform.position += new Vector3(0.25f, 0, 0);
             }
         }
     }
