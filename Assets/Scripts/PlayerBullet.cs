@@ -6,7 +6,6 @@ using TMPro;
 
 public class PlayerBullet : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
     public int playerScore = 0;
     // Start is called before the first frame update
     void Start()
