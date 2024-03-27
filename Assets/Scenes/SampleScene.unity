@@ -405,6 +405,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyRoom1
       objectReference: {fileID: 0}
+    - target: {fileID: 9056713788445176308, guid: 4e8e655587136654ea510dbf3e1187ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
