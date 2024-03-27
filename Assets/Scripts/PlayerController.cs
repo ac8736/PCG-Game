@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private int m_Health = 5;
     private string currentSceneName;
+
+    public GameObject hitScreen;
 
     private void Awake()
     {
@@ -40,6 +43,14 @@ public class PlayerController : MonoBehaviour
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
         m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+
+        if (hitScreen != null){
+            if (hitScreen.GetComponent<Image>().color.a > 0){
+                var color = hitScreen.GetComponent<Image>().color;
+                color.a -= 0.01f;
+                hitScreen.GetComponent<Image>().color = color;
+            }
+        }
 
         if (horizontalSpeed < 0)
         {
@@ -79,6 +90,11 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Enemy"))
         {
+            // player hit visual feedback code
+            var color = hitScreen.GetComponent<Image>().color;
+            color.a = 0.5f;
+            hitScreen.GetComponent<Image>().color = color;
+
             m_Health--;
             m_Animator.SetTrigger("Damage");
         }
