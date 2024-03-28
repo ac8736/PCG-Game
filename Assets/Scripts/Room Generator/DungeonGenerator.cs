@@ -9,8 +9,10 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject m_HorizontalCorridor;
     public List<GameObject> m_EnemyRooms = new();
     public Vector2 m_StartPosition;
-    public int m_RoomBudget = 10;
+    public int m_MaxRoomBudget = 10;
 
+    private int m_RoomBudget;
+    private List<GameObject> m_RoomsList = new();
     private Dictionary<Vector2, GameObject> m_Rooms = new();
     private GameObject m_Player;
     private int m_RoomDistance = 25;
@@ -22,13 +24,10 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_RoomBudget = m_MaxRoomBudget;
         m_StartPosition = new(0, 0);
         m_Player = GameObject.FindGameObjectWithTag("Player");
-        GenerateDungeon();
-    }
 
-    void GenerateDungeon()
-    {
         // set up spawn room
         var room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
         m_Rooms.Add(room.transform.position, room);
@@ -45,75 +44,88 @@ public class DungeonGenerator : MonoBehaviour
         previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
         previousRoom = room;
 
-        for (int i = 0; i < 6; i++)
-        {
-            bool roomCreated = false;
-            while (!roomCreated)
-            {           
-                Direction direction = GetRandomDirection();
-                Direction[] directionArray = (Direction[])Direction.GetValues(typeof(Direction));
+        GenerateDungeon(previousRoom);
+    }
 
-                switch (direction)
-                {
-                    case Direction.Left:
-                        Vector2 potentialRoomLeft = new Vector2(previousRoom.transform.position.x - m_RoomDistance, previousRoom.transform.position.y);
-                        if (m_Rooms.ContainsKey(potentialRoomLeft)) { break; }
+    void GenerateDungeon(GameObject previousRoom)
+    {
+        //if (m_RoomBudget <= 0) { return; }
+        if (m_Rooms.Count >= m_RoomBudget) { Debug.Log(m_Rooms.Count); return; }
 
-                        room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
-                        room.transform.position = potentialRoomLeft;
-                        ConnectToNeighbors(room);
-                        m_Rooms.Add(room.transform.position, room);
+        List<Direction> directions = new() { Direction.Left, Direction.Right, Direction.Up, Direction.Down };
+        RandomizeList(directions);
 
-                        room.GetComponent<EnemyRoom>().OpenRightWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom.GetComponent<EnemyRoom>().OpenLeftWall(room.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom = room;
-                        roomCreated = true;
-                        break;
-                    case Direction.Right:
-                        Vector2 potentialRoomRight = new Vector2(previousRoom.transform.position.x + m_RoomDistance, previousRoom.transform.position.y);
-                        if (m_Rooms.ContainsKey(potentialRoomRight)) { break; }
+        bool roomCreated = false;
+        foreach (Direction direction in directions)
+        {         
+            GameObject room = null;
+            switch (direction)
+            {
+                case Direction.Left:
+                    Vector2 potentialRoomLeft = new Vector2(previousRoom.transform.position.x - m_RoomDistance, previousRoom.transform.position.y);
+                    if (m_Rooms.ContainsKey(potentialRoomLeft)) { break; }
 
-                        room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
-                        room.transform.position = potentialRoomRight;
-                        ConnectToNeighbors(room);
-                        m_Rooms.Add(room.transform.position, room);
+                    room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
+                    room.transform.position = potentialRoomLeft;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
 
-                        room.GetComponent<EnemyRoom>().OpenLeftWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom.GetComponent<EnemyRoom>().OpenRightWall(room.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom = room;
-                        roomCreated = true;
-                        break;
-                    case Direction.Up:
-                        Vector2 potentialRoomUp = new Vector2(previousRoom.transform.position.x, previousRoom.transform.position.y + m_RoomDistance);
-                        if (m_Rooms.ContainsKey(potentialRoomUp)) { break; }
+                    room.GetComponent<EnemyRoom>().OpenRightWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenLeftWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomCreated = true;
+                    break;
+                case Direction.Right:
+                    Vector2 potentialRoomRight = new Vector2(previousRoom.transform.position.x + m_RoomDistance, previousRoom.transform.position.y);
+                    if (m_Rooms.ContainsKey(potentialRoomRight)) { break; }
 
-                        room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
-                        room.transform.position = potentialRoomUp;
-                        ConnectToNeighbors(room);
-                        m_Rooms.Add(room.transform.position, room);
+                    room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
+                    room.transform.position = potentialRoomRight;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
 
-                        room.GetComponent<EnemyRoom>().OpenDownWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom = room;
-                        roomCreated = true;
-                        break;
-                    case Direction.Down:
-                        Vector2 potentialRoomDown = new Vector2(previousRoom.transform.position.x, previousRoom.transform.position.y - m_RoomDistance);
-                        if (m_Rooms.ContainsKey(potentialRoomDown)) { break; }
+                    room.GetComponent<EnemyRoom>().OpenLeftWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenRightWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomCreated = true;
+                    break;
+                case Direction.Up:
+                    Vector2 potentialRoomUp = new Vector2(previousRoom.transform.position.x, previousRoom.transform.position.y + m_RoomDistance);
+                    if (m_Rooms.ContainsKey(potentialRoomUp)) { break; }
 
-                        room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
-                        room.transform.position = potentialRoomDown;
-                        ConnectToNeighbors(room);
-                        m_Rooms.Add(room.transform.position, room);
+                    room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
+                    room.transform.position = potentialRoomUp;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
 
-                        room.GetComponent<EnemyRoom>().OpenTopWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom.GetComponent<EnemyRoom>().OpenDownWall(room.GetComponent<EnemyRoom>().GetSpawn());
-                        previousRoom = room;
-                        roomCreated = true;
-                        break;
-                }
+                    room.GetComponent<EnemyRoom>().OpenDownWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomCreated = true;
+                    break;
+                case Direction.Down:
+                    Vector2 potentialRoomDown = new Vector2(previousRoom.transform.position.x, previousRoom.transform.position.y - m_RoomDistance);
+                    if (m_Rooms.ContainsKey(potentialRoomDown)) { break; }
+
+                    room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
+                    room.transform.position = potentialRoomDown;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
+
+                    room.GetComponent<EnemyRoom>().OpenTopWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenDownWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomCreated = true;
+                    break;
+            }
+            if (roomCreated) 
+            { 
+                m_RoomBudget--;
+                break;
             }
         }
+      
+        GenerateDungeon(previousRoom);
     }
 
     void ConnectToNeighbors(GameObject room)
@@ -165,6 +177,18 @@ public class DungeonGenerator : MonoBehaviour
                             .transform.SetParent(transform);
                 }
             }
+        }
+    }
+
+    // Randomize the order of a list
+    void RandomizeList<T>(List<T> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            T temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
         }
     }
 
