@@ -17,17 +17,10 @@ public class SpawnRoom : MonoBehaviour
 
     }
 
-    public void OpenTopWall(Vector2 pos) 
+    public void OpenTopWall(Vector2 pos)
     {
         m_TopWall.transform.GetChild(0).gameObject.SetActive(false);
         m_TopWall.transform.GetChild(1).gameObject.SetActive(true);
-
-        m_TopWall.transform.GetChild(1).GetComponent<Door>().m_Location = pos;
-    }
-
-    public void SetUpDoor(float posX, float posY)
-    {
-        m_Door.GetComponent<Door>().m_Location = new Vector2(posX, posY);
     }
 
     public Vector2 GetSpawn()

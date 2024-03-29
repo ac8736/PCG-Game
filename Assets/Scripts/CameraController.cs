@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public int m_CameraSize = 8;
     public Vector3 Offset = new(0, 0, -1);
     private GameObject m_Player;
 
@@ -25,7 +26,7 @@ public class CameraController : MonoBehaviour
 
         if (m_FollowPlayer)
         {
-            GetComponent<Camera>().orthographicSize = 5;
+            GetComponent<Camera>().orthographicSize = m_CameraSize;
             if (m_Player != null)
             {
                 transform.position = m_Player.transform.position + Offset;

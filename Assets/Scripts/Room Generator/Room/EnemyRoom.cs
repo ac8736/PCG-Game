@@ -17,7 +17,7 @@ public class EnemyRoom : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class EnemyRoom : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D other) 
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
@@ -41,35 +41,35 @@ public class EnemyRoom : MonoBehaviour
         }
     }
 
-    public void OpenLeftWall(Vector2 pos) 
+    public void OpenLeftWall(Vector2 pos)
     {
         m_LeftWall.transform.GetChild(0).gameObject.SetActive(false);
         m_LeftWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_Location = pos;
+        m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
         m_LeftOpen = true;
     }
 
-    public void OpenRightWall(Vector2 pos) 
+    public void OpenRightWall(Vector2 pos)
     {
         m_RightWall.transform.GetChild(0).gameObject.SetActive(false);
         m_RightWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_RightWall.transform.GetChild(1).GetComponent<Door>().m_Location = pos;
+        m_RightWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
         m_RightOpen = true;
     }
 
-    public void OpenTopWall(Vector2 pos) 
+    public void OpenTopWall(Vector2 pos)
     {
         m_TopWall.transform.GetChild(0).gameObject.SetActive(false);
         m_TopWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_TopWall.transform.GetChild(1).GetComponent<Door>().m_Location = pos;
+        m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
         m_TopOpen = true;
     }
 
-    public void OpenDownWall(Vector2 pos) 
+    public void OpenDownWall(Vector2 pos)
     {
         m_BottomWall.transform.GetChild(0).gameObject.SetActive(false);
         m_BottomWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_Location = pos;
+        m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
         m_BottomOpen = true;
     }
 

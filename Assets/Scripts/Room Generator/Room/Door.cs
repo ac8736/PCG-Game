@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    public Vector2 m_Location;
     public bool m_IsOpen = false;
 
     private void Update()
@@ -18,13 +17,6 @@ public class Door : MonoBehaviour
         {
             transform.GetChild(0).gameObject.SetActive(false);
             transform.GetChild(1).gameObject.SetActive(true);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            other.transform.position = m_Location;
         }
     }
 }
