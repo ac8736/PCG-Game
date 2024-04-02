@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 6;
-    //public TextMeshProUGUI healthText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI scoreText;
 
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
@@ -16,11 +18,16 @@ public class PlayerController : MonoBehaviour
     private int m_Health = 5;
     private string currentSceneName;
 
+    //feedback 
+    public GameObject hitScreen;
+    AudioManager audioManager;
+
     private void Awake()
     {
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start() 
@@ -34,10 +41,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //healthText.text = "Heath: " + m_Health;
+        scoreText.text = "x " + publicvar.playerScore;
+        healthText.text = "x " + m_Health;
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
         m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+
+        if (hitScreen != null){
+            if (hitScreen.GetComponent<Image>().color.a > 0){
+                var color = hitScreen.GetComponent<Image>().color;
+                color.a -= 0.01f;
+                hitScreen.GetComponent<Image>().color = color;
+            }
+        }
 
         if (horizontalSpeed < 0)
         {
@@ -61,7 +77,7 @@ public class PlayerController : MonoBehaviour
             m_Animator.SetFloat("Speed", 0);
         }
 
-        if (m_Health == 0) {
+        if (m_Health <= 0) {
             m_Health = 10;
             if (currentSceneName == "Death") {
                 SceneManager.LoadScene("GameOver");
@@ -77,6 +93,13 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Enemy"))
         {
+
+            // player hit visual and audio feedback code
+            var color = hitScreen.GetComponent<Image>().color;
+            color.a = 0.5f;
+            hitScreen.GetComponent<Image>().color = color;
+            audioManager.PlaySFX(audioManager.takeDamage);
+
             m_Health--;
             m_Animator.SetTrigger("Damage");
         }

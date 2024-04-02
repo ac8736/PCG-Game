@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip deathbgm;
 
     public AudioClip magic; 
+    public AudioClip takeDamage; 
 
     private void Start()
     {
