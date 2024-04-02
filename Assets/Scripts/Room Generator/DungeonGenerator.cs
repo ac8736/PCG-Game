@@ -11,8 +11,9 @@ public class DungeonGenerator : MonoBehaviour
     public List<GameObject> m_EnemyRooms = new();
     public int m_MaxRoomBudget = 5;
     public Image m_MapImage;
+    public int m_MapHeight;
+    public int m_MapWidth;
 
-    private Texture2D m_MapTexture;
     private readonly List<GameObject> m_CreatedDungeonPrefabs = new();
     private readonly List<GameObject> m_CreatedCorridorPrefabsH = new();
     private readonly List<GameObject> m_CreatedCorridorPrefabsV = new();
@@ -37,122 +38,6 @@ public class DungeonGenerator : MonoBehaviour
         {
             ResetDungeon();
             CreateDungeon();
-        }
-    }
-
-    void CreateMapTexture()
-    {
-        int size = 300;
-        m_MapTexture = new(size, size);
-        Color transparentColor = new(0f, 0f, 0f, 0f);
-
-        for (int r = 0; r < size; r++)
-        {
-            for (int c = 0; c < size; c++)
-            {
-                m_MapTexture.SetPixel(r, c, transparentColor);
-            }
-        }
-
-        foreach (GameObject corridor in m_CreatedCorridorPrefabsV)
-        {
-            DrawRectangle(m_MapTexture, corridor.transform.position + new Vector3(size / 2 + 1, size / 2, 0), 3, 10, Color.green);
-        }
-
-        foreach (GameObject corridor in m_CreatedCorridorPrefabsH)
-        {
-            DrawRectangle(m_MapTexture, corridor.transform.position + new Vector3(size / 2 - 1, size / 2, 0), 10, 3, Color.green);
-        }
-
-        foreach (GameObject room in m_CreatedDungeonPrefabs)
-        {
-            DrawSquare(m_MapTexture, room.transform.position + new Vector3(size / 2, size / 2, 0), 16, Color.red);
-        }
-
-        m_MapTexture.Apply();
-        m_MapImage.sprite = Sprite.Create(m_MapTexture, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f));
-    }
-
-    Texture2D ScaleTexture(Texture2D originalTexture)
-    {
-        int originalWidth = originalTexture.width;
-        int originalHeight = originalTexture.height;
-
-        // Create a new texture with double the width and height
-        Texture2D scaledTexture = new Texture2D(originalWidth * 2, originalHeight * 2);
-
-        // Loop through each pixel in the new texture
-        for (int x = 0; x < scaledTexture.width; x++)
-        {
-            for (int y = 0; y < scaledTexture.height; y++)
-            {
-                // Calculate the corresponding position in the original texture
-                float sourceX = (float)x / 2;
-                float sourceY = (float)y / 2;
-
-                // Calculate the fractional part of the source position
-                float fracX = sourceX - Mathf.Floor(sourceX);
-                float fracY = sourceY - Mathf.Floor(sourceY);
-
-                // Get the colors of the four nearest pixels in the original texture
-                Color topLeft = originalTexture.GetPixel(Mathf.FloorToInt(sourceX), Mathf.FloorToInt(sourceY));
-                Color topRight = originalTexture.GetPixel(Mathf.CeilToInt(sourceX), Mathf.FloorToInt(sourceY));
-                Color bottomLeft = originalTexture.GetPixel(Mathf.FloorToInt(sourceX), Mathf.CeilToInt(sourceY));
-                Color bottomRight = originalTexture.GetPixel(Mathf.CeilToInt(sourceX), Mathf.CeilToInt(sourceY));
-
-                // Interpolate the colors to get the color of the pixel in the scaled texture
-                Color topColor = Color.Lerp(topLeft, topRight, fracX);
-                Color bottomColor = Color.Lerp(bottomLeft, bottomRight, fracX);
-                Color interpolatedColor = Color.Lerp(topColor, bottomColor, fracY);
-
-                // Set the color of the pixel in the scaled texture
-                scaledTexture.SetPixel(x, y, interpolatedColor);
-            }
-        }
-
-        // Apply changes and return the scaled texture
-        scaledTexture.Apply();
-        return scaledTexture;
-    }
-
-    void DrawRectangle(Texture2D texture, Vector2 center, int width, int height, Color color)
-    {
-        int halfWidth = width / 2;
-        int halfHeight = height / 2;
-
-        // Calculate the starting and ending positions for the rectangle
-        int startX = Mathf.Clamp(Mathf.RoundToInt(center.x) - halfWidth, 0, texture.width - 1);
-        int startY = Mathf.Clamp(Mathf.RoundToInt(center.y) - halfHeight, 0, texture.height - 1);
-        int endX = Mathf.Clamp(Mathf.RoundToInt(center.x) + halfWidth, 0, texture.width - 1);
-        int endY = Mathf.Clamp(Mathf.RoundToInt(center.y) + halfHeight, 0, texture.height - 1);
-
-        // Draw the rectangle on the texture
-        for (int x = startX; x <= endX; x++)
-        {
-            for (int y = startY; y <= endY; y++)
-            {
-                texture.SetPixel(x, y, color);
-            }
-        }
-    }
-
-    void DrawSquare(Texture2D texture, Vector2 center, int size, Color color)
-    {
-        int halfSize = size / 2;
-
-        // Calculate the starting and ending positions for the square
-        int startX = Mathf.Clamp(Mathf.RoundToInt(center.x) - halfSize, 0, texture.width - 1);
-        int startY = Mathf.Clamp(Mathf.RoundToInt(center.y) - halfSize, 0, texture.height - 1);
-        int endX = Mathf.Clamp(Mathf.RoundToInt(center.x) + halfSize, 0, texture.width - 1);
-        int endY = Mathf.Clamp(Mathf.RoundToInt(center.y) + halfSize, 0, texture.height - 1);
-
-        // Draw the square on the texture
-        for (int x = startX; x <= endX; x++)
-        {
-            for (int y = startY; y <= endY; y++)
-            {
-                texture.SetPixel(x, y, color);
-            }
         }
     }
 
@@ -203,6 +88,8 @@ public class DungeonGenerator : MonoBehaviour
 
     void GenerateDungeon(GameObject previousRoom)
     {
+        int xBound = m_MapWidth / 2;
+        int yBound = m_MapHeight / 2;
         List<Direction> directions = new() { Direction.Left, Direction.Right, Direction.Up, Direction.Down };
         RandomizeList(directions);
 
@@ -215,6 +102,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Left:
                     Vector2 potentialRoomLeft = new(previousRoom.transform.position.x - m_RoomDistance, previousRoom.transform.position.y);
                     if (m_Rooms.ContainsKey(potentialRoomLeft)) { break; }
+                    if (potentialRoomLeft.x < -xBound) { break; }  
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
@@ -233,6 +121,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Right:
                     Vector2 potentialRoomRight = new(previousRoom.transform.position.x + m_RoomDistance, previousRoom.transform.position.y);
                     if (m_Rooms.ContainsKey(potentialRoomRight)) { break; }
+                    if (potentialRoomRight.x > xBound) { break; }   
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
@@ -251,6 +140,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Up:
                     Vector2 potentialRoomUp = new(previousRoom.transform.position.x, previousRoom.transform.position.y + m_RoomDistance);
                     if (m_Rooms.ContainsKey(potentialRoomUp)) { break; }
+                    if (potentialRoomUp.y > yBound) { break; }  
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
@@ -269,6 +159,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Down:
                     Vector2 potentialRoomDown = new(previousRoom.transform.position.x, previousRoom.transform.position.y - m_RoomDistance);
                     if (m_Rooms.ContainsKey(potentialRoomDown)) { break; }
+                    if (potentialRoomDown.y < -yBound) { break; }
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
