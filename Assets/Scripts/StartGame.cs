@@ -8,12 +8,12 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Level");
     }
 
     // Start is called before the first frame update
     public void Retry()
     {
-        SceneManager.LoadScene("Level");
+        SceneManager.LoadScene("SampleScene");
     }
 }

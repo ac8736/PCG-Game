@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private RoomFirstDungeonGenerator roomFirstDungeonGenerator;
     private Vector2Int m_PlayerSpawn;
     private GameObject m_Player;
 
@@ -14,7 +13,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
-        roomFirstDungeonGenerator = GetComponent<RoomFirstDungeonGenerator>();
         Generate();
     }
 
@@ -29,7 +27,6 @@ public class GameManager : MonoBehaviour
 
     private void Generate()
     {
-        m_PlayerSpawn = roomFirstDungeonGenerator.GenerateDungeon();
         m_Player.transform.position = new Vector2(m_PlayerSpawn.x, m_PlayerSpawn.y);
     }
 }

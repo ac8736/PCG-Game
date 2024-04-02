@@ -14,7 +14,22 @@ public class AudioManager : MonoBehaviour
     public AudioClip deathbgm;
 
     public AudioClip magic; 
-    public AudioClip takeDamage; 
+    public AudioClip takeDamage;
+
+    private static AudioManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
 
     private void Start()
     {

@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 6;
-    public TextMeshProUGUI healthText;
-    public TextMeshProUGUI scoreText;
+    //public TextMeshProUGUI healthText;
+    //public TextMeshProUGUI scoreText;
 
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private int m_Health = 5;
     private string currentSceneName;
+    private bool m_AllowPlayerControl = true;
 
     //feedback 
     public GameObject hitScreen;
@@ -41,11 +42,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        scoreText.text = "x " + publicvar.playerScore;
-        healthText.text = "x " + m_Health;
+        //scoreText.text = "x " + publicvar.playerScore;
+        //healthText.text = "x " + m_Health;
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * moveSpeed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * moveSpeed;
-        m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+        if (Input.GetKeyDown(KeyCode.Tab)) { m_AllowPlayerControl = !m_AllowPlayerControl; }
+        
+        if (m_AllowPlayerControl)
+        {
+            m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+        }
 
         if (hitScreen != null){
             if (hitScreen.GetComponent<Image>().color.a > 0){

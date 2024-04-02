@@ -43,8 +43,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Tiles
+  - name: Floor Tiles
     uniqueID: 3541919321
+    locked: 0
+  - name: Prop Tiles
+    uniqueID: 1480626209
     locked: 0
   - name: Default
     uniqueID: 0
