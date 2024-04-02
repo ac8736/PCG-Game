@@ -7934,8 +7934,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 704893057209847018}
-  - component: {fileID: 5978156872005095087}
   - component: {fileID: 206382770390109396}
+  - component: {fileID: 2011407562928175541}
   m_Layer: 0
   m_Name: EnemyRoom2
   m_TagString: Untagged
@@ -7960,22 +7960,6 @@ Transform:
   - {fileID: 768888127904239146}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5978156872005095087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9056713788445176308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d8aca90a94d85a4d9d81a2fd1e6b8d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_LeftWall: {fileID: 1111386656795433399}
-  m_RightWall: {fileID: 7968583886947874061}
-  m_TopWall: {fileID: 4021935359556672645}
-  m_BottomWall: {fileID: 5303898717538176284}
 --- !u!61 &206382770390109396
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8021,3 +8005,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 13.960323, y: 9.912043}
   m_EdgeRadius: 0
+--- !u!114 &2011407562928175541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9056713788445176308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7a42c2c6d50dcc45918a8d3ffe2b10b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_LeftWall: {fileID: 1111386656795433399}
+  m_RightWall: {fileID: 7968583886947874061}
+  m_TopWall: {fileID: 4021935359556672645}
+  m_BottomWall: {fileID: 5303898717538176284}

@@ -17,7 +17,7 @@ public class PlayerWeapon : MonoBehaviour
     private void Awake()
     {
         // audioManager = GameObject.FindGameObjectsWithTag("Audio").GetComponent<AudioManager>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     // Start is called before the first frame update
@@ -57,7 +57,7 @@ public class PlayerWeapon : MonoBehaviour
 
     void Shoot()
     {
-        audioManager.PlaySFX(audioManager.magic);
+        //audioManager.PlaySFX(audioManager.magic);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
         // Calculate direction towards mouse
