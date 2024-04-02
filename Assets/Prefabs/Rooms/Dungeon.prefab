@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5138618706488265526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4457769709879421706}
+  - component: {fileID: 585216608671863273}
+  - component: {fileID: 8677710580544326775}
+  m_Layer: 0
+  m_Name: Dungeon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4457769709879421706
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138618706488265526}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &585216608671863273
+Grid:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138618706488265526}
+  m_Enabled: 1
+  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellGap: {x: 0, y: 0, z: 0}
+  m_CellLayout: 0
+  m_CellSwizzle: 0
+--- !u!114 &8677710580544326775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138618706488265526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c56211c43cf25f40a8388cd28fe2a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SpawnRoom: {fileID: 9056713788445176308, guid: 914f4105269554d448cc0ef00efa7be1, type: 3}
+  m_VerticalCorridor: {fileID: 9056713788445176308, guid: 7e3ccb101b6ea4eea8a4b82957664e10, type: 3}
+  m_HorizontalCorridor: {fileID: 9056713788445176308, guid: 1faef169f844645b9bb0968bf9ed9e7d, type: 3}
+  m_EnemyRooms:
+  - {fileID: 9056713788445176308, guid: 4e8e655587136654ea510dbf3e1187ea, type: 3}
+  - {fileID: 9056713788445176308, guid: 10ee78b5d71944014bac3a62209b7feb, type: 3}
+  - {fileID: 9056713788445176308, guid: 368f6203a566b4f2595d4c304f935fe2, type: 3}
+  m_MaxRoomBudget: 5
+  m_MapImage: {fileID: 0}
+  m_MapHeight: 300
+  m_MapWidth: 300

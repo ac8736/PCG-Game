@@ -9,6 +9,7 @@ public class PlayerWeapon : MonoBehaviour
     public Transform firePoint;
 
     private bool m_CanShoot = true;
+    private bool m_AllowControl = true;
 
     // SFX
     AudioManager audioManager;
@@ -28,28 +29,28 @@ public class PlayerWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Get the position of the mouse in the world space
-        Vector3 mousePos = Input.mousePosition;
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        if (Input.GetKeyDown(KeyCode.Tab)) { m_AllowControl = !m_AllowControl; }
 
-        // Calculate the direction from the sprite to the mouse
-        Vector2 direction = new Vector2(
-            mousePos.x - transform.position.x,
-            mousePos.y - transform.position.y
-        );
-
-        // Calculate the angle from the sprite to the mouse
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        // Rotate the sprite to face the mouse
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-        if (m_CanShoot)
+        if (m_AllowControl)
         {
-            if (Input.GetMouseButton(0))
+            Vector3 mousePos = Input.mousePosition;
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+
+            Vector2 direction = new Vector2(
+                mousePos.x - transform.position.x,
+                mousePos.y - transform.position.y
+            );
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+            if (m_CanShoot)
             {
-                StartCoroutine(ShootCD());
-                Shoot();
+                if (Input.GetMouseButton(0))
+                {
+                    StartCoroutine(ShootCD());
+                    Shoot();
+                }
             }
         }
     }
