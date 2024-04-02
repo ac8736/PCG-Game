@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnRoom: {fileID: 9056713788445176308, guid: 914f4105269554d448cc0ef00efa7be1, type: 3}
+  m_EndRoom: {fileID: 9056713788445176308, guid: 5703f92ff3e92b9489e377a6f1ea21e5, type: 3}
   m_VerticalCorridor: {fileID: 9056713788445176308, guid: 7e3ccb101b6ea4eea8a4b82957664e10, type: 3}
   m_HorizontalCorridor: {fileID: 9056713788445176308, guid: 1faef169f844645b9bb0968bf9ed9e7d, type: 3}
   m_EnemyRooms:

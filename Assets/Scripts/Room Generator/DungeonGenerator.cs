@@ -5,21 +5,19 @@ using UnityEngine.UI;
 
 public class DungeonGenerator : MonoBehaviour
 {
-    public GameObject m_SpawnRoom;
-    public GameObject m_VerticalCorridor;
-    public GameObject m_HorizontalCorridor;
+    public GameObject m_SpawnRoom, m_EndRoom;
+    public GameObject m_VerticalCorridor, m_HorizontalCorridor;
     public List<GameObject> m_EnemyRooms = new();
     public int m_MaxRoomBudget = 5;
     public Image m_MapImage;
-    public int m_MapHeight;
-    public int m_MapWidth;
+    public int m_MapHeight, m_MapWidth;
 
+    private GameObject m_Player;
     private readonly List<GameObject> m_CreatedDungeonPrefabs = new();
     private readonly List<GameObject> m_CreatedCorridorPrefabsH = new();
     private readonly List<GameObject> m_CreatedCorridorPrefabsV = new();
-    private int m_RoomBudget;
     private readonly Dictionary<Vector2, GameObject> m_Rooms = new();
-    private GameObject m_Player;
+    private int m_RoomBudget;
     private readonly int m_RoomDistance = 25;
     private enum Direction
     {
@@ -36,6 +34,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
+            Debug.Log("pressed r");
             ResetDungeon();
             CreateDungeon();
         }
@@ -84,6 +83,76 @@ public class DungeonGenerator : MonoBehaviour
         previousRoom = room;
 
         GenerateDungeon(previousRoom);
+        previousRoom = m_CreatedDungeonPrefabs[^1];
+        bool roomMade = false;
+        List<Direction> directions = new() { Direction.Left, Direction.Right, Direction.Up, Direction.Down };
+        foreach (Direction direction in directions)
+        {
+            switch (direction)
+            {
+                case Direction.Left:
+                    Vector2 potentialRoomLeft = new(previousRoom.transform.position.x - m_RoomDistance, previousRoom.transform.position.y);
+                    if (m_Rooms.ContainsKey(potentialRoomLeft)) { break; }
+
+                    room = Instantiate(m_EndRoom, transform);
+                    m_CreatedDungeonPrefabs.Add(room);
+                    room.transform.position = potentialRoomLeft;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
+
+                    room.GetComponent<EnemyRoom>().OpenRightWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenLeftWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomMade = true;
+                    break;
+                case Direction.Right:
+                    Vector2 potentialRoomRight = new(previousRoom.transform.position.x + m_RoomDistance, previousRoom.transform.position.y);
+                    if (m_Rooms.ContainsKey(potentialRoomRight)) { break; }
+
+                    room = Instantiate(m_EndRoom, transform);
+                    m_CreatedDungeonPrefabs.Add(room);
+                    room.transform.position = potentialRoomRight;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
+
+                    room.GetComponent<EnemyRoom>().OpenLeftWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenRightWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomMade = true;
+                    break;
+                case Direction.Up:
+                    Vector2 potentialRoomUp = new(previousRoom.transform.position.x, previousRoom.transform.position.y + m_RoomDistance);
+                    if (m_Rooms.ContainsKey(potentialRoomUp)) { break; }
+
+                    room = Instantiate(m_EndRoom, transform);
+                    m_CreatedDungeonPrefabs.Add(room);
+                    room.transform.position = potentialRoomUp;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
+
+                    room.GetComponent<EnemyRoom>().OpenDownWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomMade = true;
+                    break;
+                case Direction.Down:
+                    Vector2 potentialRoomDown = new(previousRoom.transform.position.x, previousRoom.transform.position.y - m_RoomDistance);
+                    if (m_Rooms.ContainsKey(potentialRoomDown)) { break; }
+
+                    room = Instantiate(m_EndRoom, transform);
+                    m_CreatedDungeonPrefabs.Add(room);
+                    room.transform.position = potentialRoomDown;
+                    ConnectToNeighbors(room);
+                    m_Rooms.Add(room.transform.position, room);
+
+                    room.GetComponent<EnemyRoom>().OpenTopWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom.GetComponent<EnemyRoom>().OpenDownWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    previousRoom = room;
+                    roomMade = true;
+                    break;
+            }
+            if (roomMade) return;
+        }
     }
 
     void GenerateDungeon(GameObject previousRoom)
