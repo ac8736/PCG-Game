@@ -17,7 +17,7 @@ public class EnemyRoom : MonoBehaviour
     void Start()
     {
         m_RoomControl = GetComponent<Room>();
-        m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(2).GetComponent<Animator>();
+        m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(1).GetComponent<Animator>();
     }
 
     // Update is called once per frame
