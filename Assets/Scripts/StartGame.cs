@@ -16,4 +16,11 @@ public class StartGame : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    // Quit Game
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Application QUIT");
+    }
 }
