@@ -54,7 +54,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spin_Idle
+  m_Name: Burst_Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -68,7 +68,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1a2ba63ca59a6f74093a3150626e287d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 05b038f18695c3140b77f9c807fce4a1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -105,7 +105,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnemySpin
+  m_Name: EnemySingle
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Damage
@@ -134,7 +134,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Spin_Damage
+  m_Name: Burst_Damage
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -148,7 +148,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 2baa68c42585538449be930f9836d5d3, type: 2}
+  m_Motion: {fileID: 7400000, guid: d001130598999d64b84382477ac8ea8e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
