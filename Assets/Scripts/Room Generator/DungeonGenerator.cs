@@ -9,7 +9,6 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject m_VerticalCorridor, m_HorizontalCorridor;
     public List<GameObject> m_EnemyRooms = new();
     public int m_MaxRoomBudget = 5;
-    public Image m_MapImage;
     public int m_MapHeight, m_MapWidth;
 
     private GameObject m_Player;
@@ -19,6 +18,7 @@ public class DungeonGenerator : MonoBehaviour
     private readonly Dictionary<Vector2, GameObject> m_Rooms = new();
     private int m_RoomBudget;
     private readonly int m_RoomDistance = 25;
+    private FadeInOut m_FadeInOut;
     private enum Direction
     {
         Left, Right, Up, Down
@@ -27,15 +27,14 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateDungeon();
+        m_FadeInOut = GetComponent<FadeInOut>();
+        CreateDungeonFunction();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Debug.Log("pressed r");
-            ResetDungeon();
             CreateDungeon();
         }
     }
@@ -60,15 +59,30 @@ public class DungeonGenerator : MonoBehaviour
         m_Rooms.Clear();
     }
 
-    void CreateDungeon()
+    public void CreateDungeon()
     {
+        StartCoroutine(CreateDungeonCoroutine());
+    }
+
+    IEnumerator CreateDungeonCoroutine()
+    {
+        m_FadeInOut.FadeIn();
+        yield return new WaitForSeconds(0.75f);
+        CreateDungeonFunction();
+        m_FadeInOut.FadeOut();
+    }
+
+    public void CreateDungeonFunction()
+    {
+        ResetDungeon();
+
         m_RoomBudget = m_MaxRoomBudget;
         m_Player = GameObject.FindGameObjectWithTag("Player");
 
         var room = Instantiate(m_SpawnRoom, transform);
         m_CreatedDungeonPrefabs.Add(room);
         m_Rooms.Add(room.transform.position, room);
-        m_Player.transform.position = room.GetComponent<EnemyRoom>().GetSpawn();
+        m_Player.transform.position = room.GetComponent<Room>().GetSpawn();
 
         var previousRoom = room;
 
@@ -78,8 +92,8 @@ public class DungeonGenerator : MonoBehaviour
         ConnectToNeighbors(room);
         m_Rooms.Add(room.transform.position, room);
 
-        room.GetComponent<EnemyRoom>().OpenDownWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-        previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
+        room.GetComponent<Room>().OpenDownWall();
+        previousRoom.GetComponent<Room>().OpenTopWall();
         previousRoom = room;
 
         GenerateDungeon(previousRoom);
@@ -100,8 +114,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenRightWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenLeftWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenRightWall();
+                    previousRoom.GetComponent<Room>().OpenLeftWall();
                     previousRoom = room;
                     roomMade = true;
                     break;
@@ -115,8 +129,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenLeftWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenRightWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenLeftWall();
+                    previousRoom.GetComponent<Room>().OpenRightWall();
                     previousRoom = room;
                     roomMade = true;
                     break;
@@ -130,8 +144,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenDownWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenDownWall();
+                    previousRoom.GetComponent<Room>().OpenTopWall();
                     previousRoom = room;
                     roomMade = true;
                     break;
@@ -145,13 +159,16 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenTopWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenDownWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenTopWall();
+                    previousRoom.GetComponent<Room>().OpenDownWall();
                     previousRoom = room;
                     roomMade = true;
                     break;
             }
-            if (roomMade) return;
+            if (roomMade)
+            {
+                return;
+            }
         }
     }
 
@@ -179,8 +196,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenRightWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenLeftWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenRightWall();
+                    previousRoom.GetComponent<Room>().OpenLeftWall();
                     previousRoom = room;
 
                     m_RoomBudget--;
@@ -198,8 +215,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenLeftWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenRightWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenLeftWall();
+                    previousRoom.GetComponent<Room>().OpenRightWall();
                     previousRoom = room;
 
                     m_RoomBudget--;
@@ -217,8 +234,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenDownWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenDownWall();
+                    previousRoom.GetComponent<Room>().OpenTopWall();
                     previousRoom = room;
 
                     m_RoomBudget--;
@@ -236,8 +253,8 @@ public class DungeonGenerator : MonoBehaviour
                     ConnectToNeighbors(room);
                     m_Rooms.Add(room.transform.position, room);
 
-                    room.GetComponent<EnemyRoom>().OpenTopWall(previousRoom.GetComponent<EnemyRoom>().GetSpawn());
-                    previousRoom.GetComponent<EnemyRoom>().OpenDownWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenTopWall();
+                    previousRoom.GetComponent<Room>().OpenDownWall();
                     previousRoom = room;
 
                     m_RoomBudget--;
@@ -258,8 +275,8 @@ public class DungeonGenerator : MonoBehaviour
                 Vector2 potentialRoomConnection = new(room.transform.position.x, room.transform.position.y + m_RoomDistance);
                 if (m_Rooms.ContainsKey(potentialRoomConnection))
                 {
-                    room.GetComponent<EnemyRoom>().OpenTopWall(m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().GetSpawn());
-                    m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().OpenDownWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenTopWall();
+                    m_Rooms[potentialRoomConnection].GetComponent<Room>().OpenDownWall();
                     var corridor = Instantiate(m_VerticalCorridor, new Vector2(room.transform.position.x - 1, room.transform.position.y + m_RoomDistance / 2), Quaternion.identity);
                     corridor.transform.SetParent(transform);
                     m_CreatedCorridorPrefabsV.Add(corridor);
@@ -267,11 +284,11 @@ public class DungeonGenerator : MonoBehaviour
             }
             else if (dir == Direction.Down)
             {
-                Vector2 potentialRoomConnection = new Vector2(room.transform.position.x, room.transform.position.y - m_RoomDistance);
+                Vector2 potentialRoomConnection = new(room.transform.position.x, room.transform.position.y - m_RoomDistance);
                 if (m_Rooms.ContainsKey(potentialRoomConnection))
                 {
-                    room.GetComponent<EnemyRoom>().OpenDownWall(m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().GetSpawn());
-                    m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().OpenTopWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenDownWall();
+                    m_Rooms[potentialRoomConnection].GetComponent<Room>().OpenTopWall();
                     var corridor = Instantiate(m_VerticalCorridor, new Vector2(room.transform.position.x - 1, room.transform.position.y - 1 - m_RoomDistance / 2), Quaternion.identity);
                     corridor.transform.SetParent(transform);
                     m_CreatedCorridorPrefabsV.Add(corridor);
@@ -279,11 +296,11 @@ public class DungeonGenerator : MonoBehaviour
             }
             else if (dir == Direction.Left)
             {
-                Vector2 potentialRoomConnection = new Vector2(room.transform.position.x - m_RoomDistance, room.transform.position.y);
+                Vector2 potentialRoomConnection = new(room.transform.position.x - m_RoomDistance, room.transform.position.y);
                 if (m_Rooms.ContainsKey(potentialRoomConnection))
                 {
-                    room.GetComponent<EnemyRoom>().OpenLeftWall(m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().GetSpawn());
-                    m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().OpenRightWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenLeftWall();
+                    m_Rooms[potentialRoomConnection].GetComponent<Room>().OpenRightWall();
                     var corridor = Instantiate(m_HorizontalCorridor, new Vector2(room.transform.position.x + 2 - m_RoomDistance / 2, room.transform.position.y), Quaternion.identity);
                     corridor.transform.SetParent(transform);
                     m_CreatedCorridorPrefabsH.Add(corridor);
@@ -291,11 +308,11 @@ public class DungeonGenerator : MonoBehaviour
             }
             else if (dir == Direction.Right)
             {
-                Vector2 potentialRoomConnection = new Vector2(room.transform.position.x + m_RoomDistance, room.transform.position.y);
+                Vector2 potentialRoomConnection = new(room.transform.position.x + m_RoomDistance, room.transform.position.y);
                 if (m_Rooms.ContainsKey(potentialRoomConnection))
                 {
-                    room.GetComponent<EnemyRoom>().OpenRightWall(m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().GetSpawn());
-                    m_Rooms[potentialRoomConnection].GetComponent<EnemyRoom>().OpenLeftWall(room.GetComponent<EnemyRoom>().GetSpawn());
+                    room.GetComponent<Room>().OpenRightWall();
+                    m_Rooms[potentialRoomConnection].GetComponent<Room>().OpenLeftWall();
                     var corridor = Instantiate(m_HorizontalCorridor, new Vector2(room.transform.position.x + 3 + m_RoomDistance / 2, room.transform.position.y), Quaternion.identity);
                     corridor.transform.SetParent(transform);
                     m_CreatedCorridorPrefabsH.Add(corridor);

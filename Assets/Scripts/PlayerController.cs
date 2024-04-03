@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start() 
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
         }
+        else { m_Rigidbody.velocity = Vector2.zero; }
 
         if (hitScreen != null){
             if (hitScreen.GetComponent<Image>().color.a > 0){
@@ -99,15 +100,17 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet") || collision.gameObject.CompareTag("Enemy"))
         {
+            if (hitScreen != null)
+            {
+                // player hit visual and audio feedback code
+                var color = hitScreen.GetComponent<Image>().color;
+                color.a = 0.5f;
+                hitScreen.GetComponent<Image>().color = color;
+                //audioManager.PlaySFX(audioManager.takeDamage);
 
-            // player hit visual and audio feedback code
-            var color = hitScreen.GetComponent<Image>().color;
-            color.a = 0.5f;
-            hitScreen.GetComponent<Image>().color = color;
-            audioManager.PlaySFX(audioManager.takeDamage);
-
-            m_Health--;
-            m_Animator.SetTrigger("Damage");
+                m_Health--;
+                m_Animator.SetTrigger("Damage");
+            }
         }
     }
 }

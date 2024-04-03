@@ -9,6 +9,8 @@ TagManager:
   - Wall
   - Player Bullet
   - Audio
+  - Dungeon
+  - Canvas
   layers:
   - Default
   - TransparentFX

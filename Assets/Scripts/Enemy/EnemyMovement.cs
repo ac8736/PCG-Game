@@ -6,15 +6,18 @@ public class EnemyMovement : MonoBehaviour
 {
     public bool animate = true;
     [SerializeField] private float chaseSpeed = 0.2f;
+    public int health = 5;
+
+    private EnemyRoomHandler m_RoomHandler;
     private SpriteRenderer m_SpriteRenderer;
     private GameObject player;
-    private int health = 5;
     private Animator m_Animator;
     public int detection = 10;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_RoomHandler = GetComponent<EnemyRoomHandler>();
         player = GameObject.FindGameObjectWithTag("Player");
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
         if (animate)
@@ -25,7 +28,10 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if (health <= 0)
+        {
+            m_RoomHandler.RemoveFromRoomList();
             Destroy(gameObject);
+        }
         ChasePlayer();
         if (player.transform.position.x < transform.position.x)
         {
