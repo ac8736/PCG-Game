@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
         m_Animator = GetComponent<Animator>();
         m_Rigidbody = GetComponent<Rigidbody2D>();
         m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        //audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start() 
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour
                 var color = hitScreen.GetComponent<Image>().color;
                 color.a = 0.5f;
                 hitScreen.GetComponent<Image>().color = color;
-                //audioManager.PlaySFX(audioManager.takeDamage);
+                audioManager.PlaySFX(audioManager.takeDamage);
 
                 m_Health--;
                 m_Animator.SetTrigger("Damage");
