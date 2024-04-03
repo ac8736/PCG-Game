@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
+
     [Header("Audio Source ---------")]
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
@@ -21,13 +22,13 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        if (Instance != null)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
@@ -56,6 +57,17 @@ public class AudioManager : MonoBehaviour
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
+        Debug.Log(volume);
+    }
+
+    public void ToggleSFX()
+    {
+        SFXSource.mute =!SFXSource.mute;
+    }
+
+    public void SFXVolume(float volume)
+    {
+        SFXSource.volume = volume;
         Debug.Log(volume);
     }
 

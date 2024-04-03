@@ -6,7 +6,7 @@ using UnityEngine.UI;
 // Controls the UI in the game
 public class UIController : MonoBehaviour
 {
-    public Slider _musicSlider;
+    public Slider _sfxSlider, _musicSlider;
 
     public void ToggleMusic()
     {
@@ -16,5 +16,15 @@ public class UIController : MonoBehaviour
     public void MusicVolume()
     {
         AudioManager.Instance.MusicVolume(_musicSlider.value);
+    }
+
+    public void ToggleSFX()
+    {
+        AudioManager.Instance.ToggleSFX();
+    }
+
+    public void SFXVolume()
+    {
+        AudioManager.Instance.MusicVolume(_sfxSlider.value);
     }
 }
