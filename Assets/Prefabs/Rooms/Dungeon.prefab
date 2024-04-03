@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4457769709879421706}
   - component: {fileID: 585216608671863273}
   - component: {fileID: 8677710580544326775}
+  - component: {fileID: 4429666253084081450}
   m_Layer: 0
   m_Name: Dungeon
-  m_TagString: Untagged
+  m_TagString: Dungeon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SpawnRoom: {fileID: 9056713788445176308, guid: 914f4105269554d448cc0ef00efa7be1, type: 3}
-  m_EndRoom: {fileID: 9056713788445176308, guid: 5703f92ff3e92b9489e377a6f1ea21e5, type: 3}
+  m_EndRoom: {fileID: 9056713788445176308, guid: 9eeacd2bba4d9014bb4d2b80b518557d, type: 3}
   m_VerticalCorridor: {fileID: 9056713788445176308, guid: 7e3ccb101b6ea4eea8a4b82957664e10, type: 3}
   m_HorizontalCorridor: {fileID: 9056713788445176308, guid: 1faef169f844645b9bb0968bf9ed9e7d, type: 3}
   m_EnemyRooms:
@@ -66,6 +67,20 @@ MonoBehaviour:
   - {fileID: 9056713788445176308, guid: 10ee78b5d71944014bac3a62209b7feb, type: 3}
   - {fileID: 9056713788445176308, guid: 368f6203a566b4f2595d4c304f935fe2, type: 3}
   m_MaxRoomBudget: 5
-  m_MapImage: {fileID: 0}
   m_MapHeight: 300
   m_MapWidth: 300
+--- !u!114 &4429666253084081450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5138618706488265526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f696e58418e07fb49826d6ea304fd147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FadeIn: 0
+  m_FadeOut: 0
+  m_TimeToFade: 3

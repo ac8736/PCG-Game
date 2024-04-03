@@ -9,7 +9,6 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject m_VerticalCorridor, m_HorizontalCorridor;
     public List<GameObject> m_EnemyRooms = new();
     public int m_MaxRoomBudget = 5;
-    public Image m_MapImage;
     public int m_MapHeight, m_MapWidth;
 
     private GameObject m_Player;
@@ -19,6 +18,7 @@ public class DungeonGenerator : MonoBehaviour
     private readonly Dictionary<Vector2, GameObject> m_Rooms = new();
     private int m_RoomBudget;
     private readonly int m_RoomDistance = 25;
+    private FadeInOut m_FadeInOut;
     private enum Direction
     {
         Left, Right, Up, Down
@@ -27,14 +27,14 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CreateDungeon();
+        m_FadeInOut = GetComponent<FadeInOut>();
+        CreateDungeonFunction();
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            ResetDungeon();
             CreateDungeon();
         }
     }
@@ -59,8 +59,23 @@ public class DungeonGenerator : MonoBehaviour
         m_Rooms.Clear();
     }
 
-    void CreateDungeon()
+    public void CreateDungeon()
     {
+        StartCoroutine(CreateDungeonCoroutine());
+    }
+
+    IEnumerator CreateDungeonCoroutine()
+    {
+        m_FadeInOut.FadeIn();
+        yield return new WaitForSeconds(0.75f);
+        CreateDungeonFunction();
+        m_FadeInOut.FadeOut();
+    }
+
+    public void CreateDungeonFunction()
+    {
+        ResetDungeon();
+
         m_RoomBudget = m_MaxRoomBudget;
         m_Player = GameObject.FindGameObjectWithTag("Player");
 
@@ -150,7 +165,10 @@ public class DungeonGenerator : MonoBehaviour
                     roomMade = true;
                     break;
             }
-            if (roomMade) return;
+            if (roomMade)
+            {
+                return;
+            }
         }
     }
 

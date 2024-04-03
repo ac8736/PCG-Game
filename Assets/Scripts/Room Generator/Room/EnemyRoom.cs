@@ -4,77 +4,60 @@ using UnityEngine;
 
 public class EnemyRoom : MonoBehaviour
 {
-    public GameObject m_LeftWall;
-    public GameObject m_RightWall;
-    public GameObject m_TopWall;
-    public GameObject m_BottomWall;
+    public List<GameObject> m_Enemies = new();
+    public List<Transform> m_EnemySpawnLocations = new();
+    public List<GameObject> m_SpawnedEnemies = new();
 
-    private bool m_LeftOpen = false;
-    private bool m_RightOpen = false;
-    private bool m_TopOpen = false;
-    private bool m_BottomOpen = false;
+    private bool m_CanDestroy = false;
+    private bool m_Triggered = false;
+    private Room m_RoomControl;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        m_RoomControl = GetComponent<Room>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (m_Triggered)
+        {
+            if (m_SpawnedEnemies.Count <= 0)
+            {
+                m_RoomControl.OpenAllDoors();
+                if (m_CanDestroy) { Destroy(this); }
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (!other.gameObject.CompareTag("Player")) return;
+        m_Triggered = true;
+        StartCoroutine(InitiateEncounter());
+    }
+
+    IEnumerator InitiateEncounter()
+    {
+        yield return new WaitForSeconds(0.3f);
+        m_RoomControl.CloseAllDoors();
+
+        StartCoroutine(SpawnEnemies());
+    }
+
+    IEnumerator SpawnEnemies()
+    {
+        for (int i = 0; i < m_EnemySpawnLocations.Count; i++)
         {
-            if (m_LeftOpen)
-                m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-            if (m_RightOpen)
-                m_RightWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-            if (m_TopOpen)
-                m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-            if (m_BottomOpen)
-                m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
+            var enemyInstance = Instantiate(m_Enemies[Random.Range(0, m_Enemies.Count)]);
+            enemyInstance.transform.position = m_EnemySpawnLocations[i].position;
+            var handler = enemyInstance.GetComponent<EnemyRoomHandler>();
+            handler.m_Room = this;
+            m_SpawnedEnemies.Add(enemyInstance);
+            yield return new WaitForSeconds(0.5f);
         }
-    }
 
-    public void OpenLeftWall(Vector2 pos)
-    {
-        m_LeftWall.transform.GetChild(0).gameObject.SetActive(false);
-        m_LeftWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-        m_LeftOpen = true;
-    }
-
-    public void OpenRightWall(Vector2 pos)
-    {
-        m_RightWall.transform.GetChild(0).gameObject.SetActive(false);
-        m_RightWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_RightWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-        m_RightOpen = true;
-    }
-
-    public void OpenTopWall(Vector2 pos)
-    {
-        m_TopWall.transform.GetChild(0).gameObject.SetActive(false);
-        m_TopWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-        m_TopOpen = true;
-    }
-
-    public void OpenDownWall(Vector2 pos)
-    {
-        m_BottomWall.transform.GetChild(0).gameObject.SetActive(false);
-        m_BottomWall.transform.GetChild(1).gameObject.SetActive(true);
-        m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-        m_BottomOpen = true;
-    }
-
-    public Vector2 GetSpawn()
-    {
-        return transform.GetChild(0).transform.position;
+        m_CanDestroy = true;
     }
 }

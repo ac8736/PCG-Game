@@ -14,33 +14,6 @@ public class Room : MonoBehaviour
     private bool m_TopOpen = false;
     private bool m_BottomOpen = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            if (m_LeftOpen)
-                m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-            if (m_RightOpen)
-                m_RightWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-            if (m_TopOpen)
-                m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-            if (m_BottomOpen)
-                m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
-        }
-    }
-
     public void OpenLeftWall()
     {
         m_LeftWall.transform.GetChild(0).gameObject.SetActive(false);
@@ -71,6 +44,22 @@ public class Room : MonoBehaviour
         m_BottomWall.transform.GetChild(1).gameObject.SetActive(true);
         m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true;
         m_BottomOpen = true;
+    }
+
+    public void OpenAllDoors()
+    {
+        if (m_BottomOpen) { m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true; }
+        if (m_TopOpen) { m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true; }
+        if (m_LeftOpen) { m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true; }
+        if (m_RightOpen) { m_RightWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = true; }
+    }
+
+    public void CloseAllDoors()
+    {
+        if (m_BottomOpen) { m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }
+        if (m_TopOpen) { m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }
+        if (m_LeftOpen) { m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }
+        if (m_RightOpen) { m_RightWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }
     }
 
     public Vector2 GetSpawn()
