@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d3d7d851a9119cc4ab83cb92703d10d7
+guid: a4f9c397de7282644b04b4a3808a3c4e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_0
+      name: BulletHellEnemySpriteSpinSpritesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c072216a3d4618645b00ed1341abe178
-      internalID: 967699626
+      spriteID: c43aaae4641c5a2429e3554b0171db91
+      internalID: -424730800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_1
+      name: BulletHellEnemySpriteSpinSpritesheet_1
       rect:
         serializedVersion: 2
         x: 128
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dd02c7423e59e36409f01a2dcb95dea5
-      internalID: -888756826
+      spriteID: c88b706fd1b664d409ea620bb6d73adc
+      internalID: 1706408082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_2
+      name: BulletHellEnemySpriteSpinSpritesheet_2
       rect:
         serializedVersion: 2
         x: 256
@@ -179,35 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 642372daec658b94f96e71c09fdad663
-      internalID: 1086150442
+      spriteID: e07ad0b6100f8a345afbfcf0b5bd2279
+      internalID: -1641986611
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_3
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 384
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9b5b5fe7e66f814f906b8a1ce609e73
-      internalID: -2092286918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_4
+      name: BulletHellEnemySpriteSpinSpritesheet_3
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e7b52197a68184bb5e6ddbd6105364
-      internalID: 1843262082
+      spriteID: 6527838eaa133ba4b810ec0e9a276214
+      internalID: -883938038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_5
+      name: BulletHellEnemySpriteSpinSpritesheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -242,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55e171f065642a041be1b49d1746681c
-      internalID: 1307199635
+      spriteID: 5b54fdf212270da4694e1ce6fbb0f21d
+      internalID: -234529103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_6
+      name: BulletHellEnemySpriteSpinSpritesheet_5
       rect:
         serializedVersion: 2
         x: 256
@@ -263,35 +242,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d98635c7c03ce1346bbb7e6cd8a3b64b
-      internalID: -212432874
+      spriteID: a440fc0b1c4103941b1adff6bc1f93ae
+      internalID: -1174768427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_7
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b917d403bba80848b9ff3aa21944dfa
-      internalID: 2120997416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_8
+      name: BulletHellEnemySpriteSpinSpritesheet_6
       rect:
         serializedVersion: 2
         x: 0
@@ -305,14 +263,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e1bf345a190dd242ab68a269e06c727
-      internalID: 1326797252
+      spriteID: 746ecfa487e3b6f4b8ed355ea715ca67
+      internalID: -1913459994
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_9
+      name: BulletHellEnemySpriteSpinSpritesheet_7
       rect:
         serializedVersion: 2
         x: 128
@@ -326,14 +284,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cb120b2fdf7bf9c45a5cba0b07ba55ea
-      internalID: 199910856
+      spriteID: d2b513c102c5fc4419503286538d9d7f
+      internalID: -414876735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_10
+      name: BulletHellEnemySpriteSpinSpritesheet_8
       rect:
         serializedVersion: 2
         x: 256
@@ -347,35 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b0ba1209893e746bbf06cc4adbb122
-      internalID: -366015152
+      spriteID: 18eaba1f7284e1c488a01491a5c98cb0
+      internalID: 318964984
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_11
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd701e5964106a649ad095229997dfa3
-      internalID: 1365891009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_12
+      name: BulletHellEnemySpriteSpinSpritesheet_9
       rect:
         serializedVersion: 2
         x: 0
@@ -389,14 +326,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cd7612d74759804b804f7790e9605d9
-      internalID: -1002521427
+      spriteID: 189274ae6cec08e439716dcb63d459e5
+      internalID: -202362470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellEnemySpriteSpin_13
+      name: BulletHellEnemySpriteSpinSpritesheet_10
       rect:
         serializedVersion: 2
         x: 128
@@ -410,8 +347,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e08cd74a125a2644fa796d2c2dbe46a9
-      internalID: -352512410
+      spriteID: d7133d3457d61e7478a577006962455a
+      internalID: 1292836073
       vertices: []
       indices: 
       edges: []
@@ -427,20 +364,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BulletHellEnemySpriteSpin_0: 967699626
-      BulletHellEnemySpriteSpin_1: -888756826
-      BulletHellEnemySpriteSpin_10: -366015152
-      BulletHellEnemySpriteSpin_11: 1365891009
-      BulletHellEnemySpriteSpin_12: -1002521427
-      BulletHellEnemySpriteSpin_13: -352512410
-      BulletHellEnemySpriteSpin_2: 1086150442
-      BulletHellEnemySpriteSpin_3: -2092286918
-      BulletHellEnemySpriteSpin_4: 1843262082
-      BulletHellEnemySpriteSpin_5: 1307199635
-      BulletHellEnemySpriteSpin_6: -212432874
-      BulletHellEnemySpriteSpin_7: 2120997416
-      BulletHellEnemySpriteSpin_8: 1326797252
-      BulletHellEnemySpriteSpin_9: 199910856
+      BulletHellEnemySpriteSpinSpritesheet_0: -424730800
+      BulletHellEnemySpriteSpinSpritesheet_1: 1706408082
+      BulletHellEnemySpriteSpinSpritesheet_10: 1292836073
+      BulletHellEnemySpriteSpinSpritesheet_2: -1641986611
+      BulletHellEnemySpriteSpinSpritesheet_3: -883938038
+      BulletHellEnemySpriteSpinSpritesheet_4: -234529103
+      BulletHellEnemySpriteSpinSpritesheet_5: -1174768427
+      BulletHellEnemySpriteSpinSpritesheet_6: -1913459994
+      BulletHellEnemySpriteSpinSpritesheet_7: -414876735
+      BulletHellEnemySpriteSpinSpritesheet_8: 318964984
+      BulletHellEnemySpriteSpinSpritesheet_9: -202362470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
