@@ -11,11 +11,13 @@ public class EnemyRoom : MonoBehaviour
     private bool m_CanDestroy = false;
     private bool m_Triggered = false;
     private Room m_RoomControl;
+    private Animator m_ClearTextAnimation;
 
     // Start is called before the first frame update
     void Start()
     {
         m_RoomControl = GetComponent<Room>();
+        m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(2).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -26,7 +28,11 @@ public class EnemyRoom : MonoBehaviour
             if (m_SpawnedEnemies.Count <= 0)
             {
                 m_RoomControl.OpenAllDoors();
-                if (m_CanDestroy) { Destroy(this); }
+                if (m_CanDestroy)
+                {
+                    m_ClearTextAnimation.SetTrigger("Clear");
+                    Destroy(this);
+                }
             }
         }
     }
