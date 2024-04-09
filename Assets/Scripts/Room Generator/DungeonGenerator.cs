@@ -19,6 +19,7 @@ public class DungeonGenerator : MonoBehaviour
     private int m_RoomBudget;
     private readonly int m_RoomDistance = 25;
     private FadeInOut m_FadeInOut;
+    
     private enum Direction
     {
         Left, Right, Up, Down
