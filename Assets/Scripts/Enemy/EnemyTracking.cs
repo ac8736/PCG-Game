@@ -41,6 +41,4 @@ public class EnemyTracking : MonoBehaviour
 
         enemyRigidbody.SetRotation(rotation);
     }
-
-    
 }

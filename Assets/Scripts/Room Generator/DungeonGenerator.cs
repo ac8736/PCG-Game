@@ -5,14 +5,15 @@ using UnityEngine.UI;
 
 public class DungeonGenerator : MonoBehaviour
 {
+    public GameObject m_FloorText;
     public GameObject m_SpawnRoom, m_EndRoom;
     public GameObject m_VerticalCorridor, m_HorizontalCorridor;
     public List<GameObject> m_EnemyRooms = new();
     public int m_MaxRoomBudget = 5;
     public int m_MapHeight, m_MapWidth;
+    public readonly List<GameObject> m_CreatedDungeonPrefabs = new();
 
     private GameObject m_Player;
-    private readonly List<GameObject> m_CreatedDungeonPrefabs = new();
     private readonly List<GameObject> m_CreatedCorridorPrefabsH = new();
     private readonly List<GameObject> m_CreatedCorridorPrefabsV = new();
     private readonly Dictionary<Vector2, GameObject> m_Rooms = new();
@@ -77,6 +78,9 @@ public class DungeonGenerator : MonoBehaviour
     {
         ResetDungeon();
 
+        GlobalVars.floor += 1;
+        m_FloorText.GetComponent<Animator>().SetTrigger("Clear");
+        
         m_RoomBudget = m_MaxRoomBudget;
         m_Player = GameObject.FindGameObjectWithTag("Player");
 

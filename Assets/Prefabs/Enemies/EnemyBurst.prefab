@@ -204,6 +204,8 @@ MonoBehaviour:
   chaseSpeed: 1
   health: 5
   detection: 10
+  m_EnemyTrackingComponent: {fileID: 0}
+  m_EnemyBulletSpawner: {fileID: 0}
 --- !u!70 &6578792759129620389
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class PlayerBullet : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy"))
         {
             if (collision.gameObject.CompareTag("Enemy")){
-                publicvar.playerScore += 10;
+                //publicvar.playerScore += 10;
             }
             Destroy(gameObject);
         }

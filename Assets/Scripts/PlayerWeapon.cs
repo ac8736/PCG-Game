@@ -9,7 +9,6 @@ public class PlayerWeapon : MonoBehaviour
     public Transform firePoint;
 
     private bool m_CanShoot = true;
-    private bool m_AllowControl = true;
 
     // SFX
     AudioManager audioManager;
@@ -22,34 +21,29 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab)) { m_AllowControl = !m_AllowControl; }
+        Vector3 mousePos = Input.mousePosition;
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
 
-        if (m_AllowControl)
+        Vector2 direction = new(
+            mousePos.x - transform.position.x,
+            mousePos.y - transform.position.y
+        );
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        if (m_CanShoot)
         {
-            Vector3 mousePos = Input.mousePosition;
-            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
-            Vector2 direction = new Vector2(
-                mousePos.x - transform.position.x,
-                mousePos.y - transform.position.y
-            );
-
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
-            if (m_CanShoot)
+            if (Input.GetMouseButton(0))
             {
-                if (Input.GetMouseButton(0))
-                {
-                    StartCoroutine(ShootCD());
-                    Shoot();
-                }
+                StartCoroutine(ShootCD());
+                Shoot();
             }
         }
     }

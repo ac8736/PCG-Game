@@ -8,7 +8,7 @@ public class GameOverScore : MonoBehaviour
     public TextMeshProUGUI finalScoreText;
     void Start()
     {
-        finalScoreText.text = "Final Score: " + publicvar.playerScore;
+        //finalScoreText.text = "Final Score: " + publicvar.playerScore;
     }
 
     
