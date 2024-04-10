@@ -46,9 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16546f685fa16524280adf31fe6c5e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyNeedsTracking: 0
+  enemyNeedsTracking: 1
   speed: 5
-  rotationSpeed: 15
+  rotationSpeed: 200
 --- !u!114 &6006705027207138045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,15 +62,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
-  bulletLife: 5
-  speed: 4
-  needsTracking: 0
-  oscillate: 1
-  spawnerType: 2
-  firingRate: 0.8
-  reloadTime: 2
-  maxShots: 6
-  angleChange: 5
+  bulletLife: 3
+  speed: 2.5
+  needsTracking: 1
+  oscillate: 0
+  spawnerType: 0
+  firingRate: 0.15
+  reloadTime: 1
+  maxShots: 10
+  angleChange: 0
 --- !u!50 &1007717378667803622
 Rigidbody2D:
   serializedVersion: 4

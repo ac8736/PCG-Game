@@ -44,7 +44,7 @@ public class BulletSpawner : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         reloading = false;
         if (spawnerType == SpawnerType.Burst) {
-            needsTracking = false;
+            //needsTracking = false;
         }
         if (oscillate) {
             angleChange = -angleChange;
@@ -71,7 +71,7 @@ public class BulletSpawner : MonoBehaviour
         }
         
         if (timer >= firingRate) {
-            if (spawnerType == SpawnerType.Burst && reloading == false) {
+            /*if (spawnerType == SpawnerType.Burst && reloading == false) {
                 needsTracking = false;
                 if (firingCount == 0) {
                     transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z - 2 * angleChange);
@@ -79,7 +79,7 @@ public class BulletSpawner : MonoBehaviour
                 else {
                     transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + angleChange);
                 }
-            }
+            }*/
             if (!reloading) {
                 Fire();
                 timer = 0;
