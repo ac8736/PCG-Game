@@ -106,6 +106,8 @@ MonoBehaviour:
   chaseSpeed: 1
   health: 5
   detection: 10
+  m_EnemyTrackingComponent: {fileID: 0}
+  m_EnemyBulletSpawner: {fileID: 0}
 --- !u!70 &764282823966753441
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -265,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
   bulletLife: 5
-  speed: 8
+  speed: 5
   needsTracking: 1
   oscillate: 0
   spawnerType: 0

@@ -62,15 +62,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
-  bulletLife: 5
-  speed: 8
+  bulletLife: 10
+  speed: 1
   needsTracking: 0
   oscillate: 0
   spawnerType: 1
-  firingRate: 0.4
-  reloadTime: 2
-  maxShots: 50
-  angleChange: 1
+  firingRate: 0.1
+  reloadTime: 5
+  maxShots: 9
+  angleChange: 0.2
 --- !u!50 &1033427845241385005
 Rigidbody2D:
   serializedVersion: 4
@@ -201,9 +201,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animate: 1
-  chaseSpeed: 1
+  chaseSpeed: 0
   health: 5
   detection: 10
+  m_EnemyTrackingComponent: {fileID: 0}
+  m_EnemyBulletSpawner: {fileID: 0}
 --- !u!70 &8052187229374737889
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
