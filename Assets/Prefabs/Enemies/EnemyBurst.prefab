@@ -63,13 +63,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
   bulletLife: 3
-  speed: 2.5
+  speed: 3
   needsTracking: 1
   oscillate: 0
   spawnerType: 0
-  firingRate: 0.15
-  reloadTime: 1
-  maxShots: 10
+  firingRate: 0.2
+  reloadTime: 5
+  maxShots: 4
   angleChange: 0
 --- !u!50 &1007717378667803622
 Rigidbody2D:

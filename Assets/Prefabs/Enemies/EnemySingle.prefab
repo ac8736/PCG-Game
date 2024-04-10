@@ -252,7 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNeedsTracking: 1
   speed: 5
-  rotationSpeed: 15
+  rotationSpeed: 150
 --- !u!114 &5297614339080611447
 MonoBehaviour:
   m_ObjectHideFlags: 0
