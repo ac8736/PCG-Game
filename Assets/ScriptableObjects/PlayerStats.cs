@@ -6,4 +6,5 @@ public class PlayerStatScriptableObject : ScriptableObject
     public int m_MaxHealth = 5;
     public int m_Health = 5;
     public int m_Speed = 6;
+    public int m_Gold = 0;
 }

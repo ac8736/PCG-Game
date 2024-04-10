@@ -61,4 +61,9 @@ public class PlayerController : MonoBehaviour
             m_HealthbarManager.SetHealth(m_PlayerStats.m_Health);
         }
     }
+
+    public void GainGold(int amt)
+    {
+        m_PlayerStats.m_Gold += amt;
+    }
 }
