@@ -8306,9 +8306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Enemies:
-  - {fileID: 1191523532584451688, guid: abb3398e8e42bd04689c0933171c80b1, type: 3}
   - {fileID: 1727778863733140990, guid: 96c5a6ad6fec59947b324e8325902f9a, type: 3}
-  - {fileID: 8487907726614336011, guid: a0f97c91e1fe5784899a33dba5397ff0, type: 3}
   m_EnemySpawnLocations:
   - {fileID: 7970022876195485917}
   - {fileID: 2749870473767403032}

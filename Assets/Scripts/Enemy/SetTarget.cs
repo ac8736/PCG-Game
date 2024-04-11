@@ -6,8 +6,8 @@ using Pathfinding;
 public class SetTarget : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public void Set(Transform target)
     {
-        GetComponent<AIDestinationSetter>().target = GameObject.FindGameObjectWithTag("Player").transform;
+        GetComponent<AIDestinationSetter>().target = target;
     }
 }
