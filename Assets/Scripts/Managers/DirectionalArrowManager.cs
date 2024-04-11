@@ -11,20 +11,27 @@ public class DirectionalArrowManager : MonoBehaviour
     void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_Target = GameObject.FindGameObjectWithTag("Dungeon").GetComponent<DungeonGenerator>().m_CreatedDungeonPrefabs[^1].transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Calculate the direction from the current position to the target position
-        Vector3 direction = m_Target.position - m_Player.position;
-        direction.z = 0f; // Lock the Z-axis
+        if (m_Target)
+        {
+            // Calculate the direction from the current position to the target position
+            Vector3 direction = m_Target.position - m_Player.position;
+            direction.z = 0f; // Lock the Z-axis
 
-        // Calculate the rotation angle in radians
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            // Calculate the rotation angle in radians
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        // Set the rotation based on the calculated angle
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+            // Set the rotation based on the calculated angle
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        }
+    }
+
+    public void SetTarget(Transform target)
+    {
+        m_Target = target;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Pathfinding;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class DungeonGenerator : MonoBehaviour
     public int m_MaxRoomBudget = 5;
     public int m_MapHeight, m_MapWidth;
     public readonly List<GameObject> m_CreatedDungeonPrefabs = new();
+    public AstarPath m_AstarPath;
+    public DirectionalArrowManager m_DirectionalArrowManager;
 
     private GameObject m_Player;
     private readonly List<GameObject> m_CreatedCorridorPrefabsH = new();
@@ -20,7 +23,7 @@ public class DungeonGenerator : MonoBehaviour
     private int m_RoomBudget;
     private readonly int m_RoomDistance = 25;
     private FadeInOut m_FadeInOut;
-    
+
     private enum Direction
     {
         Left, Right, Up, Down
@@ -31,6 +34,8 @@ public class DungeonGenerator : MonoBehaviour
     {
         m_FadeInOut = GetComponent<FadeInOut>();
         CreateDungeonFunction();
+        m_DirectionalArrowManager.SetTarget(m_CreatedDungeonPrefabs[^1].transform);
+        m_AstarPath.Scan();
     }
 
     void Update()
@@ -38,6 +43,10 @@ public class DungeonGenerator : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             CreateDungeon();
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            m_AstarPath.Scan();
         }
     }
 
@@ -69,8 +78,10 @@ public class DungeonGenerator : MonoBehaviour
     IEnumerator CreateDungeonCoroutine()
     {
         m_FadeInOut.FadeIn();
-        yield return new WaitForSeconds(0.75f);
         CreateDungeonFunction();
+        m_DirectionalArrowManager.SetTarget(m_CreatedDungeonPrefabs[^1].transform);
+        yield return new WaitForSeconds(0.75f);
+        m_AstarPath.Scan();
         m_FadeInOut.FadeOut();
     }
 
@@ -80,7 +91,7 @@ public class DungeonGenerator : MonoBehaviour
 
         GlobalVars.floor += 1;
         m_FloorText.GetComponent<Animator>().SetTrigger("Clear");
-        
+
         m_RoomBudget = m_MaxRoomBudget;
         m_Player = GameObject.FindGameObjectWithTag("Player");
 
@@ -193,7 +204,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Left:
                     Vector2 potentialRoomLeft = new(previousRoom.transform.position.x - m_RoomDistance, previousRoom.transform.position.y);
                     if (m_Rooms.ContainsKey(potentialRoomLeft)) { break; }
-                    if (potentialRoomLeft.x < -xBound) { break; }  
+                    if (potentialRoomLeft.x < -xBound) { break; }
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
@@ -212,7 +223,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Right:
                     Vector2 potentialRoomRight = new(previousRoom.transform.position.x + m_RoomDistance, previousRoom.transform.position.y);
                     if (m_Rooms.ContainsKey(potentialRoomRight)) { break; }
-                    if (potentialRoomRight.x > xBound) { break; }   
+                    if (potentialRoomRight.x > xBound) { break; }
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
@@ -231,7 +242,7 @@ public class DungeonGenerator : MonoBehaviour
                 case Direction.Up:
                     Vector2 potentialRoomUp = new(previousRoom.transform.position.x, previousRoom.transform.position.y + m_RoomDistance);
                     if (m_Rooms.ContainsKey(potentialRoomUp)) { break; }
-                    if (potentialRoomUp.y > yBound) { break; }  
+                    if (potentialRoomUp.y > yBound) { break; }
 
                     room = Instantiate(m_EnemyRooms[Random.Range(0, m_EnemyRooms.Count)], transform);
                     m_CreatedDungeonPrefabs.Add(room);
