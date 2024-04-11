@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public ChaseEnemyStats m_ChaseEnemyStats; 
+    public EnemyStats m_EnemyStats; 
     public Animator m_Animator;
-    public EnemyRoomHandler m_EnemyRoomHandler;
     public bool m_CanDamage = false;
 
     private int m_Health;
@@ -15,7 +14,7 @@ public class EnemyHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Health = m_ChaseEnemyStats.m_MaxHealth;
+        m_Health = m_EnemyStats.m_MaxHealth;
     }
 
     // Update is called once per frame
@@ -23,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (m_Health <= 0)
         {
-            m_EnemyRoomHandler.RemoveFromRoomList();
+            GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
             Destroy(gameObject);
         }
     }

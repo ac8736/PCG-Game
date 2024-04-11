@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    public bool m_IsShooter = false;
+
     private GameObject m_Player;
 
     // Start is called before the first frame update
@@ -25,5 +27,10 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         GetComponent<EnemyHealth>().m_CanDamage = true;
         GetComponent<SetTarget>().Set(m_Player.transform);
+
+        if (m_IsShooter)
+        {
+            transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }

@@ -322,9 +322,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 263af4206305fdd439c7a69833c25690, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ChaseEnemyStats: {fileID: 11400000, guid: 05ef59381f3b8fe46aff250ffcc8b92e, type: 2}
+  m_EnemyStats: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
   m_Animator: {fileID: 3462842077219939464}
-  m_EnemyRoomHandler: {fileID: 4775108070640392373}
   m_CanDamage: 0
 --- !u!114 &4458265449301372666
 MonoBehaviour:
@@ -338,4 +337,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b85a5871a76f640af1c87ff40b172a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_EnemyHealth: {fileID: 75971596597493019}

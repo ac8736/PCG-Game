@@ -19,7 +19,7 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private float reloadTime = 1.5f;
     [SerializeField] private int maxShots = 6;
     [SerializeField] private float angleChange = 20f;
-
+    [SerializeField] private float bulletSpawnOffset = 0.4f;
     private GameObject spawnedBullet;
     private float timer = 0f;
     private float firingCount = 0f;
@@ -54,14 +54,14 @@ public class BulletSpawner : MonoBehaviour
 
     private void Fire() {
         if (bullet) {
-            spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+            spawnedBullet = Instantiate(bullet, transform.position + transform.up * bulletSpawnOffset, Quaternion.identity);
             spawnedBullet.GetComponent<Bullet>().speed = speed;
             spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
             spawnedBullet.transform.rotation = transform.rotation;
             firingCount++;
         }
     }
-
+ 
     // Update is called once per frame
     void Update()
     {
@@ -89,5 +89,4 @@ public class BulletSpawner : MonoBehaviour
             }
         }
     }
-    
 }
