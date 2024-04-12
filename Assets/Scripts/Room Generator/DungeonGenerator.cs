@@ -78,11 +78,12 @@ public class DungeonGenerator : MonoBehaviour
     IEnumerator CreateDungeonCoroutine()
     {
         m_FadeInOut.FadeIn();
+        yield return new WaitForSeconds(0.55f);
         CreateDungeonFunction();
         m_DirectionalArrowManager.SetTarget(m_CreatedDungeonPrefabs[^1].transform);
-        yield return new WaitForSeconds(0.75f);
-        m_AstarPath.Scan();
         m_FadeInOut.FadeOut();
+        yield return new WaitForSeconds(0.33f);
+        AstarPath.active.Scan();
     }
 
     public void CreateDungeonFunction()
