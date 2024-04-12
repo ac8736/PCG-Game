@@ -27,6 +27,7 @@ public class EnemyTracking : MonoBehaviour
     {
         //enemyNeedsTracking = enemyBulletSpawner.needsTracking;
         targetDirection = playerDirection.position - transform.position;
+        transform.position = transform.parent.position;
     }
 
     private void FixedUpdate() {

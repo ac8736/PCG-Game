@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8954290610231236258}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 51159276577721834}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.47, y: 2.32, z: 0}
+  m_LocalPosition: {x: -1.55, y: 1.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4028840808314995394}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 6484469201642291738}
   - component: {fileID: 5896287245118856585}
   - component: {fileID: 4649372644711886993}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2998350750482566596}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6318757732437008476}
   - component: {fileID: 6100273585019184020}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4177966626242883838}
   - component: {fileID: 7197025273179718633}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 2487148305436393781}
   - component: {fileID: 8064286457167371110}
   - component: {fileID: 7886457278258802286}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733080604902030793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -789,7 +789,7 @@ Transform:
   m_GameObject: {fileID: 2019498540209573368}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.22, y: 3.57, z: 0}
+  m_LocalPosition: {x: -1.73, y: 3.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -806,7 +806,7 @@ GameObject:
   - component: {fileID: 8605171448403166737}
   - component: {fileID: 2354217255390496560}
   - component: {fileID: 8487759305858401208}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 8227578227718279861}
   - component: {fileID: 3887992693255011898}
   - component: {fileID: 6775708292316259897}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4440556003241933893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1257,7 +1257,7 @@ Transform:
   m_GameObject: {fileID: 2319065123569332178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.61, y: -1.04, z: 0}
+  m_LocalPosition: {x: -4.61, y: -0.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 3393845416396484069}
   - component: {fileID: 7193325714730749803}
   - component: {fileID: 4729940062425391512}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1642,7 +1642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7306234035828914386}
   - component: {fileID: 5303442968234829073}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1689,7 +1689,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1189624562976959235}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1705,7 +1705,7 @@ Transform:
   m_GameObject: {fileID: 3613022877822439797}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79, y: 0.34, z: 0}
+  m_LocalPosition: {x: 0.79, y: -1.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1721,7 +1721,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768888127904239146}
   - component: {fileID: 4908774890832294843}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1776,7 +1776,7 @@ GameObject:
   - component: {fileID: 4732422513475925791}
   - component: {fileID: 5146237167697639655}
   - component: {fileID: 7018310727775050299}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2054,7 +2054,7 @@ GameObject:
   - component: {fileID: 9161456315637908072}
   - component: {fileID: 6389422243147921715}
   - component: {fileID: 3245823504307692684}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3713,7 +3713,7 @@ GameObject:
   - component: {fileID: 4592384614786705044}
   - component: {fileID: 1425261383498482884}
   - component: {fileID: 6209389192361755847}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Closed
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -4107,7 +4107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6396587075841454668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Top Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4140,7 +4140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8139944904349264509}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4176,7 +4176,7 @@ GameObject:
   - component: {fileID: 4908328127979883034}
   - component: {fileID: 9168822721358526407}
   - component: {fileID: 7948943162631890258}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4454,7 +4454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5743450765273718191}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4470,7 +4470,7 @@ Transform:
   m_GameObject: {fileID: 5186752636848920352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: -3.48, z: 0}
+  m_LocalPosition: {x: -1.7, y: -3.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4486,7 +4486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6357022806018923182}
   - component: {fileID: 3208400153503023798}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4533,7 +4533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7661785311450305786}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bottom Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4571,7 +4571,7 @@ GameObject:
   - component: {fileID: 6025858247107181412}
   - component: {fileID: 2584156767400090733}
   - component: {fileID: 4600908156448186990}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -4940,7 +4940,7 @@ GameObject:
   - component: {fileID: 6835214034936118678}
   - component: {fileID: 8491415583753272774}
   - component: {fileID: 3085435178317370584}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Obstacles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4970,7 +4970,47 @@ Tilemap:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5754888430982185172}
   m_Enabled: 1
-  m_Tiles: {}
+  m_Tiles:
+  - first: {x: -4, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 7
+      m_TileSpriteIndex: 7
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 5, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -4, y: 4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 4, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -4987,10 +5027,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: ad083efa693f21843909fd78b125d37c, type: 2}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: 4aacbe52f55c1c647a27699465d43021, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -5006,12 +5046,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1173211481, guid: d71b9d64ea1f848beb9d7bec298ff498, type: 3}
+  - m_RefCount: 3
+    m_Data: {fileID: 2004269134, guid: d71b9d64ea1f848beb9d7bec298ff498, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 0
+  - m_RefCount: 4
     m_Data:
       e00: 1
       e01: 0
@@ -5030,7 +5070,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 0
+  - m_RefCount: 4
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -5206,9 +5246,57 @@ CompositeCollider2D:
   m_EdgeRadius: 0
   m_ColliderPaths:
   - m_Collider: {fileID: 6835214034936118678}
-    m_ColliderPaths: []
+    m_ColliderPaths:
+    - - X: 20000000
+        Y: 50000000
+      - X: 10000000
+        Y: 50000000
+      - X: 10000000
+        Y: 40000000
+      - X: 20000000
+        Y: 40000000
+    - - X: -30000000
+        Y: 50000000
+      - X: -40000000
+        Y: 50000000
+      - X: -40000000
+        Y: 40000000
+      - X: -30000000
+        Y: 40000000
+    - - X: 60000000
+        Y: 30000000
+      - X: 50000000
+        Y: 30000000
+      - X: 50000000
+        Y: 20000000
+      - X: 60000000
+        Y: 20000000
+    - - X: -30000000
+        Y: 0
+      - X: -40000000
+        Y: 0
+      - X: -40000000
+        Y: -10000000
+      - X: -30000000
+        Y: -10000000
   m_CompositePaths:
-    m_Paths: []
+    m_Paths:
+    - - {x: 1.9999708, y: 4}
+      - {x: 1.9999708, y: 5}
+      - {x: 1, y: 4.999971}
+      - {x: 1.0000293, y: 4}
+    - - {x: -3.0000293, y: 4}
+      - {x: -3.0000293, y: 5}
+      - {x: -4, y: 4.999971}
+      - {x: -3.999971, y: 4}
+    - - {x: 5.999971, y: 2}
+      - {x: 5.999971, y: 3}
+      - {x: 5, y: 2.999971}
+      - {x: 5.000029, y: 2}
+    - - {x: -3.0000293, y: -1}
+      - {x: -3.0000293, y: 0}
+      - {x: -4, y: -0.000029300001}
+      - {x: -3.999971, y: -1}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -5227,7 +5315,7 @@ GameObject:
   - component: {fileID: 3085552195509056556}
   - component: {fileID: 2339281231112623582}
   - component: {fileID: 3844227425496514690}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5508,7 +5596,7 @@ GameObject:
   - component: {fileID: 8486548218000730673}
   - component: {fileID: 6511819389117880957}
   - component: {fileID: 7013742772609624564}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -5889,7 +5977,7 @@ GameObject:
   - component: {fileID: 8368318419029057313}
   - component: {fileID: 627384374641711379}
   - component: {fileID: 6797934336656635188}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Closed
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6304,7 +6392,7 @@ GameObject:
   - component: {fileID: 7228302299073648366}
   - component: {fileID: 7954416554658098826}
   - component: {fileID: 4079957153971872898}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Closed
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -6719,7 +6807,7 @@ GameObject:
   - component: {fileID: 2897779741429365975}
   - component: {fileID: 6763731166182105561}
   - component: {fileID: 3205812279924981069}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Closed
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7118,7 +7206,7 @@ GameObject:
   - component: {fileID: 2641247196178942640}
   - component: {fileID: 2866373329020904386}
   - component: {fileID: 2788173692778214638}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7435,7 +7523,7 @@ GameObject:
   - component: {fileID: 6158829213799061118}
   - component: {fileID: 3500873762600631026}
   - component: {fileID: 4228434464687938030}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Wall
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -7811,7 +7899,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5441525338024479054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spawn3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7827,7 +7915,7 @@ Transform:
   m_GameObject: {fileID: 7941991721152843437}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.42, y: 1.8, z: 0}
+  m_LocalPosition: {x: 0.37, y: -0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7842,7 +7930,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3418203453485669505}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7880,7 +7968,7 @@ GameObject:
   - component: {fileID: 8223210456960300808}
   - component: {fileID: 7536156055768337663}
   - component: {fileID: 2669847212105168369}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8161,7 +8249,7 @@ GameObject:
   - component: {fileID: 206382770390109396}
   - component: {fileID: 2209680117990808082}
   - component: {fileID: 1619104340365276740}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EnemyRoom3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1726032071582452384
 Transform:
   m_ObjectHideFlags: 0
@@ -71,6 +71,7 @@ MonoBehaviour:
   reloadTime: 5
   maxShots: 9
   angleChange: 0.2
+  bulletSpawnOffset: 0.4
 --- !u!50 &1033427845241385005
 Rigidbody2D:
   serializedVersion: 4
@@ -108,11 +109,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4741290968070482084}
   - component: {fileID: 8477220835767272346}
-  - component: {fileID: 3748382734362210000}
   - component: {fileID: 8052187229374737889}
   - component: {fileID: 8950652650026746129}
-  - component: {fileID: 8771357960877204462}
   - component: {fileID: 2703932990798312704}
+  - component: {fileID: 2374702811955560018}
+  - component: {fileID: 6396381819692975008}
+  - component: {fileID: 5031049515736759396}
   m_Layer: 0
   m_Name: EnemySpin
   m_TagString: Enemy
@@ -188,24 +190,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3748382734362210000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487907726614336011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23058823c11cc734ca03b1504ce69347, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animate: 1
-  chaseSpeed: 0
-  health: 5
-  detection: 10
-  m_EnemyTrackingComponent: {fileID: 0}
-  m_EnemyBulletSpawner: {fileID: 0}
 --- !u!70 &8052187229374737889
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -266,29 +250,8 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
---- !u!95 &8771357960877204462
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8487907726614336011}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e1064efc7e665c54ab941b323ef02634, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &2703932990798312704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,3 +265,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Room: {fileID: 0}
+--- !u!95 &2374702811955560018
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487907726614336011}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43df873c049e11844a64db3c92682546, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6396381819692975008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487907726614336011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b85a5871a76f640af1c87ff40b172a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsShooter: 1
+  m_IsStationary: 1
+--- !u!114 &5031049515736759396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8487907726614336011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263af4206305fdd439c7a69833c25690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EnemyStats: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
+  m_Animator: {fileID: 2374702811955560018}
+  m_CanDamage: 0
