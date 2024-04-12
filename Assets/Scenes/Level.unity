@@ -1805,22 +1805,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
-      propertyPath: hitScreen
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
-      propertyPath: healthText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
-      propertyPath: m_PlayerStats
-      value: 
-      objectReference: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
-    - target: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
       propertyPath: m_HealthbarManager
       value: 
       objectReference: {fileID: 164712401}

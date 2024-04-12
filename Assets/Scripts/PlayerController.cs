@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D m_Rigidbody;
     private Animator m_Animator;
     private SpriteRenderer m_SpriteRenderer;
+    private bool m_CanDamage = true;
 
     //feedback 
     private AudioManager m_AudioManager;
@@ -55,15 +56,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet") && m_CanDamage)
         {
+            m_CanDamage = false;
             if (m_PlayerStats.m_Health > 0) { m_PlayerStats.m_Health--; }
             m_HealthbarManager.SetHealth(m_PlayerStats.m_Health);
+            StartCoroutine(TakeDamageCooldown());
         }
     }
 
     public void GainGold(int amt)
     {
         m_PlayerStats.m_Gold += amt;
+    }
+
+    IEnumerator TakeDamageCooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_CanDamage = true;
     }
 }
