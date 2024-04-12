@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public bool m_IsShooter = false;
+    public bool m_IsStationary = false;
 
     private GameObject m_Player;
 
@@ -26,7 +27,11 @@ public class EnemyController : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         GetComponent<EnemyHealth>().m_CanDamage = true;
-        GetComponent<SetTarget>().Set(m_Player.transform);
+
+        if (!m_IsStationary)
+        {
+            GetComponent<SetTarget>().Set(m_Player.transform);
+        }
 
         if (m_IsShooter)
         {
