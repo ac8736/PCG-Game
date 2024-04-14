@@ -28,7 +28,8 @@ public class PlayerController : MonoBehaviour
         float horizontalSpeed = Input.GetAxisRaw("Horizontal") * m_PlayerStats.m_Speed;
         float verticalSpeed = Input.GetAxisRaw("Vertical") * m_PlayerStats.m_Speed;
 
-        m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed);
+        if (m_PlayerStats.m_Health > 0) { m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed); }
+        else { m_Rigidbody.velocity = Vector2.zero; }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePos.x < transform.position.x) { m_SpriteRenderer.flipX = true; }
