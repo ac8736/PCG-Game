@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator SpawnTime()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.8f);
         GetComponent<EnemyHealth>().m_CanDamage = true;
 
         if (!m_IsStationary)

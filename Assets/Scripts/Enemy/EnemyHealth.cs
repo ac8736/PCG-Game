@@ -8,6 +8,7 @@ public class EnemyHealth : MonoBehaviour
     public EnemyStats m_EnemyStats; 
     public Animator m_Animator;
     public bool m_CanDamage = false;
+    public FloatingHealthbar m_FloatingHealthbar;
 
     private int m_Health;
 
@@ -32,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
         if (collision.CompareTag("Player Bullet") && m_CanDamage)
         {
             m_Health -= 1;
+            m_FloatingHealthbar.UpdateHealthbar(m_Health, m_EnemyStats.m_MaxHealth);
             m_Animator.SetTrigger("Injure");
         }
     }
