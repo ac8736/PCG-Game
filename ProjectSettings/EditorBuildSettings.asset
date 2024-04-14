@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level.unity
     guid: d7735f278fa62ed41b2ca862a0dc7138
   - enabled: 1
+    path: Assets/Scenes/LevelToDeathTransition.unity
+    guid: e6a98c6aabf71ba47bcfdd52cf1bd413
+  - enabled: 1
     path: Assets/Scenes/Death.unity
     guid: ca02be3b6dbc8f3499e8d122870db0b9
   - enabled: 1

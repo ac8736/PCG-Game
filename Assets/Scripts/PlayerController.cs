@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,25 +9,18 @@ public class PlayerController : MonoBehaviour
     public PlayerStatScriptableObject m_PlayerStats;
     public HealthbarManager m_HealthbarManager;
 
-    private Rigidbody2D m_Rigidbody;
-    private Animator m_Animator;
-    private SpriteRenderer m_SpriteRenderer;
+    public Rigidbody2D m_Rigidbody;
+    public Animator m_Animator;
+    public SpriteRenderer m_SpriteRenderer;
     private bool m_CanDamage = true;
 
     //feedback 
     private AudioManager m_AudioManager;
 
-    private void Awake()
-    {
-        m_Animator = GetComponent<Animator>();
-        m_Rigidbody = GetComponent<Rigidbody2D>();
-        m_SpriteRenderer = GetComponent<SpriteRenderer>();
-        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
     private void Start()
     {
         m_HealthbarManager.SetMaxHealth(m_PlayerStats.m_MaxHealth);
+        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -57,6 +51,17 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet") && m_CanDamage)
+        {
+            m_CanDamage = false;
+            if (m_PlayerStats.m_Health > 0) { m_PlayerStats.m_Health--; }
+            m_HealthbarManager.SetHealth(m_PlayerStats.m_Health);
+            StartCoroutine(TakeDamageCooldown());
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        if (collider.gameObject.CompareTag("Enemy") && m_CanDamage)
         {
             m_CanDamage = false;
             if (m_PlayerStats.m_Health > 0) { m_PlayerStats.m_Health--; }

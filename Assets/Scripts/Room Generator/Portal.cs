@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             m_Dungeon.GetComponent<DungeonGenerator>().CreateDungeon();
+            GlobalVars.clearedFloors += 1;
         }
     }
 }

@@ -256,6 +256,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PlayerStats: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
   m_HealthbarManager: {fileID: 0}
+  m_Rigidbody: {fileID: 3089105132556566473}
+  m_Animator: {fileID: 2338976111116371116}
+  m_SpriteRenderer: {fileID: 4121278559745546800}
 --- !u!50 &3089105132556566473
 Rigidbody2D:
   serializedVersion: 4

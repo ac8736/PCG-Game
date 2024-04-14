@@ -7,12 +7,11 @@ public class FadeInOut : MonoBehaviour
     public bool m_FadeIn = false;
     public bool m_FadeOut = false;
     public float m_TimeToFade;
-
-    private CanvasGroup m_CanvasGroup;
+    public CanvasGroup m_CanvasGroup;
 
     private void Start()
     {
-        m_CanvasGroup = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).GetComponent<CanvasGroup>();
+        
     }
 
     // Update is called once per frame

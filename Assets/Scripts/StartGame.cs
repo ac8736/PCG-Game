@@ -14,7 +14,9 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     public void Retry()
     {
-        SceneManager.LoadScene("SampleScene");
+        GlobalVars.clearedFloors = 0;
+        GlobalVars.floor = 0;
+        SceneManager.LoadScene("Level");
     }
 
     // Quit Game

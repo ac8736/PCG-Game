@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using Pathfinding;
 
 public class DungeonGenerator : MonoBehaviour
 {
@@ -13,8 +12,8 @@ public class DungeonGenerator : MonoBehaviour
     public int m_MaxRoomBudget = 5;
     public int m_MapHeight, m_MapWidth;
     public readonly List<GameObject> m_CreatedDungeonPrefabs = new();
-    public AstarPath m_AstarPath;
     public DirectionalArrowManager m_DirectionalArrowManager;
+    public FadeInOut m_FadeInOut;
 
     private GameObject m_Player;
     private readonly List<GameObject> m_CreatedCorridorPrefabsH = new();
@@ -22,7 +21,6 @@ public class DungeonGenerator : MonoBehaviour
     private readonly Dictionary<Vector2, GameObject> m_Rooms = new();
     private int m_RoomBudget;
     private readonly int m_RoomDistance = 25;
-    private FadeInOut m_FadeInOut;
 
     private enum Direction
     {
@@ -32,10 +30,9 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_FadeInOut = GetComponent<FadeInOut>();
         CreateDungeonFunction();
         m_DirectionalArrowManager.SetTarget(m_CreatedDungeonPrefabs[^1].transform);
-        m_AstarPath.Scan();
+        AstarPath.active.Scan();
     }
 
     void Update()
@@ -46,7 +43,7 @@ public class DungeonGenerator : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            m_AstarPath.Scan();
+            AstarPath.active.Scan();
         }
     }
 
