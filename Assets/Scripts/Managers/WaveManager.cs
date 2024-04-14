@@ -27,27 +27,34 @@ public class WaveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_SpawnedEnemies.Count <= 0)
+        {
+            m_Wave += 1;
+        }
+
         if (m_PlayerStat.m_Health <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
 
-        if (m_SpawnedEnemies.Count <= 0)
-        {
-            SpawnEnemies();
-        }
-
-        m_WaveText.text = "Wave " + m_Wave + " / " + GlobalVars.clearedFloors;
-        Debug.Log(GlobalVars.clearedFloors);
         if (m_Wave >= GlobalVars.clearedFloors + 1)
         {
             SceneManager.LoadScene("Level");
+        } 
+        else
+        {
+            if (m_SpawnedEnemies.Count <= 0)
+            {
+                StartCoroutine(SpawnEnemies());
+            }
         }
 
         if (m_Timer <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
+
+        m_WaveText.text = "Wave " + m_Wave + " / " + GlobalVars.clearedFloors;
     }
 
     IEnumerator Timer()
@@ -60,9 +67,8 @@ public class WaveManager : MonoBehaviour
         }
     }
 
-    void SpawnEnemies()
+    IEnumerator SpawnEnemies()
     {
-        m_Wave += 1;
         if (m_Wave % 2 == 0) { m_SpawnCycles += 1; }
 
         for (int i = 0; i < m_SpawnCycles; i++)
@@ -72,6 +78,7 @@ public class WaveManager : MonoBehaviour
                 var instance = Instantiate(m_Enemies[Random.Range(0, m_Enemies.Count)], transform.position, Quaternion.identity);
                 m_SpawnedEnemies.Add(instance);
             }
+            yield return new WaitForSeconds(2.5f);
         }
     }
 

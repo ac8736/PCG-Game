@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     public float bulletLife = 1f;
     public float rotation = 0f;
-    public float speed = 1f;
+    public float speed = 3f;
 
     private Rigidbody2D rb;
 
@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.GetComponent<Rigidbody2D>().AddForce(transform.up * speed, ForceMode2D.Impulse);
+        rb.velocity = transform.up * speed;
         StartCoroutine(Despawn());
     }
 

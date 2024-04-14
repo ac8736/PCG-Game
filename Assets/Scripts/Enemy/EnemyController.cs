@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator SpawnTime()
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         GetComponent<EnemyHealth>().m_CanDamage = true;
 
         if (!m_IsStationary)
@@ -36,7 +36,7 @@ public class EnemyController : MonoBehaviour
 
         if (m_IsShooter)
         {
-            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 }

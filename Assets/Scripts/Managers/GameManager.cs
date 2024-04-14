@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator FadeOut()
     {
+        yield return new WaitForSeconds(0.5f);
         m_FadeInOut.FadeIn();
         m_Arrow.SetActive(false);
         m_GoldDisplay.SetActive(false);

@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c56211c43cf25f40a8388cd28fe2a96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FloorText: {fileID: 0}
   m_SpawnRoom: {fileID: 9056713788445176308, guid: 914f4105269554d448cc0ef00efa7be1, type: 3}
   m_EndRoom: {fileID: 9056713788445176308, guid: 9eeacd2bba4d9014bb4d2b80b518557d, type: 3}
   m_VerticalCorridor: {fileID: 9056713788445176308, guid: 7e3ccb101b6ea4eea8a4b82957664e10, type: 3}
@@ -66,9 +67,15 @@ MonoBehaviour:
   - {fileID: 9056713788445176308, guid: 4e8e655587136654ea510dbf3e1187ea, type: 3}
   - {fileID: 9056713788445176308, guid: 10ee78b5d71944014bac3a62209b7feb, type: 3}
   - {fileID: 9056713788445176308, guid: 368f6203a566b4f2595d4c304f935fe2, type: 3}
+  - {fileID: 9056713788445176308, guid: 9db3e637a3a2b4742919a447770fc7b9, type: 3}
+  - {fileID: 9056713788445176308, guid: a641ba60f685c5a44ab2701281a3beaa, type: 3}
+  - {fileID: 9056713788445176308, guid: 3fa12b5d20fe1944c8de9427b930ecd3, type: 3}
+  - {fileID: 9056713788445176308, guid: 10c9f3ee0cca4f34c9bb117c9a2b7c78, type: 3}
   m_MaxRoomBudget: 5
   m_MapHeight: 300
   m_MapWidth: 300
+  m_DirectionalArrowManager: {fileID: 0}
+  m_FadeInOut: {fileID: 0}
 --- !u!114 &4429666253084081450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,3 +91,4 @@ MonoBehaviour:
   m_FadeIn: 0
   m_FadeOut: 0
   m_TimeToFade: 3
+  m_CanvasGroup: {fileID: 0}
