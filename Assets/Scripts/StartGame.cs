@@ -63,6 +63,4 @@ public class StartGame : MonoBehaviour
             Debug.LogError("Camera is not orthographic, script requires an orthographic camera to function properly.");
         }
     }
-
-
 }
