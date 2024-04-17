@@ -15,7 +15,7 @@ public class BossBulletSpawner : MonoBehaviour
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
     [SerializeField] private float firingRate = 0.8f;
-    [SerializeField] private float singlefiringRate = 0.8f;
+    [SerializeField] private float singleFiringRate = 0.8f;
     [SerializeField] private float burstFiringRate = 0.8f;
     [SerializeField] private float spinFiringRate = 0.8f;
     [SerializeField] private float reloadTime = 1f;

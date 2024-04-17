@@ -23,7 +23,6 @@ public class StartGame : MonoBehaviour
         m_EnemyStat.m_MaxHealthSingle = 5;
         m_EnemyStat.m_MaxHealthSpin = 3;
         m_EnemyStat.m_Damage = 10;
-
         SceneManager.LoadScene("Level");
     }
 
