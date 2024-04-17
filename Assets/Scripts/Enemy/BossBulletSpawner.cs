@@ -19,7 +19,7 @@ public class BossBulletSpawner : MonoBehaviour
     [SerializeField] private float burstFiringRate = 0.8f;
     [SerializeField] private float spinFiringRate = 0.8f;
     [SerializeField] private float reloadTime = 1f;
-    [serializeField] private int maxShots = 6;
+    [SerializeField] private int maxShots = 6;
     [SerializeField] private int singleMaxShots = 6;
     [SerializeField] private int burstMaxShots = 6;
     [SerializeField] private int spinMaxShots = 6;
@@ -34,30 +34,32 @@ public class BossBulletSpawner : MonoBehaviour
         RandomAttackSelect();
     }
 
-    private void RandomAttackSelect() {
-        switch(Random.Range(0,3))
+    private void RandomAttackSelect()
+    {
+        switch (Random.Range(0, 3))
         {
             case 0:
                 spawnerType = SpawnerType.Spin;
                 firingRate = spinFiringRate;
                 maxShots = spinMaxShots;
-            break;
-            
+                break;
+
             case 1:
                 spawnerType = SpawnerType.Burst;
                 firingRate = burstFiringRate;
                 maxShots = burstMaxShots;
-            break;
-            
+                break;
+
             case 2:
                 spawnerType = SpawnerType.Straight;
-                firingRate = singleFiringRate;
+                // firingRate = singleFiringRate;
                 maxShots = singleMaxShots;
-            break;
+                break;
         }
     }
 
-    private IEnumerator Reload() {
+    private IEnumerator Reload()
+    {
         reloading = true;
 
         RandomAttackSelect();
@@ -67,8 +69,10 @@ public class BossBulletSpawner : MonoBehaviour
         firingCount = 0;
     }
 
-    private void Fire() {
-        if (bullet) {
+    private void Fire()
+    {
+        if (bullet)
+        {
             spawnedBullet = Instantiate(bullet, transform.position + transform.up * bulletSpawnOffset, Quaternion.identity);
             spawnedBullet.GetComponent<Bullet>().speed = speed;
             spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
@@ -76,28 +80,34 @@ public class BossBulletSpawner : MonoBehaviour
             firingCount++;
         }
     }
- 
+
     // Update is called once per frame
     void Update()
     {
-        if (spawnerType == SpawnerType.Spin) {
+        if (spawnerType == SpawnerType.Spin)
+        {
             needsTracking = false;
         }
-        else {
+        else
+        {
             needsTracking = true;
         }
 
         timer += Time.deltaTime;
-        if (spawnerType == SpawnerType.Spin) {
+        if (spawnerType == SpawnerType.Spin)
+        {
             transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 1f);
         }
-        
-        if (timer >= firingRate) {
-            if (!reloading) {
+
+        if (timer >= firingRate)
+        {
+            if (!reloading)
+            {
                 Fire();
                 timer = 0;
             }
-            if (firingCount == maxShots) {
+            if (firingCount == maxShots)
+            {
                 StartCoroutine(Reload());
             }
         }

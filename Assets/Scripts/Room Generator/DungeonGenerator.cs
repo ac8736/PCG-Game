@@ -14,6 +14,8 @@ public class DungeonGenerator : MonoBehaviour
     public readonly List<GameObject> m_CreatedDungeonPrefabs = new();
     public DirectionalArrowManager m_DirectionalArrowManager;
     public FadeInOut m_FadeInOut;
+    public EnemyStats m_EnemyStats;
+    public PlayerStatScriptableObject m_PlayerStats;
 
     private GameObject m_Player;
     private readonly List<GameObject> m_CreatedCorridorPrefabsH = new();
@@ -30,6 +32,10 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_EnemyStats.m_Damage = 10;
+        m_EnemyStats.m_MaxHealthChase = 2;
+        m_EnemyStats.m_MaxHealthSingle = 5;
+        m_EnemyStats.m_MaxHealthSpin = 3;
         CreateDungeonFunction();
         m_DirectionalArrowManager.SetTarget(m_CreatedDungeonPrefabs[^1].transform);
         AstarPath.active.Scan();
@@ -81,6 +87,16 @@ public class DungeonGenerator : MonoBehaviour
         m_FadeInOut.FadeOut();
         yield return new WaitForSeconds(0.33f);
         AstarPath.active.Scan();
+        m_EnemyStats.m_Damage += 2;
+        m_EnemyStats.m_Damage = Mathf.Clamp(m_EnemyStats.m_Damage, 10, 50);
+        m_EnemyStats.m_MaxHealthChase += 1;
+        m_EnemyStats.m_MaxHealthChase = Mathf.Clamp(m_EnemyStats.m_MaxHealthChase, 2, 8);
+        m_EnemyStats.m_MaxHealthSingle += 1;
+        m_EnemyStats.m_MaxHealthSingle = Mathf.Clamp(m_EnemyStats.m_MaxHealthSingle, 5, 10);
+        m_EnemyStats.m_MaxHealthSpin += 1;
+        m_EnemyStats.m_MaxHealthSpin = Mathf.Clamp(m_EnemyStats.m_MaxHealthSpin, 3, 7);
+        m_Player.GetComponent<PlayerController>().m_Health += 10;
+        m_Player.GetComponent<PlayerController>().m_Health = Mathf.Clamp(m_Player.GetComponent<PlayerController>().m_Health, 0, m_PlayerStats.m_MaxHealth);
     }
 
     public void CreateDungeonFunction()

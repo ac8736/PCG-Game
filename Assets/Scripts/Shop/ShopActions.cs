@@ -30,6 +30,7 @@ public class ShopActions : MonoBehaviour
     void Start()
     {
         m_Gold = m_PlayerStats.m_Gold;
+        m_Gold = 100;
         m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
 
         m_CurrentMaxHealth = m_PlayerStats.m_MaxHealth;
@@ -74,7 +75,7 @@ public class ShopActions : MonoBehaviour
         if (afterPurchaseAmt >= 0 && m_CurrentAttackSpeed < 5)
         {
             m_Gold = afterPurchaseAmt;
-            m_AttackSpeedUpgradeCost += 1;
+            m_CurrentAttackSpeed += 1;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
         }
@@ -84,7 +85,7 @@ public class ShopActions : MonoBehaviour
     {
         if (m_CurrentMaxHealth > m_PlayerStats.m_MaxHealth)
         {
-            m_CurrentMaxHealth -= 1;
+            m_CurrentMaxHealth -= 25;
             m_Gold += m_MaxHealthUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();
