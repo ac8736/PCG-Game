@@ -568,6 +568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67eef7bfcbc4d918dde4f8d18705ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerStat: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
+  m_EnemyStat: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
 --- !u!114 &813743786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyChase
       objectReference: {fileID: 0}
+    - target: {fileID: 1727778863733140990, guid: 96c5a6ad6fec59947b324e8325902f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5056624657862761039, guid: 96c5a6ad6fec59947b324e8325902f9a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -877,6 +883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67eef7bfcbc4d918dde4f8d18705ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerStat: {fileID: 0}
+  m_EnemyStat: {fileID: 0}
 --- !u!1001 &1263152467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1539,6 +1547,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySingle
       objectReference: {fileID: 0}
+    - target: {fileID: 1191523532584451688, guid: abb3398e8e42bd04689c0933171c80b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1618163173987142346, guid: abb3398e8e42bd04689c0933171c80b1, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1655,6 +1667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67eef7bfcbc4d918dde4f8d18705ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerStat: {fileID: 0}
+  m_EnemyStat: {fileID: 0}
 --- !u!1001 &1721069084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1727,6 +1741,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8871160716061553430, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
     - {fileID: 3089105132556566473, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
@@ -1755,6 +1773,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff67eef7bfcbc4d918dde4f8d18705ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerStat: {fileID: 0}
+  m_EnemyStat: {fileID: 0}
 --- !u!1 &1785286920
 GameObject:
   m_ObjectHideFlags: 0

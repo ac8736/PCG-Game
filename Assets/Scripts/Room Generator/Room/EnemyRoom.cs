@@ -8,6 +8,7 @@ public class EnemyRoom : MonoBehaviour
     public List<Transform> m_EnemySpawnLocations = new();
     public List<GameObject> m_SpawnedEnemies = new();
 
+    private List<GameObject> m_EnemyBullets = new();
     private bool m_CanDestroy = false;
     private bool m_Triggered = false;
     private Room m_RoomControl;
@@ -17,7 +18,7 @@ public class EnemyRoom : MonoBehaviour
     void Start()
     {
         m_RoomControl = GetComponent<Room>();
-        m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(1).GetComponent<Animator>();
+        m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +33,11 @@ public class EnemyRoom : MonoBehaviour
                 {
                     GameObject.FindGameObjectWithTag("Player").transform.GetComponent<PlayerController>().GainGold(5);
                     m_ClearTextAnimation.SetTrigger("Clear");
+                    foreach (var bullet in m_EnemyBullets)
+                    {
+                        Destroy(bullet);
+                    }
+                    m_EnemyBullets.Clear();
                     Destroy(this);
                 }
             }
@@ -40,6 +46,7 @@ public class EnemyRoom : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Bullet")) m_EnemyBullets.Add(other.gameObject);
         if (!other.gameObject.CompareTag("Player")) return;
         m_Triggered = true;
         StartCoroutine(InitiateEncounter());
@@ -47,7 +54,7 @@ public class EnemyRoom : MonoBehaviour
 
     IEnumerator InitiateEncounter()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         m_RoomControl.CloseAllDoors();
 
         SpawnEnemies();

@@ -17,6 +17,7 @@ public class StartGame : MonoBehaviour
         m_PlayerStat.m_Gold = 0;
         m_PlayerStat.m_MaxHealth = 100;
         m_PlayerStat.m_Speed = 0;
+        m_PlayerStat.m_AttackSpeed = 0;
 
         m_EnemyStat.m_MaxHealthChase = 2;
         m_EnemyStat.m_MaxHealthSingle = 5;
@@ -33,6 +34,7 @@ public class StartGame : MonoBehaviour
         m_PlayerStat.m_Gold = 0;
         m_PlayerStat.m_MaxHealth = 100;
         m_PlayerStat.m_Speed = 0;
+        m_PlayerStat.m_AttackSpeed = 0;
 
         m_EnemyStat.m_MaxHealthChase = 2;
         m_EnemyStat.m_MaxHealthSingle = 5;
@@ -62,7 +64,6 @@ public class StartGame : MonoBehaviour
             speed *= -1;
 
             transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
-            Debug.Log("CHANGING");
         }
 
     }
