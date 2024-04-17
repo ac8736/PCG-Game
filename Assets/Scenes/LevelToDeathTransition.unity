@@ -607,9 +607,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerStats: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
-  m_MaxHealthUpgradeCost: 2
-  m_AttackSpeedUpgradeCost: 2
-  m_MovementSpeedUpgradeCost: 2
+  m_MaxHealthUpgradeCost: 20
+  m_AttackSpeedUpgradeCost: 25
+  m_MovementSpeedUpgradeCost: 10
   m_MaxHealthUpgradeCostText: {fileID: 1095818160}
   m_MovementSpeedUpgradeCostText: {fileID: 1981553799}
   m_AttackSpeedUpgradeCostText: {fileID: 2039830990}

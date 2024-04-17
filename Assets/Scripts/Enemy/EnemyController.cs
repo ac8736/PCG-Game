@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     public bool m_IsShooter = false;
     public bool m_IsStationary = false;
+    public EnemyStats m_EnemyStats;
 
     private GameObject m_Player;
 
@@ -15,7 +16,6 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(SpawnTime());
     }
 
     // Update is called once per frame
@@ -24,9 +24,13 @@ public class EnemyController : MonoBehaviour
         
     }
 
-    IEnumerator SpawnTime()
+    public float GetDamage()
     {
-        yield return new WaitForSeconds(0.7f);
+        return 10;
+    }
+
+    public void DoneSpawning()
+    {
         GetComponent<EnemyHealth>().m_CanDamage = true;
 
         if (!m_IsStationary)

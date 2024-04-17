@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   m_MaxHealth: 5
-  m_Damage: 1
+  m_Damage: 10

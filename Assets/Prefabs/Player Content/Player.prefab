@@ -101,6 +101,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 9099301509293547459, guid: 65707f22b462987499f16b164d476d46, type: 3}
   bulletForce: 10
   firePoint: {fileID: 4415146992027088604}
+  m_Cooldown: 0.5
+  m_PlayerStat: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
 --- !u!1 &3598926763480800205
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,6 +261,8 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 3089105132556566473}
   m_Animator: {fileID: 2338976111116371116}
   m_SpriteRenderer: {fileID: 4121278559745546800}
+  m_Health: 100
+  m_Speed: 4
 --- !u!50 &3089105132556566473
 Rigidbody2D:
   serializedVersion: 4

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerStatScriptableObject m_PlayerStats;
     public HealthbarManager m_HealthbarManager;
-
     public Rigidbody2D m_Rigidbody;
     public Animator m_Animator;
     public SpriteRenderer m_SpriteRenderer;
+    public float m_Health = 100;
+    public float m_Speed = 4;
+
     private bool m_CanDamage = true;
 
     //feedback 
@@ -19,16 +20,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        m_Health = m_PlayerStats.m_MaxHealth;
         m_HealthbarManager.SetMaxHealth(m_PlayerStats.m_MaxHealth);
         m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        m_Speed += m_PlayerStats.m_Speed / 10;
     }
 
     private void Update()
     {
-        float horizontalSpeed = Input.GetAxisRaw("Horizontal") * m_PlayerStats.m_Speed;
-        float verticalSpeed = Input.GetAxisRaw("Vertical") * m_PlayerStats.m_Speed;
+        if (Input.GetKeyDown(KeyCode.Space)) Debug.Log(m_Speed);
+        float horizontalSpeed = Input.GetAxisRaw("Horizontal") * m_Speed;
+        float verticalSpeed = Input.GetAxisRaw("Vertical") * m_Speed;
 
-        if (m_PlayerStats.m_Health > 0) { m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed); }
+        if (m_Health > 0) { m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed); }
         else { m_Rigidbody.velocity = Vector2.zero; }
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -54,19 +58,19 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Bullet") && m_CanDamage)
         {
             m_CanDamage = false;
-            if (m_PlayerStats.m_Health > 0) { m_PlayerStats.m_Health--; }
-            m_HealthbarManager.SetHealth(m_PlayerStats.m_Health);
+            if (m_Health > 0) { m_Health -= collision.gameObject.GetComponent<Bullet>().GetDamage(); }
+            m_HealthbarManager.SetHealth(m_Health);
             StartCoroutine(TakeDamageCooldown());
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collider)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Enemy") && m_CanDamage)
         {
             m_CanDamage = false;
-            if (m_PlayerStats.m_Health > 0) { m_PlayerStats.m_Health--; }
-            m_HealthbarManager.SetHealth(m_PlayerStats.m_Health);
+            if (m_Health > 0) { m_Health -= collider.gameObject.GetComponent<EnemyController>().GetDamage(); }
+            m_HealthbarManager.SetHealth(m_Health);
             StartCoroutine(TakeDamageCooldown());
         }
     }

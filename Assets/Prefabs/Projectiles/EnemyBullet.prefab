@@ -164,3 +164,4 @@ MonoBehaviour:
   bulletLife: 1
   rotation: 0
   speed: 3
+  m_EnemyStats: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}

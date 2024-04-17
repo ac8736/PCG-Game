@@ -12,6 +12,7 @@ public class BulletSpawner : MonoBehaviour
     public float speed = 2.0f;
     public bool needsTracking = true;
     public bool oscillate = false;
+    public EnemyStats m_EnemyStat;
 
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
@@ -53,10 +54,13 @@ public class BulletSpawner : MonoBehaviour
     }
 
     private void Fire() {
-        if (bullet) {
+        if (bullet) 
+        {
             spawnedBullet = Instantiate(bullet, transform.position + transform.up * bulletSpawnOffset, Quaternion.identity);
-            spawnedBullet.GetComponent<Bullet>().speed = speed;
-            spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+            Bullet bulletComponent = spawnedBullet.GetComponent<Bullet>();
+            bulletComponent.speed = speed;
+            bulletComponent.bulletLife = bulletLife;
+            bulletComponent.m_Damage = m_EnemyStat.m_Damage;
             spawnedBullet.transform.rotation = transform.rotation;
             firingCount++;
         }

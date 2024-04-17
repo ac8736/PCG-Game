@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public float bulletLife = 1f;
     public float rotation = 0f;
     public float speed = 3f;
+    public float m_Damage;
 
     private Rigidbody2D rb;
 
@@ -26,9 +27,14 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    public float GetDamage()
+    {
+        return m_Damage;
+    }
+
     IEnumerator Despawn()
     {
-        yield return new WaitForSeconds(10.0f);
+        yield return new WaitForSeconds(5.0f);
         Destroy(gameObject);
     }
 }

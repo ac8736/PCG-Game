@@ -5,9 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class StartGame : MonoBehaviour
 {
+    public PlayerStatScriptableObject m_PlayerStat;
+    public EnemyStats m_EnemyStat;
+
     // Start is called before the first frame update
     public void PlayGame()
     {
+        m_PlayerStat.m_Gold = 0;
+        m_PlayerStat.m_MaxHealth = 100;
+        m_PlayerStat.m_Speed = 0;
+
+        m_EnemyStat.m_MaxHealthChase = 2;
+        m_EnemyStat.m_MaxHealthSingle = 5;
+        m_EnemyStat.m_MaxHealthSpin = 3;
+        m_EnemyStat.m_Damage = 10;
         SceneManager.LoadScene("Level");
     }
 
@@ -16,6 +27,14 @@ public class StartGame : MonoBehaviour
     {
         GlobalVars.clearedFloors = 0;
         GlobalVars.floor = 0;
+        m_PlayerStat.m_Gold = 0;
+        m_PlayerStat.m_MaxHealth = 100;
+        m_PlayerStat.m_Speed = 0;
+
+        m_EnemyStat.m_MaxHealthChase = 2;
+        m_EnemyStat.m_MaxHealthSingle = 5;
+        m_EnemyStat.m_MaxHealthSpin = 3;
+        m_EnemyStat.m_Damage = 10;
         SceneManager.LoadScene("Level");
     }
 

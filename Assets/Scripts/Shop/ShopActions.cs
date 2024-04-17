@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShopActions : MonoBehaviour
 {
@@ -22,13 +23,12 @@ public class ShopActions : MonoBehaviour
     public TextMeshProUGUI m_OwnedCoinsText;
 
     private int m_Gold;
-    private int m_CurrentMaxHealth;
-    private int m_CurrentAttackSpeed;
-    private int m_CurrentMovementSpeed;
+    private float m_CurrentMaxHealth;
+    private float m_CurrentAttackSpeed;
+    private float m_CurrentMovementSpeed;
 
     void Start()
     {
-        m_PlayerStats.m_Gold = 50;
         m_Gold = m_PlayerStats.m_Gold;
         m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
 
@@ -47,9 +47,9 @@ public class ShopActions : MonoBehaviour
     public void MaxHealthIncrease()
     {
         int afterPurchaseAmt = m_Gold - m_MaxHealthUpgradeCost;
-        if (afterPurchaseAmt >= 0)
+        if (afterPurchaseAmt >= 0 && m_CurrentMaxHealth < 300)
         {
-            m_CurrentMaxHealth += 1;
+            m_CurrentMaxHealth += 25;
             m_Gold = afterPurchaseAmt;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();
@@ -59,7 +59,7 @@ public class ShopActions : MonoBehaviour
     public void MovementSpeedIncrease()
     {
         int afterPurchaseAmt = m_Gold - m_MovementSpeedUpgradeCost;
-        if (afterPurchaseAmt >= 0)
+        if (afterPurchaseAmt >= 0 && m_CurrentMovementSpeed < 20)
         {
             m_Gold = afterPurchaseAmt;
             m_CurrentMovementSpeed += 1;
@@ -71,7 +71,7 @@ public class ShopActions : MonoBehaviour
     public void AttackSpeedIncrease()
     {
         int afterPurchaseAmt = m_Gold - m_AttackSpeedUpgradeCost;
-        if (afterPurchaseAmt >= 0)
+        if (afterPurchaseAmt >= 0 && m_CurrentAttackSpeed < 5)
         {
             m_Gold = afterPurchaseAmt;
             m_AttackSpeedUpgradeCost += 1;
@@ -104,17 +104,21 @@ public class ShopActions : MonoBehaviour
 
     public void AttackSpeedDecrease()
     {
-        // if (m_CurrentAttackSpeed > m_PlayerStats.m_Speed)
-        // {
-        //     m_CurrentMovementSpeed -= 1;
-        //     m_Gold += m_MovementSpeedUpgradeCost;
-        //     m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
-        //     m_MaxHealthCounter.text = m_CurrentMovementSpeed.ToString();
-        // }
+        if (m_CurrentAttackSpeed > m_PlayerStats.m_AttackSpeed)
+        {
+            m_CurrentAttackSpeed -= 1;
+            m_Gold += m_AttackSpeedUpgradeCost;
+            m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
+            m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
+        }
     }
 
     public void Continue()
     {
-        
+        m_PlayerStats.m_MaxHealth = m_CurrentMaxHealth;
+        m_PlayerStats.m_Gold = m_Gold;
+        m_PlayerStats.m_Speed = m_CurrentMovementSpeed;
+        m_PlayerStats.m_AttackSpeed = m_CurrentAttackSpeed;
+        SceneManager.LoadScene("Death");
     }
 }

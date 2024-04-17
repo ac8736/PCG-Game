@@ -7,6 +7,8 @@ public class PlayerWeapon : MonoBehaviour
     public GameObject bulletPrefab;
     public float bulletForce = 17;
     public Transform firePoint;
+    public float m_Cooldown = 0.5f;
+    public PlayerStatScriptableObject m_PlayerStat;
 
     private bool m_CanShoot = true;
 
@@ -72,7 +74,7 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator ShootCD()
     {
         m_CanShoot = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(m_Cooldown * (1 - m_PlayerStat.m_AttackSpeed / 10));
         m_CanShoot = true;
     }
 }
