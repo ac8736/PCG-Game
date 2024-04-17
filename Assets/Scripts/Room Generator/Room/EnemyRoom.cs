@@ -30,7 +30,7 @@ public class EnemyRoom : MonoBehaviour
                 m_RoomControl.OpenAllDoors();
                 if (m_CanDestroy)
                 {
-                    GameObject.FindGameObjectWithTag("Player").transform.GetComponent<PlayerController>().GainGold(10);
+                    GameObject.FindGameObjectWithTag("Player").transform.GetComponent<PlayerController>().GainGold(5);
                     m_ClearTextAnimation.SetTrigger("Clear");
                     Destroy(this);
                 }
@@ -55,7 +55,8 @@ public class EnemyRoom : MonoBehaviour
 
     void SpawnEnemies()
     {
-        for (int i = 0; i < m_EnemySpawnLocations.Count; i++)
+        int spawnAmt = Random.Range(2, m_EnemySpawnLocations.Count);
+        for (int i = 0; i < spawnAmt; i++)
         {
             GameObject enemyInstance = Instantiate(m_Enemies[Random.Range(0, m_Enemies.Count)]);
             enemyInstance.transform.position = m_EnemySpawnLocations[i].position;

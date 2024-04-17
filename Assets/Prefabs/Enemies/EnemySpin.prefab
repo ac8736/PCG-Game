@@ -271,6 +271,7 @@ MonoBehaviour:
   speed: 1.5
   needsTracking: 0
   oscillate: 0
+  m_EnemyStat: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
   spawnerType: 1
   firingRate: 0.1
   reloadTime: 5
@@ -693,6 +694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsShooter: 1
   m_IsStationary: 1
+  m_EnemyStats: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
 --- !u!114 &5031049515736759396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,3 +711,6 @@ MonoBehaviour:
   m_Animator: {fileID: 2374702811955560018}
   m_CanDamage: 0
   m_FloatingHealthbar: {fileID: 9138520009804634568}
+  m_Spin: 1
+  m_Chase: 0
+  m_Single: 0

@@ -152,12 +152,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784a5ce25a9fa41789d50be099e63fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlayerStats: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
   m_FadeInOut: {fileID: 1677507119}
   m_Arrow: {fileID: 1156026905}
   m_GoldDisplay: {fileID: 1058139151}
   m_Healthbar: {fileID: 164712398}
   m_PlayerControls: {fileID: 1551637422}
+  m_Player: {fileID: 1859983105212101129}
 --- !u!4 &58800567
 Transform:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   manualDebugFloorRoof: 0
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
-  logPathResults: 1
+  logPathResults: 4
   maxNearestNodeDistance: 100
   scanOnStartup: 1
   fullGetNearestSearch: 0
@@ -1841,6 +1841,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+--- !u!114 &1859983105212101129 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+  m_PrefabInstance: {fileID: 1859983105212101128}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be661bb2955a64e8f8d6f250a426a7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

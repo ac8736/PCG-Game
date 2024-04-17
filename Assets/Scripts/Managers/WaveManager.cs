@@ -13,6 +13,7 @@ public class WaveManager : MonoBehaviour
     public List<GameObject> m_Enemies;
     public int m_SpawnCycles = 1;
     public PlayerStatScriptableObject m_PlayerStat;
+    public PlayerController m_Player;
 
     private int m_Timer = 100;
     private readonly List<GameObject> m_SpawnedEnemies = new();
@@ -32,7 +33,7 @@ public class WaveManager : MonoBehaviour
             m_Wave += 1;
         }
 
-        if (m_PlayerStat.m_Health <= 0)
+        if (m_Player.m_Health <= 0)
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -78,7 +79,7 @@ public class WaveManager : MonoBehaviour
                 var instance = Instantiate(m_Enemies[Random.Range(0, m_Enemies.Count)], transform.position, Quaternion.identity);
                 m_SpawnedEnemies.Add(instance);
             }
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(5.0f);
         }
     }
 

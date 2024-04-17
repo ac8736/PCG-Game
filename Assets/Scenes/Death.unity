@@ -185,6 +185,7 @@ MonoBehaviour:
   - {fileID: 8487907726614336011, guid: a0f97c91e1fe5784899a33dba5397ff0, type: 3}
   m_SpawnCycles: 1
   m_PlayerStat: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
+  m_Player: {fileID: 1217982880}
 --- !u!1 &473110453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1303,6 +1304,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+--- !u!114 &1217982880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+  m_PrefabInstance: {fileID: 1217982879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be661bb2955a64e8f8d6f250a426a7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1526833966
 GameObject:
   m_ObjectHideFlags: 0

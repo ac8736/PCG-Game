@@ -328,6 +328,9 @@ MonoBehaviour:
   m_Animator: {fileID: 3462842077219939464}
   m_CanDamage: 0
   m_FloatingHealthbar: {fileID: 872176758434512516}
+  m_Spin: 0
+  m_Chase: 1
+  m_Single: 0
 --- !u!114 &4458265449301372666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_IsShooter: 0
   m_IsStationary: 0
+  m_EnemyStats: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
 --- !u!1 &2700300557134564122
 GameObject:
   m_ObjectHideFlags: 0
