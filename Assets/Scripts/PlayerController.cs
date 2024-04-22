@@ -55,12 +55,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet") && m_CanDamage)
+        if (m_CanDamage)
         {
-            m_CanDamage = false;
-            if (m_Health > 0) { m_Health -= collision.gameObject.GetComponent<Bullet>().GetDamage(); }
-            m_HealthbarManager.SetHealth(m_Health);
-            StartCoroutine(TakeDamageCooldown());
+            if (collision.gameObject.CompareTag("Bullet"))
+            {
+                m_CanDamage = false;
+                if (m_Health > 0) { m_Health -= collision.gameObject.GetComponent<Bullet>().GetDamage(); }
+                m_HealthbarManager.SetHealth(m_Health);
+                StartCoroutine(TakeDamageCooldown());
+            }
+            if (collision.gameObject.CompareTag("SpikeTrap") && collision.gameObject.GetComponent<SpikeTrap>().GetIsActive())
+            {
+                m_CanDamage = false;
+                if (m_Health > 0) { m_Health -= collision.gameObject.GetComponent<SpikeTrap>().GetDamage(); }
+                m_HealthbarManager.SetHealth(m_Health);
+                StartCoroutine(TakeDamageCooldown());
+            }
         }
     }
 

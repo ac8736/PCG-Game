@@ -7,6 +7,7 @@ public class EnemyRoom : MonoBehaviour
     public List<GameObject> m_Enemies = new();
     public List<Transform> m_EnemySpawnLocations = new();
     public List<GameObject> m_SpawnedEnemies = new();
+    public GameObject m_SpikeTraps;
 
     private List<GameObject> m_EnemyBullets = new();
     private bool m_CanDestroy = false;
@@ -19,6 +20,10 @@ public class EnemyRoom : MonoBehaviour
     {
         m_RoomControl = GetComponent<Room>();
         m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).GetComponent<Animator>();
+        if (Random.Range(0, 3) == 0 && m_SpikeTraps != null)
+        {
+            m_SpikeTraps.SetActive(true);
+        }
     }
 
     // Update is called once per frame

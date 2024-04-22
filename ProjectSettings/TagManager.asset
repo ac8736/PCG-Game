@@ -12,6 +12,7 @@ TagManager:
   - Dungeon
   - Canvas
   - WaveManager
+  - SpikeTrap
   layers:
   - Default
   - TransparentFX
