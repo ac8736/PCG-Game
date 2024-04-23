@@ -73,7 +73,6 @@ public class BulletSpawner : MonoBehaviour
         }
         if (bulletTwo) {
             if (spawnerType == SpawnerType.Spin) {
-                Debug.Log("Hello");
                 transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 120f);
                 spawnedBulletTwo = Instantiate(bulletTwo, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
                 Bullet bulletComponentTwo = spawnedBulletTwo.GetComponent<Bullet>();

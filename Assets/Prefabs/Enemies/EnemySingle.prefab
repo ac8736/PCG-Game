@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyNeedsTracking: 1
   speed: 5
-  rotationSpeed: 200
+  rotationSpeed: 295
 --- !u!114 &6006705027207138045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,15 +62,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
-  bulletLife: 3
-  speed: 3
+  bulletLife: 6
+  speed: 6.5
   needsTracking: 1
   oscillate: 0
   m_EnemyStat: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
+  bulletTwo: {fileID: 0}
+  bulletThree: {fileID: 0}
   spawnerType: 0
-  firingRate: 0.2
-  reloadTime: 5
-  maxShots: 4
+  firingRate: 0.35
+  reloadTime: 2.7
+  maxShots: 5
   angleChange: 0
   bulletSpawnOffset: 0.4
 --- !u!50 &8865318920292230151

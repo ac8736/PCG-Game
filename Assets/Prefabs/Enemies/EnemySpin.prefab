@@ -268,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
   bulletLife: 30
-  speed: 6
+  speed: 4.5
   needsTracking: 0
   oscillate: 0
   m_EnemyStat: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
