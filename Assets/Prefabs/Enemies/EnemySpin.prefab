@@ -272,10 +272,12 @@ MonoBehaviour:
   needsTracking: 0
   oscillate: 0
   m_EnemyStat: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
+  bulletTwo: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
+  bulletThree: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
   spawnerType: 1
-  firingRate: 0.3
-  reloadTime: 1
-  maxShots: 9
+  firingRate: 0.26
+  reloadTime: 0.8
+  maxShots: 8
   angleChange: 0.2
   bulletSpawnOffset: 0.4
 --- !u!50 &1033427845241385005

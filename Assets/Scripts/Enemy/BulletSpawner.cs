@@ -14,6 +14,9 @@ public class BulletSpawner : MonoBehaviour
     public bool oscillate = false;
     public EnemyStats m_EnemyStat;
 
+    public GameObject bulletTwo;
+    public GameObject bulletThree;
+
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
     [SerializeField] private float firingRate = 0.8f;
@@ -22,6 +25,8 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private float angleChange = 20f;
     [SerializeField] private float bulletSpawnOffset = 0.4f;
     private GameObject spawnedBullet;
+    private GameObject spawnedBulletTwo;
+    private GameObject spawnedBulletThree;
     private float timer = 0f;
     private float firingCount = 0f;
     private bool reloading = false;
@@ -62,7 +67,31 @@ public class BulletSpawner : MonoBehaviour
             bulletComponent.bulletLife = bulletLife;
             bulletComponent.m_Damage = m_EnemyStat.m_Damage;
             spawnedBullet.transform.rotation = transform.rotation;
+
+            
             firingCount++;
+        }
+        if (bulletTwo) {
+            if (spawnerType == SpawnerType.Spin) {
+                Debug.Log("Hello");
+                transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 120f);
+                spawnedBulletTwo = Instantiate(bulletTwo, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
+                Bullet bulletComponentTwo = spawnedBulletTwo.GetComponent<Bullet>();
+                bulletComponentTwo.speed = speed;
+                bulletComponentTwo.bulletLife = bulletLife;
+                bulletComponentTwo.m_Damage = m_EnemyStat.m_Damage;
+                spawnedBulletTwo.transform.rotation = transform.rotation;
+
+                transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 120f);
+                spawnedBulletThree = Instantiate(bulletThree, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
+                Bullet bulletComponentThree = spawnedBulletThree.GetComponent<Bullet>();
+                bulletComponentThree.speed = speed;
+                bulletComponentThree.bulletLife = bulletLife;
+                bulletComponentThree.m_Damage = m_EnemyStat.m_Damage;
+                spawnedBulletThree.transform.rotation = transform.rotation;
+
+                transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z - 240f);
+            }
         }
     }
  
