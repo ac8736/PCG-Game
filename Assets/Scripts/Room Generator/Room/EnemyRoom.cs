@@ -9,7 +9,7 @@ public class EnemyRoom : MonoBehaviour
     public List<GameObject> m_SpawnedEnemies = new();
     public GameObject m_SpikeTraps;
 
-    private List<GameObject> m_EnemyBullets = new();
+    private readonly List<GameObject> m_EnemyBullets = new();
     private bool m_CanDestroy = false;
     private bool m_Triggered = false;
     private Room m_RoomControl;
@@ -36,7 +36,6 @@ public class EnemyRoom : MonoBehaviour
                 m_RoomControl.OpenAllDoors();
                 if (m_CanDestroy)
                 {
-                    GameObject.FindGameObjectWithTag("Player").transform.GetComponent<PlayerController>().GainGold(5);
                     m_ClearTextAnimation.SetTrigger("Clear");
                     foreach (var bullet in m_EnemyBullets)
                     {
@@ -67,14 +66,18 @@ public class EnemyRoom : MonoBehaviour
 
     void SpawnEnemies()
     {
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
         int spawnAmt = Random.Range(2, m_EnemySpawnLocations.Count);
         for (int i = 0; i < spawnAmt; i++)
         {
-            GameObject enemyInstance = Instantiate(m_Enemies[Random.Range(0, m_Enemies.Count)]);
-            enemyInstance.transform.position = m_EnemySpawnLocations[i].position;
-            EnemyRoomHandler handler = enemyInstance.GetComponent<EnemyRoomHandler>();
-            handler.m_Room = this;
-            m_SpawnedEnemies.Add(enemyInstance);
+            if (Vector2.Distance(player.position, m_EnemySpawnLocations[i].position) > 5)
+            {
+                GameObject enemyInstance = Instantiate(m_Enemies[Random.Range(0, m_Enemies.Count)]);
+                enemyInstance.transform.position = m_EnemySpawnLocations[i].position;
+                EnemyRoomHandler handler = enemyInstance.GetComponent<EnemyRoomHandler>();
+                handler.m_Room = this;
+                m_SpawnedEnemies.Add(enemyInstance);
+            }
         }
 
         m_CanDestroy = true;
