@@ -67,7 +67,7 @@ public class BulletSpawner : MonoBehaviour
     }
  
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         timer += Time.deltaTime;
         if (spawnerType == SpawnerType.Spin) {
@@ -75,15 +75,6 @@ public class BulletSpawner : MonoBehaviour
         }
         
         if (timer >= firingRate) {
-            /*if (spawnerType == SpawnerType.Burst && reloading == false) {
-                needsTracking = false;
-                if (firingCount == 0) {
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z - 2 * angleChange);
-                }
-                else {
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + angleChange);
-                }
-            }*/
             if (!reloading) {
                 Fire();
                 timer = 0;
