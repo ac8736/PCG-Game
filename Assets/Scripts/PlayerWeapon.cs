@@ -58,6 +58,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (m_CurrentAmmo == 0 && Input.GetMouseButtonDown(0)){
             audioManager.PlaySFX(audioManager.empty);
+            StartCoroutine(Reload());
         }
 
         if (m_CanShoot && Input.GetMouseButton(0) && m_CurrentAmmo > 0)
@@ -68,7 +69,7 @@ public class PlayerWeapon : MonoBehaviour
             m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(Reload());
         }
