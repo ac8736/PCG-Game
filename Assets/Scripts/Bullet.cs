@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
     public float bulletLife = 1f;
     public float rotation = 0f;
     public float speed = 3f;
-    public float m_Damage;
 
     private Rigidbody2D rb;
 
@@ -25,11 +24,6 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public float GetDamage()
-    {
-        return m_Damage;
     }
 
     IEnumerator Despawn()

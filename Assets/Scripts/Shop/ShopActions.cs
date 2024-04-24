@@ -23,7 +23,7 @@ public class ShopActions : MonoBehaviour
     public TextMeshProUGUI m_OwnedCoinsText;
 
     private int m_Gold;
-    private float m_CurrentMaxHealth;
+    private int m_CurrentMaxHealth;
     private float m_CurrentAttackSpeed;
     private float m_CurrentMovementSpeed;
 
@@ -49,7 +49,7 @@ public class ShopActions : MonoBehaviour
         int afterPurchaseAmt = m_Gold - m_MaxHealthUpgradeCost;
         if (afterPurchaseAmt >= 0 && m_CurrentMaxHealth < 300)
         {
-            m_CurrentMaxHealth += 25;
+            m_CurrentMaxHealth += 1;
             m_Gold = afterPurchaseAmt;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();
@@ -84,7 +84,7 @@ public class ShopActions : MonoBehaviour
     {
         if (m_CurrentMaxHealth > m_PlayerStats.m_MaxHealth)
         {
-            m_CurrentMaxHealth -= 25;
+            m_CurrentMaxHealth -= 1;
             m_Gold += m_MaxHealthUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();

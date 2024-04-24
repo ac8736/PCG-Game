@@ -7,7 +7,6 @@ public class SpikeTrap : MonoBehaviour
     public Sprite m_Idle;
     public Sprite m_Active;
     public SpriteRenderer m_SpriteRenderer;
-    public float m_Damage = 25f;
 
     private float m_Timer;
     private bool m_IsActive;
@@ -22,11 +21,6 @@ public class SpikeTrap : MonoBehaviour
     public bool GetIsActive()
     {
         return m_IsActive;
-    }
-
-    public float GetDamage()
-    {
-        return m_Damage;
     }
 
     IEnumerator Cycle()

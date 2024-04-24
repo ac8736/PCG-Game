@@ -15,7 +15,7 @@ public class StartGame : MonoBehaviour
     public void PlayGame()
     {
         m_PlayerStat.m_Gold = 0;
-        m_PlayerStat.m_MaxHealth = 100;
+        m_PlayerStat.m_MaxHealth = 3;
         m_PlayerStat.m_Speed = 0;
         m_PlayerStat.m_AttackSpeed = 0;
 
@@ -32,7 +32,7 @@ public class StartGame : MonoBehaviour
         GlobalVars.clearedFloors = 0;
         GlobalVars.floor = 0;
         m_PlayerStat.m_Gold = 0;
-        m_PlayerStat.m_MaxHealth = 100;
+        m_PlayerStat.m_MaxHealth = 3;
         m_PlayerStat.m_Speed = 0;
         m_PlayerStat.m_AttackSpeed = 0;
 

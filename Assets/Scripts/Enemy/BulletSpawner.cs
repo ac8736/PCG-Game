@@ -65,7 +65,7 @@ public class BulletSpawner : MonoBehaviour
             Bullet bulletComponent = spawnedBullet.GetComponent<Bullet>();
             bulletComponent.speed = speed;
             bulletComponent.bulletLife = bulletLife;
-            bulletComponent.m_Damage = m_EnemyStat.m_Damage;
+            // bulletComponent.m_Damage = m_EnemyStat.m_Damage;
             spawnedBullet.transform.rotation = transform.rotation;
 
             
@@ -78,7 +78,7 @@ public class BulletSpawner : MonoBehaviour
                 Bullet bulletComponentTwo = spawnedBulletTwo.GetComponent<Bullet>();
                 bulletComponentTwo.speed = speed;
                 bulletComponentTwo.bulletLife = bulletLife;
-                bulletComponentTwo.m_Damage = m_EnemyStat.m_Damage;
+                // bulletComponentTwo.m_Damage = m_EnemyStat.m_Damage;
                 spawnedBulletTwo.transform.rotation = transform.rotation;
 
                 transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 120f);
@@ -86,7 +86,7 @@ public class BulletSpawner : MonoBehaviour
                 Bullet bulletComponentThree = spawnedBulletThree.GetComponent<Bullet>();
                 bulletComponentThree.speed = speed;
                 bulletComponentThree.bulletLife = bulletLife;
-                bulletComponentThree.m_Damage = m_EnemyStat.m_Damage;
+                // bulletComponentThree.m_Damage = m_EnemyStat.m_Damage;
                 spawnedBulletThree.transform.rotation = transform.rotation;
 
                 transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z - 240f);

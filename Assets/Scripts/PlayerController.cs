@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D m_Rigidbody;
     public Animator m_Animator;
     public SpriteRenderer m_SpriteRenderer;
-    public float m_Health = 100;
-    public float m_Speed = 4;
+    public int m_Health;
+    public float m_Speed = 6;
 
     private bool m_CanDamage = true;
+    private float m_HorizontalSpeed;
+    private float m_VerticalSpeed;
 
     //feedback 
     private AudioManager m_AudioManager;
@@ -28,29 +30,31 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) Debug.Log(m_Speed);
-        float horizontalSpeed = Input.GetAxisRaw("Horizontal") * m_Speed;
-        float verticalSpeed = Input.GetAxisRaw("Vertical") * m_Speed;
-
-        if (m_Health > 0) { m_Rigidbody.velocity = new Vector2(horizontalSpeed, verticalSpeed); }
-        else { m_Rigidbody.velocity = Vector2.zero; }
+        m_HorizontalSpeed = Input.GetAxisRaw("Horizontal") * m_Speed;
+        m_VerticalSpeed = Input.GetAxisRaw("Vertical") * m_Speed;
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (mousePos.x < transform.position.x) { m_SpriteRenderer.flipX = true; }
         if (mousePos.x > transform.position.x) { m_SpriteRenderer.flipX = false; }
 
-        if (Mathf.Abs(horizontalSpeed) > 0)
+        if (Mathf.Abs(m_HorizontalSpeed) > 0)
         {
-            m_Animator.SetFloat("Speed", Mathf.Abs(horizontalSpeed));
+            m_Animator.SetFloat("Speed", Mathf.Abs(m_HorizontalSpeed));
         }
-        else if (Mathf.Abs(verticalSpeed) > 0)
+        else if (Mathf.Abs(m_VerticalSpeed) > 0)
         {
-            m_Animator.SetFloat("Speed", Mathf.Abs(verticalSpeed));
+            m_Animator.SetFloat("Speed", Mathf.Abs(m_VerticalSpeed));
         }
         else
         {
             m_Animator.SetFloat("Speed", 0);
         }
+    }
+
+    void FixedUpdate() 
+    {
+        if (m_Health > 0) { m_Rigidbody.velocity = new Vector2(m_HorizontalSpeed, m_VerticalSpeed); }
+        else { m_Rigidbody.velocity = Vector2.zero; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,14 +64,14 @@ public class PlayerController : MonoBehaviour
             if (collision.gameObject.CompareTag("Bullet"))
             {
                 m_CanDamage = false;
-                if (m_Health > 0) { m_Health -= collision.gameObject.GetComponent<Bullet>().GetDamage(); }
+                if (m_Health > 0) { m_Health -= 1; }
                 m_HealthbarManager.SetHealth(m_Health);
                 StartCoroutine(TakeDamageCooldown());
             }
             if (collision.gameObject.CompareTag("SpikeTrap") && collision.gameObject.GetComponent<SpikeTrap>().GetIsActive())
             {
                 m_CanDamage = false;
-                if (m_Health > 0) { m_Health -= collision.gameObject.GetComponent<SpikeTrap>().GetDamage(); }
+                if (m_Health > 0) { m_Health -= 1; }
                 m_HealthbarManager.SetHealth(m_Health);
                 StartCoroutine(TakeDamageCooldown());
             }
@@ -79,7 +83,7 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.CompareTag("Enemy") && m_CanDamage)
         {
             m_CanDamage = false;
-            if (m_Health > 0) { m_Health -= collider.gameObject.GetComponent<EnemyController>().GetDamage(); }
+            if (m_Health > 0) { m_Health -= 1; }
             m_HealthbarManager.SetHealth(m_Health);
             StartCoroutine(TakeDamageCooldown());
         }
