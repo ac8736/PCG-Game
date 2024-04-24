@@ -376,6 +376,7 @@ MonoBehaviour:
   deathbgm: {fileID: 8300000, guid: 47328483869204a3f881db0ed564abd6, type: 3}
   magic: {fileID: 8300000, guid: e6ffff2ec34525a4f8d956c316b88749, type: 3}
   takeDamage: {fileID: 8300000, guid: 5d0999d7bc700ee4bba1bd400ea5cb4f, type: 3}
+  coinPickup: {fileID: 8300000, guid: 725dc047a3fe83543ad0a48ea5b025f8, type: 3}
 --- !u!4 &101053166
 Transform:
   m_ObjectHideFlags: 0
