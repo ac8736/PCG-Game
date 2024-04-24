@@ -56,7 +56,7 @@ public class PlayerWeapon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (m_CurrentAmmo == 0 && Input.GetMouseButton(0) && !m_CanShoot){
+        if (m_CurrentAmmo == 0 && Input.GetMouseButtonDown(0)){
             audioManager.PlaySFX(audioManager.empty);
         }
 

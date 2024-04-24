@@ -380,7 +380,7 @@ MonoBehaviour:
   walk: {fileID: 8300000, guid: 7259418f32412e641958cacf91efd2b6, type: 3}
   trap: {fileID: 8300000, guid: f333c252b0e2d7849b5c2ca57e12e0c9, type: 3}
   reload: {fileID: 8300000, guid: 04454a154710583419386a7448c71383, type: 3}
-  empty: {fileID: 8300000, guid: d8c1bd6626d706c4f8ad3bd4a8a20ceb, type: 3}
+  empty: {fileID: 8300000, guid: f26adeadfbe50e7498132bcdd5ae4e7a, type: 3}
 --- !u!4 &101053166
 Transform:
   m_ObjectHideFlags: 0
