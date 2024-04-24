@@ -8,22 +8,22 @@ public class ShopActions : MonoBehaviour
 {
     public PlayerStatScriptableObject m_PlayerStats;
 
-    public int m_MaxHealthUpgradeCost;
+    public int m_MaxAmmoUpgradeCost;
     public int m_AttackSpeedUpgradeCost;
     public int m_MovementSpeedUpgradeCost;
 
-    public TextMeshProUGUI m_MaxHealthUpgradeCostText;
+    public TextMeshProUGUI m_MaxAmmoUpgradeCostText;
     public TextMeshProUGUI m_MovementSpeedUpgradeCostText;
     public TextMeshProUGUI m_AttackSpeedUpgradeCostText;
 
-    public TextMeshProUGUI m_MaxHealthCounter;
-    public TextMeshProUGUI m_MovementSpeeedCounter;
+    public TextMeshProUGUI m_MaxAmmoCounter;
+    public TextMeshProUGUI m_MovementSpeedCounter;
     public TextMeshProUGUI m_AttackSpeedCounter;
 
     public TextMeshProUGUI m_OwnedCoinsText;
 
     private int m_Gold;
-    private int m_CurrentMaxHealth;
+    private int m_CurrentMaxAmmo;
     private float m_CurrentAttackSpeed;
     private float m_CurrentMovementSpeed;
 
@@ -32,27 +32,28 @@ public class ShopActions : MonoBehaviour
         m_Gold = m_PlayerStats.m_Gold;
         m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
 
-        m_CurrentMaxHealth = m_PlayerStats.m_MaxHealth;
+        m_CurrentMaxAmmo = m_PlayerStats.m_AmmoCount;
         m_CurrentMovementSpeed = m_PlayerStats.m_Speed;
 
-        m_MaxHealthUpgradeCostText.text = "x" + m_MaxHealthUpgradeCost;
+        m_MaxAmmoUpgradeCostText.text = "x" + m_MaxAmmoUpgradeCost;
         m_MovementSpeedUpgradeCostText.text = "x" + m_MovementSpeedUpgradeCost;
         m_AttackSpeedUpgradeCostText.text = "x" + m_AttackSpeedUpgradeCost;
 
-        m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();
-        m_MovementSpeeedCounter.text = m_CurrentMovementSpeed.ToString();
+        m_MaxAmmoCounter.text = m_CurrentMaxAmmo.ToString();
+        m_MovementSpeedCounter.text = m_CurrentMovementSpeed.ToString();
         m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
     }
 
-    public void MaxHealthIncrease()
+    public void MaxAmmoIncrease()
     {
-        int afterPurchaseAmt = m_Gold - m_MaxHealthUpgradeCost;
-        if (afterPurchaseAmt >= 0 && m_CurrentMaxHealth < 300)
+        int afterPurchaseAmt = m_Gold - m_MaxAmmoUpgradeCost;
+        if (afterPurchaseAmt >= 0 && m_CurrentMaxAmmo < 20)
         {
-            m_CurrentMaxHealth += 1;
+            m_CurrentMaxAmmo += 1;
             m_Gold = afterPurchaseAmt;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
-            m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();
+            m_MaxAmmoCounter.text = m_CurrentMaxAmmo.ToString();
+            if (m_CurrentMaxAmmo >= 20) { m_MaxAmmoCounter.text += "(Max)"; }
         }
     }
 
@@ -64,7 +65,8 @@ public class ShopActions : MonoBehaviour
             m_Gold = afterPurchaseAmt;
             m_CurrentMovementSpeed += 1;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
-            m_MovementSpeeedCounter.text = m_CurrentMovementSpeed.ToString();
+            m_MovementSpeedCounter.text = m_CurrentMovementSpeed.ToString();
+            if (m_CurrentMovementSpeed >= 20) { m_MovementSpeedCounter.text += "(Max)"; }
         }
     }
 
@@ -77,17 +79,18 @@ public class ShopActions : MonoBehaviour
             m_CurrentAttackSpeed += 1;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
+            if (m_CurrentAttackSpeed >= 5) { m_AttackSpeedCounter.text += "(Max)"; }
         }
     }
 
-    public void MaxHealthDecrease()
+    public void MaxAmmoDecrease()
     {
-        if (m_CurrentMaxHealth > m_PlayerStats.m_MaxHealth)
+        if (m_CurrentMaxAmmo > m_PlayerStats.m_MaxHealth)
         {
-            m_CurrentMaxHealth -= 1;
-            m_Gold += m_MaxHealthUpgradeCost;
+            m_CurrentMaxAmmo -= 1;
+            m_Gold += m_MaxAmmoUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
-            m_MaxHealthCounter.text = m_CurrentMaxHealth.ToString();
+            m_MaxAmmoCounter.text = m_CurrentMaxAmmo.ToString();
         }
     }
 
@@ -98,7 +101,7 @@ public class ShopActions : MonoBehaviour
             m_CurrentMovementSpeed -= 1;
             m_Gold += m_MovementSpeedUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
-            m_MovementSpeeedCounter.text = m_CurrentMovementSpeed.ToString();
+            m_MovementSpeedCounter.text = m_CurrentMovementSpeed.ToString();
         }
     }
 
@@ -115,7 +118,7 @@ public class ShopActions : MonoBehaviour
 
     public void Continue()
     {
-        m_PlayerStats.m_MaxHealth = m_CurrentMaxHealth;
+        m_PlayerStats.m_AmmoCount = m_CurrentMaxAmmo;
         m_PlayerStats.m_Gold = m_Gold;
         m_PlayerStats.m_Speed = m_CurrentMovementSpeed;
         m_PlayerStats.m_AttackSpeed = m_CurrentAttackSpeed;

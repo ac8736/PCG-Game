@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
@@ -9,7 +10,10 @@ public class PlayerWeapon : MonoBehaviour
     public Transform firePoint;
     public float m_Cooldown = 0.5f;
     public PlayerStatScriptableObject m_PlayerStat;
+    public TextMeshProUGUI m_AmmoDisplay;
 
+    private int m_CurrentAmmo;
+    private int m_MaxAmmo;
     private bool m_CanShoot = true;
 
     // SFX
@@ -23,7 +27,9 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        m_MaxAmmo = m_PlayerStat.m_AmmoCount;
+        m_CurrentAmmo = m_MaxAmmo;
+        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
     }
 
     // Update is called once per frame
@@ -40,13 +46,17 @@ public class PlayerWeapon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (m_CanShoot)
+        if (m_CanShoot && Input.GetMouseButton(0) && m_CurrentAmmo > 0)
         {
-            if (Input.GetMouseButton(0))
-            {
-                StartCoroutine(ShootCD());
-                Shoot();
-            }
+            StartCoroutine(ShootCD());
+            Shoot();
+            m_CurrentAmmo--;
+            m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            StartCoroutine(Reload());
         }
     }
 
@@ -76,5 +86,14 @@ public class PlayerWeapon : MonoBehaviour
         m_CanShoot = false;
         yield return new WaitForSeconds(m_Cooldown * (1 - m_PlayerStat.m_AttackSpeed / 10));
         m_CanShoot = true;
+    }
+
+    IEnumerator Reload()
+    {
+        m_CanShoot = false;
+        yield return new WaitForSeconds(0.5f);
+        m_CurrentAmmo = m_MaxAmmo;
+        m_CanShoot = true;
+        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
     }
 }

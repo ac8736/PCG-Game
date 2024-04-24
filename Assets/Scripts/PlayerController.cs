@@ -11,7 +11,9 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer m_SpriteRenderer;
     public int m_Health;
     public float m_Speed = 6;
+    public int m_Blanks = 1;
 
+    private EnemyRoom m_EnemyRoomComponent;
     private bool m_CanDamage = true;
     private float m_HorizontalSpeed;
     private float m_VerticalSpeed;
@@ -28,6 +30,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && m_Blanks > 0 && m_EnemyRoomComponent != null)
+        {
+            m_EnemyRoomComponent.ClearEnemyBullets();
+            m_Blanks--;
+        }
+
         m_HorizontalSpeed = Input.GetAxisRaw("Horizontal") * m_Speed;
         m_VerticalSpeed = Input.GetAxisRaw("Vertical") * m_Speed;
 
@@ -82,6 +90,11 @@ public class PlayerController : MonoBehaviour
             if (m_Health > 0) { m_Health -= 1; }
             StartCoroutine(TakeDamageCooldown());
         }
+    }
+
+    public void SetEnemyRoom(EnemyRoom room)
+    {
+        m_EnemyRoomComponent = room;
     }
 
     public void GainGold(int amt)
