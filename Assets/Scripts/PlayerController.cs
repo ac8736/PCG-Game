@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
                 m_CanDamage = false;
                 if (m_Health > 0) { m_Health -= 1; }
                 publicvar.triggerShaking = true;
+                m_AudioManager.PlaySFX(m_AudioManager.takeDamage);
                 StartCoroutine(TakeDamageCooldown());
             }
             if (collision.gameObject.CompareTag("SpikeTrap") && collision.gameObject.GetComponent<SpikeTrap>().GetIsActive())
@@ -79,6 +80,7 @@ public class PlayerController : MonoBehaviour
                 m_CanDamage = false;
                 if (m_Health > 0) { m_Health -= 1; }
                 publicvar.triggerShaking = true;
+                m_AudioManager.PlaySFX(m_AudioManager.takeDamage);
                 StartCoroutine(TakeDamageCooldown());
                 
             }
@@ -91,6 +93,8 @@ public class PlayerController : MonoBehaviour
         {
             m_CanDamage = false;
             if (m_Health > 0) { m_Health -= 1; }
+            m_AudioManager.PlaySFX(m_AudioManager.takeDamage);
+            publicvar.triggerShaking = true;
             StartCoroutine(TakeDamageCooldown());
         }
     }
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
     public void GainGold(int amt)
     {
         m_PlayerStats.m_Gold += amt;
+        m_AudioManager.PlaySFX(m_AudioManager.coinPickup);
     }
 
     IEnumerator TakeDamageCooldown()
