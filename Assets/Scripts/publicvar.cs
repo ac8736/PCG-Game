@@ -7,6 +7,6 @@ public static class publicvar
 {   
     public static bool triggerShaking = false;
     public static bool triggerTrapSound = false;
-    private static bool isPlaying = false;
+    public static bool throughDoor = false;
     
 }

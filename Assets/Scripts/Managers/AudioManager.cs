@@ -26,6 +26,10 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip empty;
 
+    public AudioClip doorClose;
+
+    public AudioClip success;
+
     // public int GlobalVars.floor globalVars;
 
     private static AudioManager instance;

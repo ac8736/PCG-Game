@@ -14,10 +14,12 @@ public class EnemyRoom : MonoBehaviour
     private bool m_Triggered = false;
     private Room m_RoomControl;
     private Animator m_ClearTextAnimation;
+    private AudioManager m_AudioManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         m_RoomControl = GetComponent<Room>();
         m_ClearTextAnimation = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(0).GetComponent<Animator>();
         if (Random.Range(0, 3) == 0 && m_SpikeTraps != null)
@@ -37,6 +39,7 @@ public class EnemyRoom : MonoBehaviour
                 if (m_CanDestroy)
                 {
                     m_ClearTextAnimation.SetTrigger("Clear");
+                    m_AudioManager.PlaySFX(m_AudioManager.success);
                     ClearEnemyBullets();
                     Destroy(this);
                 }

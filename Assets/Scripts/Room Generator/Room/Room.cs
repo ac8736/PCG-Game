@@ -14,6 +14,16 @@ public class Room : MonoBehaviour
     private bool m_TopOpen = false;
     private bool m_BottomOpen = false;
 
+    private AudioManager m_AudioManager;
+
+
+    private void Start()
+    {
+        
+        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        
+    }
+
     public void OpenLeftWall()
     {
         m_LeftWall.transform.GetChild(0).gameObject.SetActive(false);
@@ -56,6 +66,7 @@ public class Room : MonoBehaviour
 
     public void CloseAllDoors()
     {
+        m_AudioManager.PlaySFX(m_AudioManager.doorClose);
         if (m_BottomOpen) { m_BottomWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }
         if (m_TopOpen) { m_TopWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }
         if (m_LeftOpen) { m_LeftWall.transform.GetChild(1).GetComponent<Door>().m_IsOpen = false; }

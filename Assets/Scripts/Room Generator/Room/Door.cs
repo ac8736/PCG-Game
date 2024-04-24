@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    private AudioManager m_AudioManager;
     public bool m_IsOpen = false;
+
+    private void Start()
+    {
+        
+        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        
+    }
 
     private void Update()
     {
