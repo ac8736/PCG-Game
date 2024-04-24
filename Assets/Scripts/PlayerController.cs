@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStatScriptableObject m_PlayerStats;
-    public HealthbarManager m_HealthbarManager;
     public Rigidbody2D m_Rigidbody;
     public Animator m_Animator;
     public SpriteRenderer m_SpriteRenderer;
@@ -23,7 +22,6 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         m_Health = m_PlayerStats.m_MaxHealth;
-        m_HealthbarManager.SetMaxHealth(m_PlayerStats.m_MaxHealth);
         m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         m_Speed += m_PlayerStats.m_Speed / 10;
     }
@@ -65,14 +63,12 @@ public class PlayerController : MonoBehaviour
             {
                 m_CanDamage = false;
                 if (m_Health > 0) { m_Health -= 1; }
-                m_HealthbarManager.SetHealth(m_Health);
                 StartCoroutine(TakeDamageCooldown());
             }
             if (collision.gameObject.CompareTag("SpikeTrap") && collision.gameObject.GetComponent<SpikeTrap>().GetIsActive())
             {
                 m_CanDamage = false;
                 if (m_Health > 0) { m_Health -= 1; }
-                m_HealthbarManager.SetHealth(m_Health);
                 StartCoroutine(TakeDamageCooldown());
             }
         }
@@ -84,7 +80,6 @@ public class PlayerController : MonoBehaviour
         {
             m_CanDamage = false;
             if (m_Health > 0) { m_Health -= 1; }
-            m_HealthbarManager.SetHealth(m_Health);
             StartCoroutine(TakeDamageCooldown());
         }
     }
@@ -96,7 +91,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator TakeDamageCooldown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.0f);
         m_CanDamage = true;
     }
 }
