@@ -573,7 +573,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  shakeDuration: 0.5
+  shakeDuration: 0.2
 --- !u!1 &557656702
 GameObject:
   m_ObjectHideFlags: 0
