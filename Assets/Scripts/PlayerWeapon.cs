@@ -12,6 +12,8 @@ public class PlayerWeapon : MonoBehaviour
     public PlayerStatScriptableObject m_PlayerStat;
     public TextMeshProUGUI m_AmmoDisplay;
 
+    public List<GameObject> m_Bullets;
+
     private int m_CurrentAmmo;
     private int m_MaxAmmo;
     private bool m_CanShoot = true;
@@ -30,6 +32,12 @@ public class PlayerWeapon : MonoBehaviour
         m_MaxAmmo = m_PlayerStat.m_AmmoCount;
         m_CurrentAmmo = m_MaxAmmo;
         m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+
+        for (int i = 0; i<m_Bullets.Count; i++)
+        {
+            m_Bullets[i].SetActive(true);
+        }
+
     }
 
     // Update is called once per frame
@@ -57,6 +65,34 @@ public class PlayerWeapon : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine(Reload());
+        }
+
+        if (m_CurrentAmmo == 10)
+        {
+            for (int i = 0; i< m_Bullets.Count; i++)
+            {
+                m_Bullets[i].SetActive(true);
+            }
+        }
+        else if (m_CurrentAmmo == 8)
+        {
+            m_Bullets[4].SetActive(false);
+        }
+        else if (m_CurrentAmmo == 6)
+        {
+            m_Bullets[3].SetActive(false);
+        }
+        else if (m_CurrentAmmo == 4)
+        {
+            m_Bullets[2].SetActive(false);
+        }
+        else if (m_CurrentAmmo == 2)
+        {
+            m_Bullets[1].SetActive(false);
+        }
+        else if (m_CurrentAmmo == 0)
+        {
+            m_Bullets[0].SetActive(false);
         }
     }
 

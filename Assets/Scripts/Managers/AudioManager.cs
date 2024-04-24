@@ -12,13 +12,17 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("Audio Clip ---------")]
-    public AudioClip normalbgm;
+    // public AudioClip normalbgm;
+    public List<AudioClip> normalbgm;
+
     public AudioClip deathbgm;
 
     public AudioClip magic; 
     public AudioClip takeDamage;
+    // public int GlobalVars.floor globalVars;
 
     private static AudioManager instance;
+    private int level = 0;
 
     private void Awake()
     {
@@ -35,7 +39,9 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        musicSource.clip = normalbgm;
+        level = GlobalVars.floor;
+        // Debug.Log("TAT" + level + GlobalVars.floor);
+        musicSource.clip = normalbgm[level];
         if (SceneManager.GetActiveScene().name == "Death")
         {
             musicSource.clip = deathbgm;
@@ -43,6 +49,16 @@ public class AudioManager : MonoBehaviour
         
         musicSource.Play();
     }
+
+    // private void Update()
+    // {
+    //     level = GlobalVars.floor;
+    //     Debug.Log("ATA" + level + GlobalVars.floor);
+       
+    //     musicSource.clip = normalbgm[level];
+    //     musicSource.Play();
+    // }
+    
 
     public void PlaySFX(AudioClip clip)
     {
