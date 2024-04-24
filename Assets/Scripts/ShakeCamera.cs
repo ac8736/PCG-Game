@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class ShakeCamera : MonoBehaviour
 {
+
     public AnimationCurve curve;
     public float shakeDuration = 1f;
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class ShakeCamera : MonoBehaviour
         Vector3 start = transform.position;
         float runningTime = 0f;
         while (runningTime < shakeDuration){
+            start = transform.position;
             runningTime += Time.deltaTime;
             float shakeStrength =  curve.Evaluate(runningTime/shakeDuration);
             transform.position = start + Random.insideUnitSphere * shakeStrength;
