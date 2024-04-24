@@ -37,15 +37,20 @@ public class EnemyRoom : MonoBehaviour
                 if (m_CanDestroy)
                 {
                     m_ClearTextAnimation.SetTrigger("Clear");
-                    foreach (var bullet in m_EnemyBullets)
-                    {
-                        Destroy(bullet);
-                    }
-                    m_EnemyBullets.Clear();
+                    ClearEnemyBullets();
                     Destroy(this);
                 }
             }
         }
+    }
+
+    public void ClearEnemyBullets()
+    {
+        foreach (var bullet in m_EnemyBullets)
+        {
+            Destroy(bullet);
+        }
+        m_EnemyBullets.Clear();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -53,6 +58,7 @@ public class EnemyRoom : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet")) m_EnemyBullets.Add(other.gameObject);
         if (!other.gameObject.CompareTag("Player")) return;
         m_Triggered = true;
+        other.gameObject.GetComponent<PlayerController>().SetEnemyRoom(this);
         StartCoroutine(InitiateEncounter());
     }
 

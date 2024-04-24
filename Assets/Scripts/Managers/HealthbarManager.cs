@@ -5,16 +5,22 @@ using UnityEngine.UI;
 
 public class HealthbarManager : MonoBehaviour
 {
-    public Slider m_Slider;
+    public List<GameObject> m_Hearts;
+    public PlayerController m_Player;
 
-    public void SetMaxHealth(float health)
+    void Update()
     {
-        m_Slider.maxValue = health;
-        m_Slider.value = health;
-    }
-
-    public void SetHealth(float health)
-    {
-        m_Slider.value = health;
+        if (m_Player.m_Health == 2)
+        {
+            m_Hearts[2].SetActive(false);
+        }
+        else if (m_Player.m_Health == 1)
+        {
+            m_Hearts[1].SetActive(false);
+        }
+        else if (m_Player.m_Health == 0)
+        {
+            m_Hearts[0].SetActive(false);
+        }
     }
 }

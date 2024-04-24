@@ -43,11 +43,11 @@ public class DungeonGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.N))
         {
             CreateDungeon();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             AstarPath.active.Scan();
         }
@@ -95,8 +95,6 @@ public class DungeonGenerator : MonoBehaviour
         m_EnemyStats.m_MaxHealthSingle = Mathf.Clamp(m_EnemyStats.m_MaxHealthSingle, 5, 10);
         m_EnemyStats.m_MaxHealthSpin += 1;
         m_EnemyStats.m_MaxHealthSpin = Mathf.Clamp(m_EnemyStats.m_MaxHealthSpin, 3, 7);
-        m_Player.GetComponent<PlayerController>().m_Health += 10;
-        m_Player.GetComponent<PlayerController>().m_Health = Mathf.Clamp(m_Player.GetComponent<PlayerController>().m_Health, 0, m_PlayerStats.m_MaxHealth);
     }
 
     public void CreateDungeonFunction()

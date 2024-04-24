@@ -18,6 +18,7 @@ public class StartGame : MonoBehaviour
         m_PlayerStat.m_MaxHealth = 3;
         m_PlayerStat.m_Speed = 0;
         m_PlayerStat.m_AttackSpeed = 0;
+        m_PlayerStat.m_AmmoCount = 10;
 
         m_EnemyStat.m_MaxHealthChase = 2;
         m_EnemyStat.m_MaxHealthSingle = 5;
@@ -35,6 +36,7 @@ public class StartGame : MonoBehaviour
         m_PlayerStat.m_MaxHealth = 3;
         m_PlayerStat.m_Speed = 0;
         m_PlayerStat.m_AttackSpeed = 0;
+        m_PlayerStat.m_AmmoCount = 10;
 
         m_EnemyStat.m_MaxHealthChase = 2;
         m_EnemyStat.m_MaxHealthSingle = 5;
