@@ -71,13 +71,16 @@ public class PlayerController : MonoBehaviour
             {
                 m_CanDamage = false;
                 if (m_Health > 0) { m_Health -= 1; }
+                publicvar.triggerShaking = true;
                 StartCoroutine(TakeDamageCooldown());
             }
             if (collision.gameObject.CompareTag("SpikeTrap") && collision.gameObject.GetComponent<SpikeTrap>().GetIsActive())
             {
                 m_CanDamage = false;
                 if (m_Health > 0) { m_Health -= 1; }
+                publicvar.triggerShaking = true;
                 StartCoroutine(TakeDamageCooldown());
+                
             }
         }
     }

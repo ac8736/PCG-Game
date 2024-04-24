@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 91150754}
   - component: {fileID: 91150753}
   - component: {fileID: 91150752}
+  - component: {fileID: 91150755}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -298,6 +299,43 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &91150755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91150751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6150b0c7f91bb6c4992c7f83077ac8f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.02695465
+      value: -0.2315216
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.7933502
+      value: -0.25684357
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  shakeDuration: 1
 --- !u!1 &101053164
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +375,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9a47b1c60698c40899ab4a2a80d394b8, type: 3}
   deathbgm: {fileID: 8300000, guid: 47328483869204a3f881db0ed564abd6, type: 3}
   magic: {fileID: 8300000, guid: e6ffff2ec34525a4f8d956c316b88749, type: 3}
-  takeDamage: {fileID: 8300000, guid: 5b56f1ab04331c94289e00b9329840ea, type: 3}
+  takeDamage: {fileID: 8300000, guid: 5d0999d7bc700ee4bba1bd400ea5cb4f, type: 3}
 --- !u!4 &101053166
 Transform:
   m_ObjectHideFlags: 0
