@@ -18,6 +18,8 @@ public class PlayerWeapon : MonoBehaviour
     private int m_MaxAmmo;
     private bool m_CanShoot = true;
 
+    
+
     // SFX
     AudioManager audioManager;
 
@@ -53,6 +55,10 @@ public class PlayerWeapon : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        if (m_CurrentAmmo == 0 && Input.GetMouseButton(0) && !m_CanShoot){
+            audioManager.PlaySFX(audioManager.empty);
+        }
 
         if (m_CanShoot && Input.GetMouseButton(0) && m_CurrentAmmo > 0)
         {
@@ -128,6 +134,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         m_CanShoot = false;
         yield return new WaitForSeconds(0.5f);
+        audioManager.PlaySFX(audioManager.reload);
         m_CurrentAmmo = m_MaxAmmo;
         m_CanShoot = true;
         m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();

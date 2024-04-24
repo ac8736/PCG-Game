@@ -22,6 +22,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip coinPickup;
     public AudioClip walk;
     public AudioClip trap;
+    public AudioClip reload;
+
+    public AudioClip empty;
 
     // public int GlobalVars.floor globalVars;
 
