@@ -20,6 +20,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip magic; 
     public AudioClip takeDamage;
     public AudioClip coinPickup;
+    public AudioClip walk;
+    public AudioClip trap;
+
     // public int GlobalVars.floor globalVars;
 
     private static AudioManager instance;

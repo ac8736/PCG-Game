@@ -10,12 +10,14 @@ public class SpikeTrap : MonoBehaviour
 
     private float m_Timer;
     private bool m_IsActive;
+    private AudioManager m_AudioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         m_Timer = Random.Range(3f, 6f);
         StartCoroutine(Cycle());
+        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public bool GetIsActive()

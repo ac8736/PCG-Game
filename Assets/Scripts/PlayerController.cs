@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private float m_HorizontalSpeed;
     private float m_VerticalSpeed;
 
+    private bool IsMoving;
+
     //feedback 
     private AudioManager m_AudioManager;
 
@@ -30,6 +32,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.Space) && m_Blanks > 0 && m_EnemyRoomComponent != null)
         {
             m_EnemyRoomComponent.ClearEnemyBullets();
@@ -81,6 +85,7 @@ public class PlayerController : MonoBehaviour
                 if (m_Health > 0) { m_Health -= 1; }
                 publicvar.triggerShaking = true;
                 m_AudioManager.PlaySFX(m_AudioManager.takeDamage);
+                m_AudioManager.PlaySFX(m_AudioManager.trap);
                 StartCoroutine(TakeDamageCooldown());
                 
             }
