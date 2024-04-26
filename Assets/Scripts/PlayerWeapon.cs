@@ -133,8 +133,10 @@ public class PlayerWeapon : MonoBehaviour
 
     IEnumerator Reload()
     {
+        audioManager.PlaySFX(audioManager.empty);
         m_CanShoot = false;
-        yield return new WaitForSeconds(0.5f);
+        m_AmmoDisplay.text = "Reloading!";
+        yield return new WaitForSeconds(0.35f);
         audioManager.PlaySFX(audioManager.reload);
         m_CurrentAmmo = m_MaxAmmo;
         m_CanShoot = true;
