@@ -504,6 +504,8 @@ MonoBehaviour:
   m_Animator: {fileID: 1618163173987142346}
   m_CanDamage: 0
   m_FloatingHealthbar: {fileID: 4643310141812373593}
+  m_Weapon: {fileID: 524238376960087900}
+  m_AIPath: {fileID: 339810400884226047}
   m_Spin: 0
   m_Chase: 0
   m_Single: 1
