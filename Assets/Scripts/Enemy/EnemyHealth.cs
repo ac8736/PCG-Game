@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public bool m_CanDamage = false;
     public FloatingHealthbar m_FloatingHealthbar;
     public GameObject m_Weapon;
+    public GameObject m_GoldPrefab;
     public AIPath m_AIPath;
 
     public bool m_Spin, m_Chase, m_Single;
@@ -45,6 +46,7 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
+        Instantiate(m_GoldPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 
