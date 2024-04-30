@@ -76,31 +76,21 @@ public class PlayerWeapon : MonoBehaviour
 
         if (m_CurrentAmmo == 10)
         {
-            for (int i = 0; i< m_Bullets.Count; i++)
+            m_Bullets[m_Bullets.Count-1].SetActive(false);
+            for (int i = 0; i < m_Bullets.Count-1; i++)
             {
                 m_Bullets[i].SetActive(true);
             }
-        }
-        else if (m_CurrentAmmo == 8)
-        {
-            m_Bullets[4].SetActive(false);
-        }
-        else if (m_CurrentAmmo == 6)
-        {
-            m_Bullets[3].SetActive(false);
-        }
-        else if (m_CurrentAmmo == 4)
-        {
-            m_Bullets[2].SetActive(false);
-        }
-        else if (m_CurrentAmmo == 2)
-        {
-            m_Bullets[1].SetActive(false);
+            
         }
         else if (m_CurrentAmmo == 0)
         {
-            m_Bullets[0].SetActive(false);
+            m_Bullets[m_Bullets.Count-1].SetActive(true);
         }
+        else {
+            m_Bullets[m_CurrentAmmo].SetActive(false);
+        }
+        
     }
 
     void Shoot()
