@@ -1422,26 +1422,80 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: -0.002380371
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
+      value: 0
+      inSlope: 0.41607854
+      outSlope: 0.41607854
+      tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.94983035
-      value: 0.0036076307
-      inSlope: 0
-      outSlope: 0
+      time: 0.24950162
+      value: 0.10381227
+      inSlope: 0.09697417
+      outSlope: 0.09697417
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.65046155
+      value: 0.049569163
+      inSlope: -0.15672067
+      outSlope: -0.15672067
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.8472739
+      value: 0.00320209
+      inSlope: -0.038927354
+      outSlope: -0.038927354
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.94297785
+      value: 0.004475476
+      inSlope: 0.0071587446
+      outSlope: 0.0071587446
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9661215
+      value: 0.003373948
+      inSlope: -0.29101762
+      outSlope: -0.29101762
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.9749735
+      value: 0.0023703417
+      inSlope: -0.29768193
+      outSlope: -0.29768193
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: -0.00033631176
+      inSlope: -0.32350057
+      outSlope: -0.32350057
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.21329802
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  shakeDuration: 1
+  shakeDuration: 0.5
 --- !u!1 &1058139151
 GameObject:
   m_ObjectHideFlags: 0
