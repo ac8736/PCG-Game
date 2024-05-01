@@ -119,9 +119,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0020872399, y: -0.050127447}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.5905635
 --- !u!50 &1765398753988652203
 Rigidbody2D:
   serializedVersion: 4
@@ -164,4 +164,3 @@ MonoBehaviour:
   bulletLife: 1
   rotation: 0
   speed: 3
-  m_EnemyStats: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}

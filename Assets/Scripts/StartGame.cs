@@ -15,7 +15,7 @@ public class StartGame : MonoBehaviour
     public void PlayGame()
     {
         m_PlayerStat.m_Gold = 0;
-        m_PlayerStat.m_MaxHealth = 3;
+        m_PlayerStat.m_MaxHealth = 6;
         m_PlayerStat.m_Speed = 0;
         m_PlayerStat.m_AttackSpeed = 0;
         m_PlayerStat.m_AmmoCount = 10;

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Shop
+  m_text: Upgrades
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52720d26831a341fcbafd04bc93cb306, type: 2}
   m_sharedMaterial: {fileID: 3138536908336881580, guid: 52720d26831a341fcbafd04bc93cb306, type: 2}

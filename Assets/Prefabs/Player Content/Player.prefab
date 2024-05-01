@@ -103,6 +103,11 @@ MonoBehaviour:
   firePoint: {fileID: 4415146992027088604}
   m_Cooldown: 0.5
   m_PlayerStat: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
+  m_AmmoDisplay: {fileID: 0}
+  fullBullet: {fileID: 0}
+  halfBullet: {fileID: 0}
+  noBullet: {fileID: 0}
+  m_Bullets: []
 --- !u!1 &3598926763480800205
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,12 +262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PlayerStats: {fileID: 11400000, guid: dd0b9c24487bc4f58872e28ddb889abe, type: 2}
-  m_HealthbarManager: {fileID: 0}
   m_Rigidbody: {fileID: 3089105132556566473}
   m_Animator: {fileID: 2338976111116371116}
   m_SpriteRenderer: {fileID: 4121278559745546800}
   m_Health: 100
   m_Speed: 4
+  m_Blanks: 1
 --- !u!50 &3089105132556566473
 Rigidbody2D:
   serializedVersion: 4
@@ -322,7 +327,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0016860962, y: 0.001124382}
+  m_Offset: {x: 0.005783044, y: -0.003708601}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -333,5 +338,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15891266, y: 0.28176498}
+  m_Size: {x: 0.0982808, y: 0.23695016}
   m_EdgeRadius: 0
