@@ -17,14 +17,10 @@ public class PlayerWeapon : MonoBehaviour
     public Sprite noBullet;
 
     public List<GameObject> m_Bullets;
-    
-
 
     private int m_CurrentAmmo;
     private int m_MaxAmmo;
     private bool m_CanShoot = true;
-
-    
 
     // SFX
     AudioManager audioManager;
@@ -59,9 +55,10 @@ public class PlayerWeapon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (m_CurrentAmmo == 0 && Input.GetMouseButtonDown(0)){
+        if (m_CurrentAmmo == 0 && Input.GetMouseButtonDown(0))
+        {
             audioManager.PlaySFX(audioManager.empty);
-            m_AmmoDisplay.text = "CLICK!";
+            m_AmmoDisplay.text = "Reload!";
             StartCoroutine(Reload());
         }
 
@@ -71,9 +68,9 @@ public class PlayerWeapon : MonoBehaviour
             Shoot();
             m_CurrentAmmo--;
             // m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
-            if(m_CurrentAmmo == 0)
+            if (m_CurrentAmmo == 0)
             {
-                 m_AmmoDisplay.text = "CLICK!";
+                m_AmmoDisplay.text = "Reload!";
             }
             UseBullet();
         }
@@ -81,13 +78,14 @@ public class PlayerWeapon : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(Reload());
-        }   
+        }
     }
 
     void InitializeBullets()
     {
-        for (int i = 0; i < m_Bullets.Count; i++)
+        for (int i = 0; i < m_MaxAmmo / 2; i++)
         {
+            m_Bullets[i].SetActive(true);
             m_Bullets[i].GetComponent<Image>().sprite = fullBullet;
         }
     }
@@ -97,14 +95,15 @@ public class PlayerWeapon : MonoBehaviour
         {
             InitializeBullets();
         }
-        else {
+        else
+        {
             if (m_CurrentAmmo % 2 == 1)
             {
-                m_Bullets[m_CurrentAmmo/2].GetComponent<Image>().sprite = halfBullet;
+                m_Bullets[m_CurrentAmmo / 2].GetComponent<Image>().sprite = halfBullet;
             }
             else
             {
-                m_Bullets[m_CurrentAmmo/2].GetComponent<Image>().sprite = noBullet;
+                m_Bullets[m_CurrentAmmo / 2].GetComponent<Image>().sprite = noBullet;
             }
         }
     }
