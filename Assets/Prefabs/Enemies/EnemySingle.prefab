@@ -506,6 +506,7 @@ MonoBehaviour:
   m_FloatingHealthbar: {fileID: 4643310141812373593}
   m_Weapon: {fileID: 524238376960087900}
   m_GoldPrefab: {fileID: 3101462638427486016, guid: 1b67de2513debde42a2ecabe85159226, type: 3}
+  m_HealthPrefab: {fileID: 5287196465294528475, guid: a21bf146b6f4d44a484151b5d56eada4, type: 3}
   m_AIPath: {fileID: 339810400884226047}
   m_Spin: 0
   m_Chase: 0

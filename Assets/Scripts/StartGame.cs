@@ -32,17 +32,7 @@ public class StartGame : MonoBehaviour
     {
         GlobalVars.clearedFloors = 0;
         GlobalVars.floor = 0;
-        m_PlayerStat.m_Gold = 0;
-        m_PlayerStat.m_MaxHealth = 3;
-        m_PlayerStat.m_Speed = 0;
-        m_PlayerStat.m_AttackSpeed = 0;
-        m_PlayerStat.m_AmmoCount = 10;
-
-        m_EnemyStat.m_MaxHealthChase = 2;
-        m_EnemyStat.m_MaxHealthSingle = 3;
-        m_EnemyStat.m_MaxHealthSpin = 3;
-        m_EnemyStat.m_Damage = 10;
-        SceneManager.LoadScene("Level");
+        PlayGame();
     }
 
     // Quit Game
@@ -59,7 +49,7 @@ public class StartGame : MonoBehaviour
 
     private void Update()
     {
-        gameObject.transform.Translate(Vector3.right * speed * Time.deltaTime);
+        gameObject.transform.Translate(speed * Time.deltaTime * Vector3.right);
 
         if (transform.position.x > maxX || transform.position.x < minX)
         {

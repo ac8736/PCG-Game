@@ -2244,7 +2244,7 @@ PrefabInstance:
     - target: {fileID: 3036004543461060614, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
       propertyPath: m_AmmoDisplay
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 444957977}
     - target: {fileID: 3036004543461060614, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
       propertyPath: m_Bullets.Array.size
       value: 10

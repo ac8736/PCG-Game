@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         if (m_Health > 0) { m_Rigidbody.velocity = new Vector2(m_HorizontalSpeed, m_VerticalSpeed); }
         else { m_Rigidbody.velocity = Vector2.zero; }
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
                 m_AudioManager.PlaySFX(m_AudioManager.takeDamage);
                 m_AudioManager.PlaySFX(m_AudioManager.trap);
                 StartCoroutine(TakeDamageCooldown());
-                
+
             }
         }
     }
@@ -113,6 +113,13 @@ public class PlayerController : MonoBehaviour
     {
         m_PlayerStats.m_Gold += amt;
         m_AudioManager.PlaySFX(m_AudioManager.coinPickup);
+    }
+
+    public bool GainHealth()
+    {
+        if (m_Health == m_PlayerStats.m_MaxHealth) { return false; }
+        m_Health += 1;
+        return true;
     }
 
     IEnumerator TakeDamageCooldown()
