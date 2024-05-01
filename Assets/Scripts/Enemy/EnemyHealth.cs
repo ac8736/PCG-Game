@@ -47,13 +47,13 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
-        if (Random.Range(0, 2) == 0)
+        if (Random.Range(0, 6) == 0)
         {
-            Instantiate(m_GoldPrefab, transform.position, Quaternion.identity);
+            Instantiate(m_HealthPrefab, transform.position, Quaternion.identity);
         }
         else
         {
-            Instantiate(m_HealthPrefab, transform.position, Quaternion.identity);
+            Instantiate(m_GoldPrefab, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
     }
