@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerWeapon : MonoBehaviour
 {
@@ -11,8 +12,15 @@ public class PlayerWeapon : MonoBehaviour
     public float m_Cooldown = 0.5f;
     public PlayerStatScriptableObject m_PlayerStat;
     public TextMeshProUGUI m_AmmoDisplay;
+    public Sprite fullBullet;
+    public Sprite halfBullet;
+    public Sprite noBullet;
 
+    public GameObject reloadImage;
     public List<GameObject> m_Bullets;
+    // public Image bulletImage
+    
+
 
     private int m_CurrentAmmo;
     private int m_MaxAmmo;
@@ -33,12 +41,9 @@ public class PlayerWeapon : MonoBehaviour
     {
         m_MaxAmmo = m_PlayerStat.m_AmmoCount;
         m_CurrentAmmo = m_MaxAmmo;
-        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        // m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
 
-        for (int i = 0; i<m_Bullets.Count; i++)
-        {
-            m_Bullets[i].SetActive(true);
-        }
+        InitializeBullets();
 
     }
 
@@ -58,6 +63,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (m_CurrentAmmo == 0 && Input.GetMouseButtonDown(0)){
             audioManager.PlaySFX(audioManager.empty);
+            m_AmmoDisplay.text = "CLICK!";
             StartCoroutine(Reload());
         }
 
@@ -66,31 +72,50 @@ public class PlayerWeapon : MonoBehaviour
             StartCoroutine(ShootCD());
             Shoot();
             m_CurrentAmmo--;
-            m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+            // m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+            if(m_CurrentAmmo == 0)
+            {
+                 m_AmmoDisplay.text = "CLICK!";
+            }
+            UseBullet();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
             StartCoroutine(Reload());
-        }
+        }   
+    }
 
-        if (m_CurrentAmmo == 10)
+    void InitializeBullets()
+    {
+        // reloadImage.setActive(false);
+        for (int i = 0; i < m_Bullets.Count; i++)
         {
-            m_Bullets[m_Bullets.Count-1].SetActive(false);
-            for (int i = 0; i < m_Bullets.Count-1; i++)
-            {
-                m_Bullets[i].SetActive(true);
-            }
-            
+            m_Bullets[i].GetComponent<Image>().sprite = fullBullet;
+            // m_Bullets[i].SetActive(true);
         }
-        else if (m_CurrentAmmo == 0)
+    }
+    void UseBullet()
+    {
+        if (m_CurrentAmmo >= m_MaxAmmo)
         {
-            m_Bullets[m_Bullets.Count-1].SetActive(true);
+            InitializeBullets();
         }
+        // else if (m_CurrentAmmo == 0)
+        // {
+        //     reloadImage.setActive(true);
+        // }
         else {
-            m_Bullets[m_CurrentAmmo].SetActive(false);
+            if (m_CurrentAmmo % 2 == 1)
+            {
+                m_Bullets[m_CurrentAmmo/2].GetComponent<Image>().sprite = halfBullet;
+            }
+            else
+            {
+                // m_Bullets[m_CurrentAmmo/2].SetActive(false);
+                m_Bullets[m_CurrentAmmo/2].GetComponent<Image>().sprite = noBullet;
+            }
         }
-        
     }
 
     void Shoot()
@@ -130,6 +155,8 @@ public class PlayerWeapon : MonoBehaviour
         audioManager.PlaySFX(audioManager.reload);
         m_CurrentAmmo = m_MaxAmmo;
         m_CanShoot = true;
-        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        m_AmmoDisplay.text = "";
+        // m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        InitializeBullets();
     }
 }
