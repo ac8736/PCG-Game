@@ -10,11 +10,14 @@ public class FloatingHealthbar : MonoBehaviour
     public void UpdateHealthbar(float currentValue, float maxValue)
     {
         m_Slider.value = currentValue / maxValue;
+        if (currentValue <= 0) {
+            this.transform.localScale = new Vector3(0, 0, 0);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
