@@ -63,7 +63,7 @@ public class ShopActions : MonoBehaviour
         if (afterPurchaseAmt >= 0 && m_CurrentMovementSpeed < 20)
         {
             m_Gold = afterPurchaseAmt;
-            m_CurrentMovementSpeed += 2;
+            m_CurrentMovementSpeed += 1;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_MovementSpeedCounter.text = m_CurrentMovementSpeed.ToString();
             if (m_CurrentMovementSpeed >= 20) { m_MovementSpeedCounter.text += "(Max)"; }
@@ -76,7 +76,7 @@ public class ShopActions : MonoBehaviour
         if (afterPurchaseAmt >= 0 && m_CurrentAttackSpeed < 5)
         {
             m_Gold = afterPurchaseAmt;
-            m_CurrentAttackSpeed += 2;
+            m_CurrentAttackSpeed += 1;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
             if (m_CurrentAttackSpeed >= 5) { m_AttackSpeedCounter.text += "(Max)"; }
@@ -98,7 +98,7 @@ public class ShopActions : MonoBehaviour
     {
         if (m_CurrentMovementSpeed > m_PlayerStats.m_Speed)
         {
-            m_CurrentMovementSpeed -= 2;
+            m_CurrentMovementSpeed -= 1;
             m_Gold += m_MovementSpeedUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_MovementSpeedCounter.text = m_CurrentMovementSpeed.ToString();
@@ -109,7 +109,7 @@ public class ShopActions : MonoBehaviour
     {
         if (m_CurrentAttackSpeed > m_PlayerStats.m_AttackSpeed)
         {
-            m_CurrentAttackSpeed -= 2;
+            m_CurrentAttackSpeed -= 1;
             m_Gold += m_AttackSpeedUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
