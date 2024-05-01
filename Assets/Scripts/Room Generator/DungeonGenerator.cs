@@ -32,6 +32,10 @@ public class DungeonGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_EnemyStats.m_MaxHealthChase = 2;
+        m_EnemyStats.m_MaxHealthSingle = 3;
+        m_EnemyStats.m_MaxHealthSpin = 3;
+        m_EnemyStats.m_Damage = 10;
         CreateDungeonFunction();
         m_DirectionalArrowManager.SetTarget(m_CreatedDungeonPrefabs[^1].transform);
         AstarPath.active.Scan();
