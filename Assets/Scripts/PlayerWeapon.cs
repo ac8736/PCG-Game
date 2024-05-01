@@ -16,9 +16,7 @@ public class PlayerWeapon : MonoBehaviour
     public Sprite halfBullet;
     public Sprite noBullet;
 
-    public GameObject reloadImage;
     public List<GameObject> m_Bullets;
-    // public Image bulletImage
     
 
 
@@ -88,11 +86,9 @@ public class PlayerWeapon : MonoBehaviour
 
     void InitializeBullets()
     {
-        // reloadImage.setActive(false);
         for (int i = 0; i < m_Bullets.Count; i++)
         {
             m_Bullets[i].GetComponent<Image>().sprite = fullBullet;
-            // m_Bullets[i].SetActive(true);
         }
     }
     void UseBullet()
@@ -101,10 +97,6 @@ public class PlayerWeapon : MonoBehaviour
         {
             InitializeBullets();
         }
-        // else if (m_CurrentAmmo == 0)
-        // {
-        //     reloadImage.setActive(true);
-        // }
         else {
             if (m_CurrentAmmo % 2 == 1)
             {
@@ -112,7 +104,6 @@ public class PlayerWeapon : MonoBehaviour
             }
             else
             {
-                // m_Bullets[m_CurrentAmmo/2].SetActive(false);
                 m_Bullets[m_CurrentAmmo/2].GetComponent<Image>().sprite = noBullet;
             }
         }
