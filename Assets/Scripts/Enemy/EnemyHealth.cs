@@ -52,7 +52,7 @@ public class EnemyHealth : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player Bullet") && m_CanDamage)
+        if (collision.CompareTag("Player Bullet") && m_CanDamage && !m_IsDead)
         {
             m_Health -= 1;
             if (m_Spin)
