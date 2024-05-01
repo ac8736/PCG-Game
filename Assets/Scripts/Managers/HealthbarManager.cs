@@ -10,6 +10,7 @@ public class HealthbarManager : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(m_Player.m_Health);
         if (m_Player.m_Health == 6)
         {
             m_Hearts[0].SetActive(true);
