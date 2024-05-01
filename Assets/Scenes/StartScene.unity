@@ -4273,6 +4273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MenuCursorTexture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+  m_GameCursorTexture: {fileID: 2800000, guid: 8a05b8a6d13ef4c0380759b462858e8c, type: 3}
   m_HotSpot: {x: 0, y: 0}
 --- !u!4 &1815541564
 Transform:

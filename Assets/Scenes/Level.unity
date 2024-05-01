@@ -547,6 +547,53 @@ MonoBehaviour:
   - {fileID: 1477237572}
   - {fileID: 1744415196}
   m_Player: {fileID: 1859983105212101129}
+--- !u!1 &171349731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 171349733}
+  - component: {fileID: 171349732}
+  m_Layer: 0
+  m_Name: CursorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &171349732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171349731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d23a3fc7bfe59946be0251c8df58ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MenuCursorTexture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+  m_GameCursorTexture: {fileID: 2800000, guid: 8a05b8a6d13ef4c0380759b462858e8c, type: 3}
+  m_HotSpot: {x: 0, y: 0}
+--- !u!4 &171349733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171349731}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.120562, y: -0.60671926, z: -0.011584893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &187959540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3472,3 +3519,4 @@ SceneRoots:
   - {fileID: 58800567}
   - {fileID: 157440784}
   - {fileID: 1859983105212101128}
+  - {fileID: 171349733}
