@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d04ea50e17ca96841979360d665225ff
+guid: 2f02e85aa80e9a343972f3fba44aaf16
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_0
+      name: BulletHellFinalBossDMG_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
-        width: 128
-        height: 128
+        y: 960
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59530f899050ce84bb9afa0c92e80ecd
-      internalID: 1349457934
+      spriteID: 8135f54d49eb1d44785b4342744d3204
+      internalID: -665973704
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_1
+      name: BulletHellFinalBossDMG_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
-        width: 128
-        height: 128
+        x: 480
+        y: 960
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c719e51c102ce5d42bea66fda547d725
-      internalID: 1033835461
+      spriteID: 511fb66258c82e14483f8a9147833fd3
+      internalID: 879849972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_2
+      name: BulletHellFinalBossDMG_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 128
-        height: 128
+        x: 960
+        y: 960
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,83 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4067ac253b193c242803c5a30dd13036
-      internalID: -1954224299
+      spriteID: 31e2560a42ced0542a1c3cfec6e3b752
+      internalID: -1482689283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a44df0a3005c2eb45a2aef5abbaaaf0a
-      internalID: 1055578952
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletHellSpikeTrap_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab382c97a1a502d4c8d08ef04c5253c8
-      internalID: -1420329168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletHellSpikeTrap_5
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 533f5dc3f728c0a48b2e0677d6d57279
-      internalID: -573496165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletHellSpikeTrap_6
+      name: BulletHellFinalBossDMG_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba2736e11cc97774781814db34e7aba5
-      internalID: 1246965662
+      spriteID: b99b0db8b71fd1542b597cd81b412b8c
+      internalID: 293908639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_7
+      name: BulletHellFinalBossDMG_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 480
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 978dee46afe1b0741889a4f458ed7cb3
-      internalID: 150300463
+      spriteID: a0965f225112f6f498e940de036d2999
+      internalID: 1270626826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_8
+      name: BulletHellFinalBossDMG_5
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 960
+        y: 480
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70319ceff9daeb442a65c27f062d3f2d
-      internalID: 1552281790
+      spriteID: 6b3a7e113e8d66349a1cb9378defebc0
+      internalID: -540036088
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletHellSpikeTrap_9
+      name: BulletHellFinalBossDMG_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 480
+        height: 480
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,8 +263,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b765daeafedbd1e4bb708156d8f5ad7c
-      internalID: 420348066
+      spriteID: b242221a6989eac41a4d4accd99f8c50
+      internalID: 1291860073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletHellFinalBossDMG_7
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 480
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d602c227dde9046a0e5e28360084dc
+      internalID: -107329865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BulletHellFinalBossDMG_8
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 480
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c7e3859a6807c4db316ce5485d8163
+      internalID: -1497833776
       vertices: []
       indices: 
       edges: []
@@ -343,16 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BulletHellSpikeTrap_0: 1349457934
-      BulletHellSpikeTrap_1: 1033835461
-      BulletHellSpikeTrap_2: -1954224299
-      BulletHellSpikeTrap_3: 1055578952
-      BulletHellSpikeTrap_4: -1420329168
-      BulletHellSpikeTrap_5: -573496165
-      BulletHellSpikeTrap_6: 1246965662
-      BulletHellSpikeTrap_7: 150300463
-      BulletHellSpikeTrap_8: 1552281790
-      BulletHellSpikeTrap_9: 420348066
+      BulletHellFinalBossDMG_0: -665973704
+      BulletHellFinalBossDMG_1: 879849972
+      BulletHellFinalBossDMG_2: -1482689283
+      BulletHellFinalBossDMG_3: 293908639
+      BulletHellFinalBossDMG_4: 1270626826
+      BulletHellFinalBossDMG_5: -540036088
+      BulletHellFinalBossDMG_6: 1291860073
+      BulletHellFinalBossDMG_7: -107329865
+      BulletHellFinalBossDMG_8: -1497833776
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
