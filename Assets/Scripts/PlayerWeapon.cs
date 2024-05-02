@@ -75,9 +75,11 @@ public class PlayerWeapon : MonoBehaviour
             UseBullet();
         }
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && m_CurrentAmmo != m_MaxAmmo && m_CanShoot != false)
         {
+            m_CanShoot = false;
             StartCoroutine(Reload());
+            m_CanShoot = true;
         }
     }
 
