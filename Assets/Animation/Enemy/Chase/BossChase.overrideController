@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BossChase
+  m_Controller: {fileID: 9100000, guid: aefaae538492fdf48a7cb5c57016d0b6, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a201f49f8939f4846966b2933ec12bad, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dcb519ee509af914bab73c5657c00968, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6cedb14070c26f04a8dfb12b545e4e8b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b1c54a88885469047bebf1f42aeaaf3b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: c981b89dd4b39a341b0730f57cf286cc, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 48f4582c98fdf8d499f8b823db2f07ab, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a24d759e79c06f34597eff38d4599a64, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7a494d423fd79734f8c67d6ea422fef0, type: 2}
