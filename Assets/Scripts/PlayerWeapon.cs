@@ -107,7 +107,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         m_CurrentAmmo--;
         UseBullet();
-        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        //m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
 
         audioManager.PlaySFX(audioManager.magic);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
