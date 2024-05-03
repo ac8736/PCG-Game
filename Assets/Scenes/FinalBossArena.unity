@@ -1913,6 +1913,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossTest
       objectReference: {fileID: 0}
+    - target: {fileID: 2810329988883810416, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 2032042451}
+    - target: {fileID: 2971444949576178597, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: a066bba356b3a4910ab3c2a0b8c21832, type: 2}
     - target: {fileID: 4458265449301372666, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: m_IsShooter
       value: 1
@@ -1941,7 +1949,9 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4775108070640392373, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+    - {fileID: 8239877981054865068, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3140,6 +3150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be661bb2955a64e8f8d6f250a426a7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2032042451 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2085256040768521654, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+  m_PrefabInstance: {fileID: 2032042449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
