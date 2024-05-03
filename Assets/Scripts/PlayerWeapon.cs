@@ -35,7 +35,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         m_MaxAmmo = m_PlayerStat.m_AmmoCount;
         m_CurrentAmmo = m_MaxAmmo;
-        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        //m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
 
         InitializeBullets();
     }
