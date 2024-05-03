@@ -35,10 +35,9 @@ public class PlayerWeapon : MonoBehaviour
     {
         m_MaxAmmo = m_PlayerStat.m_AmmoCount;
         m_CurrentAmmo = m_MaxAmmo;
-        // m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
 
         InitializeBullets();
-
     }
 
     // Update is called once per frame
@@ -55,31 +54,28 @@ public class PlayerWeapon : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
-        if (m_CurrentAmmo == 0 && Input.GetMouseButtonDown(0))
+        if (m_CanShoot && m_CurrentAmmo <= 0 && Input.GetMouseButtonDown(0))
         {
             audioManager.PlaySFX(audioManager.empty);
             m_AmmoDisplay.text = "Reload!";
             StartCoroutine(Reload());
         }
 
-        if (m_CanShoot && Input.GetMouseButton(0) && m_CurrentAmmo > 0)
+        else if (m_CanShoot && Input.GetMouseButton(0) && m_CurrentAmmo > 0)
         {
-            StartCoroutine(ShootCD());
+            
             Shoot();
-            m_CurrentAmmo--;
-            // m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
-            if (m_CurrentAmmo == 0)
+            StartCoroutine(ShootCD());
+            if (m_CurrentAmmo <= 0)
             {
                 m_AmmoDisplay.text = "Reload!";
             }
-            UseBullet();
         }
 
-        if (Input.GetMouseButtonDown(1) && m_CurrentAmmo != m_MaxAmmo && m_CanShoot != false)
+        if(Input.GetMouseButtonDown(1) && m_CanShoot)
         {
-            m_CanShoot = false;
+            m_AmmoDisplay.text = "Reload!";
             StartCoroutine(Reload());
-            m_CanShoot = true;
         }
     }
 
@@ -87,18 +83,14 @@ public class PlayerWeapon : MonoBehaviour
     {
         for (int i = 0; i < m_MaxAmmo / 2; i++)
         {
-            m_Bullets[i].SetActive(true);
             m_Bullets[i].GetComponent<Image>().sprite = fullBullet;
+            m_Bullets[i].SetActive(true);
+            Debug.Log("initializing!");
         }
     }
     void UseBullet()
     {
-        if (m_CurrentAmmo >= m_MaxAmmo)
-        {
-            InitializeBullets();
-        }
-        else
-        {
+        if (m_CurrentAmmo < m_MaxAmmo ){
             if (m_CurrentAmmo % 2 == 1)
             {
                 m_Bullets[m_CurrentAmmo / 2].GetComponent<Image>().sprite = halfBullet;
@@ -107,11 +99,16 @@ public class PlayerWeapon : MonoBehaviour
             {
                 m_Bullets[m_CurrentAmmo / 2].GetComponent<Image>().sprite = noBullet;
             }
+            // Debug.Log("Shooting!");
         }
     }
 
     void Shoot()
     {
+        m_CurrentAmmo--;
+        UseBullet();
+        m_AmmoDisplay.text = "Ammo: " + m_CurrentAmmo.ToString() + " / " + m_MaxAmmo.ToString();
+
         audioManager.PlaySFX(audioManager.magic);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
