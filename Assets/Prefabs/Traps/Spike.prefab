@@ -146,8 +146,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Idle: {fileID: 21300000, guid: 0c4acef55a0dbae4cb31b8f56db54ca8, type: 3}
   m_Active: {fileID: 21300000, guid: c563efeff7b019b46a7ea776db93dd5f, type: 3}
+  m_Ready: {fileID: -1954224299, guid: d04ea50e17ca96841979360d665225ff, type: 3}
   m_SpriteRenderer: {fileID: 6455396815329242031}
-  m_Damage: 25
 --- !u!50 &8162508793607208446
 Rigidbody2D:
   serializedVersion: 4

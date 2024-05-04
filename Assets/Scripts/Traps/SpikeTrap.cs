@@ -6,6 +6,7 @@ public class SpikeTrap : MonoBehaviour
 {
     public Sprite m_Idle;
     public Sprite m_Active;
+    public Sprite m_Ready;
     public SpriteRenderer m_SpriteRenderer;
 
     private float m_Timer;
@@ -30,15 +31,25 @@ public class SpikeTrap : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(m_Timer);
-            m_IsActive = !m_IsActive;
-            if (m_IsActive)
-            {
-                m_SpriteRenderer.sprite = m_Active;
-            } 
-            else 
-            {
-                m_SpriteRenderer.sprite = m_Idle;
-            }
+            m_SpriteRenderer.sprite = m_Ready;
+            yield return new WaitForSeconds(1.0f);
+
+            m_IsActive = true;
+            m_SpriteRenderer.sprite = m_Active;
+            yield return new WaitForSeconds(m_Timer);
+            m_IsActive = false;
+            m_SpriteRenderer.sprite = m_Idle;
+
+            // m_IsActive = !m_IsActive;
+            // if (m_IsActive)
+            // {
+            //     m_SpriteRenderer.sprite = m_Active;
+            // } 
+            // else 
+            // {
+            //     m_SpriteRenderer.sprite = m_Idle;
+            // }
+
         }
     }
 }

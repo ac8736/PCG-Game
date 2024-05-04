@@ -88,15 +88,12 @@ public class DungeonGenerator : MonoBehaviour
         yield return new WaitForSeconds(0.33f);
         AstarPath.active.Scan();
 
-        if (m_PlayerStats.m_Gold != 0 && m_PlayerStats.m_Gold % 10 == 0)
-        {
-            m_EnemyStats.m_MaxHealthChase += 1;
-            m_EnemyStats.m_MaxHealthChase = Mathf.Clamp(m_EnemyStats.m_MaxHealthChase, 2, 8);
-            m_EnemyStats.m_MaxHealthSingle += 1;
-            m_EnemyStats.m_MaxHealthSingle = Mathf.Clamp(m_EnemyStats.m_MaxHealthSingle, 5, 10);
-            m_EnemyStats.m_MaxHealthSpin += 1;
-            m_EnemyStats.m_MaxHealthSpin = Mathf.Clamp(m_EnemyStats.m_MaxHealthSpin, 3, 7);
-        }
+        m_EnemyStats.m_MaxHealthChase += 1;
+        m_EnemyStats.m_MaxHealthChase = Mathf.Clamp(m_EnemyStats.m_MaxHealthChase, 2, 8);
+        m_EnemyStats.m_MaxHealthSingle += 1;
+        m_EnemyStats.m_MaxHealthSingle = Mathf.Clamp(m_EnemyStats.m_MaxHealthSingle, 3, 15);
+        m_EnemyStats.m_MaxHealthSpin += 1;
+        m_EnemyStats.m_MaxHealthSpin = Mathf.Clamp(m_EnemyStats.m_MaxHealthSpin, 3, 10);
     }
 
     public void CreateDungeonFunction()
