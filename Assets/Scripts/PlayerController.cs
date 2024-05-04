@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collider)
+    private void OnCollisionStay2D(Collision2D collider)
     {
         if (collider.gameObject.CompareTag("Enemy") && m_CanDamage)
         {
