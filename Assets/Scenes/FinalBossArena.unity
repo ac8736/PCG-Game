@@ -1914,6 +1914,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 75971596597493019, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: m_Boss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 75971596597493019, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: m_Chase
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 75971596597493019, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: m_CanDamage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 429558208565515864, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

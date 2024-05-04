@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
     public GameObject m_HealthPrefab;
     public AIPath m_AIPath;
 
-    public bool m_Spin, m_Chase, m_Single;
+    public bool m_Spin, m_Chase, m_Single, m_Boss;
 
     private int m_Health;
     private bool m_IsDead = false;
@@ -29,6 +29,8 @@ public class EnemyHealth : MonoBehaviour
             m_Health = m_EnemyStats.m_MaxHealthChase;
         else if (m_Single)
             m_Health = m_EnemyStats.m_MaxHealthSingle;
+        else if (m_Boss)
+            m_Health = 80;
     }
 
     // Update is called once per frame
@@ -46,14 +48,16 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
-        GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
-        if (Random.Range(0, 17) != 0)
-        {
-            Instantiate(m_GoldPrefab, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(m_HealthPrefab, transform.position, Quaternion.identity);
+        if (!m_Boss) {
+            GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
+            if (Random.Range(0, 17) != 0)
+            {
+                Instantiate(m_GoldPrefab, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(m_HealthPrefab, transform.position, Quaternion.identity);
+            }
         }
         Destroy(gameObject);
     }
@@ -69,6 +73,8 @@ public class EnemyHealth : MonoBehaviour
                 m_FloatingHealthbar.UpdateHealthbar(m_Health, m_EnemyStats.m_MaxHealthChase);
             else if (m_Single)
                 m_FloatingHealthbar.UpdateHealthbar(m_Health, m_EnemyStats.m_MaxHealthSingle);
+            else if (m_Boss)
+                m_FloatingHealthbar.UpdateHealthbar(m_Health, m_EnemyStats.m_MaxHealthBoss);
             m_Animator.SetTrigger("Injure");
         }
     }
