@@ -4075,7 +4075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4458265449301372666, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: m_IsShooter
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4458265449301372666, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: m_IsStationary
@@ -4127,7 +4127,7 @@ PrefabInstance:
       objectReference: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
     - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: firingRate
-      value: 0.22
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: reloadTime
