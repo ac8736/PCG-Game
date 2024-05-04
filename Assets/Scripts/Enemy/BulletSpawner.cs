@@ -80,7 +80,7 @@ public class BulletSpawner : MonoBehaviour
         if (bulletTwo) {
             if (spawnerType == SpawnerType.Spin) {
                 if (isBoss) {
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 72f);
+                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 30f);
                     spawnedBulletTwo = Instantiate(bulletTwo, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
                     Bullet bulletComponentTwo = spawnedBulletTwo.GetComponent<Bullet>();
                     bulletComponentTwo.speed = speed;
@@ -88,7 +88,7 @@ public class BulletSpawner : MonoBehaviour
                     // bulletComponentTwo.m_Damage = m_EnemyStat.m_Damage;
                     spawnedBulletTwo.transform.rotation = transform.rotation;
 
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 72f);
+                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 30f);
                     spawnedBulletThree = Instantiate(bulletThree, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
                     Bullet bulletComponentThree = spawnedBulletThree.GetComponent<Bullet>();
                     bulletComponentThree.speed = speed;
@@ -96,7 +96,7 @@ public class BulletSpawner : MonoBehaviour
                     // bulletComponentThree.m_Damage = m_EnemyStat.m_Damage;
                     spawnedBulletThree.transform.rotation = transform.rotation;
 
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 72f);
+                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 30f);
                     spawnedBulletFour = Instantiate(bulletFour, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
                     Bullet bulletComponentFour = spawnedBulletFour.GetComponent<Bullet>();
                     bulletComponentFour.speed = speed;
@@ -104,7 +104,7 @@ public class BulletSpawner : MonoBehaviour
                     // bulletComponentTwo.m_Damage = m_EnemyStat.m_Damage;
                     spawnedBulletFour.transform.rotation = transform.rotation;
 
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 72f);
+                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 30f);
                     spawnedBulletFive = Instantiate(bulletFive, (transform.position + transform.up * bulletSpawnOffset), Quaternion.identity);
                     Bullet bulletComponentFive = spawnedBulletFive.GetComponent<Bullet>();
                     bulletComponentFive.speed = speed;
@@ -112,7 +112,7 @@ public class BulletSpawner : MonoBehaviour
                     // bulletComponentThree.m_Damage = m_EnemyStat.m_Damage;
                     spawnedBulletFive.transform.rotation = transform.rotation;
 
-                    transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z - 288f);
+                    //transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z - 288f);
                 }
                 else {
                     transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + 120f);
