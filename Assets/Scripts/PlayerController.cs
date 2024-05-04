@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour
     {
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && m_Blanks > 0 && m_EnemyRoomComponent != null)
-        {
-            m_EnemyRoomComponent.ClearEnemyBullets();
-            m_Blanks--;
-        }
+        // if (Input.GetKeyDown(KeyCode.Space) && m_Blanks > 0 && m_EnemyRoomComponent != null)
+        // {
+        //     m_EnemyRoomComponent.ClearEnemyBullets();
+        //     m_Blanks--;
+        // }
 
         m_HorizontalSpeed = Input.GetAxisRaw("Horizontal") * m_Speed;
         m_VerticalSpeed = Input.GetAxisRaw("Vertical") * m_Speed;

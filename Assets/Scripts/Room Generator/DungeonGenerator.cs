@@ -43,14 +43,14 @@ public class DungeonGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            CreateDungeon();
-        }
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            AstarPath.active.Scan();
-        }
+        // if (Input.GetKeyDown(KeyCode.N))
+        // {
+        //     CreateDungeon();
+        // }
+        // if (Input.GetKeyDown(KeyCode.M))
+        // {
+        //     AstarPath.active.Scan();
+        // }
     }
 
     void ResetDungeon()
