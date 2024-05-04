@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.SceneManagement;
 
 public class ShopActions : MonoBehaviour
@@ -85,7 +86,7 @@ public class ShopActions : MonoBehaviour
 
     public void MaxAmmoDecrease()
     {
-        if (m_CurrentMaxAmmo > m_PlayerStats.m_MaxHealth)
+        if (m_CurrentMaxAmmo > m_PlayerStats.m_AmmoCount)
         {
             m_CurrentMaxAmmo -= 2;
             m_Gold += m_MaxAmmoUpgradeCost;
@@ -113,6 +114,15 @@ public class ShopActions : MonoBehaviour
             m_Gold += m_AttackSpeedUpgradeCost;
             m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
             m_AttackSpeedCounter.text = m_CurrentAttackSpeed.ToString();
+        }
+    }
+
+    public void EnterDeathWorld() 
+    {
+        if (m_Gold >= 100)
+        {
+            m_PlayerStats.m_Gold -= 100;
+            SceneManager.LoadScene("FinalBossArena");
         }
     }
 
