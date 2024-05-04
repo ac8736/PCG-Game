@@ -3528,7 +3528,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: speed
-      value: 5.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: isBoss
@@ -3564,7 +3564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8346048017137306345, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: maxSpeed
-      value: 2.4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4775108070640392373, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
