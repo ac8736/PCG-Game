@@ -41,8 +41,8 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2130617053158928117}
   - {fileID: 641724283755405047}
+  - {fileID: 2130617053158928117}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7688921723632540452
@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Spin: 0
   m_Chase: 1
   m_Single: 0
+  m_Boss: 0
 --- !u!114 &4458265449301372666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,8 +419,11 @@ MonoBehaviour:
   needsTracking: 0
   oscillate: 0
   m_EnemyStat: {fileID: 11400000, guid: a6f5212d8c6cd7c43a99f848b6661e82, type: 2}
+  isBoss: 0
   bulletTwo: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
   bulletThree: {fileID: 1014802042287142218, guid: 3af4871862763ef4a96d0dcd19e6371c, type: 3}
+  bulletFour: {fileID: 0}
+  bulletFive: {fileID: 0}
   spawnerType: 1
   firingRate: 0.26
   reloadTime: 0.6
