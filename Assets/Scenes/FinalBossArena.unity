@@ -1913,6 +1913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossTest
       objectReference: {fileID: 0}
+    - target: {fileID: 2666863311199237632, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2810329988883810416, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: target
       value: 
@@ -1948,6 +1952,22 @@ PrefabInstance:
     - target: {fileID: 5056624657862761039, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: firingRate
+      value: 0.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6435763067610213232, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: needsTracking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822283848591348560, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
+      propertyPath: rotationSpeed
+      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4775108070640392373, guid: ad3f9a0863ec73948837b77d96f42754, type: 3}
