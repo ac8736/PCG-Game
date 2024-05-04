@@ -3423,7 +3423,7 @@ PrefabInstance:
     - target: {fileID: 3036004543461060614, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
       propertyPath: fullBullet
       value: 
-      objectReference: {fileID: 21300000, guid: 3b39a961a195f4972bb2b08c4634c5b0, type: 3}
+      objectReference: {fileID: 21300000, guid: 5fed2cd2118674d7bad1b53213874450, type: 3}
     - target: {fileID: 3036004543461060614, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
       propertyPath: halfBullet
       value: 

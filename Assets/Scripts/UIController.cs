@@ -8,6 +8,12 @@ public class UIController : MonoBehaviour
 {
     public Slider _sfxSlider, _musicSlider;
 
+    // void Start()
+    // {
+    //     _bgmSlider.value = bgmAudioSource.volume;
+    //     _sfxSlider.value = sfxAudioSources[0].volume;
+    // }
+
     public void ToggleMusic()
     {
         AudioManager.Instance.ToggleMusic();
@@ -27,4 +33,17 @@ public class UIController : MonoBehaviour
     {
         AudioManager.Instance.MusicVolume(_sfxSlider.value);
     }
+
+    // public void SetBGMVolume(float volume)
+    // {
+    //     bgmAudioSource.volume = volume;
+    // }
+
+    // public void SetSFXVolume(float volume)
+    // {
+    //     foreach (AudioSource sfxSource in sfxAudioSources)
+    //     {
+    //         sfxSource.volume = volume;
+    //     }
+    // }
 }

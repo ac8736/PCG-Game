@@ -453,8 +453,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278230271
+  m_fontColor: {r: 1, g: 0.6117647, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1235,6 +1235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MenuCursorTexture: {fileID: 2800000, guid: 2e71a8202d3b4a3448ec85ced5a40265, type: 3}
+  m_GameCursorTexture: {fileID: 0}
   m_HotSpot: {x: 0, y: 0}
 --- !u!4 &1343804904
 Transform:
@@ -2481,10 +2482,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 729243821}
   SFXSource: {fileID: 835580788}
-  normalbgm: {fileID: 8300000, guid: c139c1d73be94442a83f67b8e8f87700, type: 3}
+  normalbgm:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   deathbgm: {fileID: 8300000, guid: 47328483869204a3f881db0ed564abd6, type: 3}
   magic: {fileID: 8300000, guid: e6ffff2ec34525a4f8d956c316b88749, type: 3}
   takeDamage: {fileID: 8300000, guid: 5b56f1ab04331c94289e00b9329840ea, type: 3}
+  coinPickup: {fileID: 0}
+  walk: {fileID: 0}
+  trap: {fileID: 0}
+  reload: {fileID: 0}
+  empty: {fileID: 0}
+  doorClose: {fileID: 0}
+  success: {fileID: 0}
 --- !u!4 &2087032687
 Transform:
   m_ObjectHideFlags: 0
