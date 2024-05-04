@@ -14,6 +14,8 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
+        GlobalVars.clearedFloors = 0;
+        GlobalVars.floor = 0;
         m_PlayerStat.m_Gold = 0;
         m_PlayerStat.m_MaxHealth = 6;
         m_PlayerStat.m_Speed = 0;
@@ -27,7 +29,6 @@ public class StartGame : MonoBehaviour
         SceneManager.LoadScene("Level");
     }
 
-    // Start is called before the first frame update
     public void Retry()
     {
         GlobalVars.clearedFloors = 0;

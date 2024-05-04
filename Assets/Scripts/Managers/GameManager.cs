@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(FadeOut());
         }
+
+        if (Input.GetKeyDown(KeyCode.L)) 
+        {
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     IEnumerator FadeOut()
