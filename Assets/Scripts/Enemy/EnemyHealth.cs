@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Pathfinding;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
-        
+
         if (!m_Boss) {
             GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
             if (Random.Range(0, 17) != 0)
@@ -59,6 +60,9 @@ public class EnemyHealth : MonoBehaviour
             {
                 Instantiate(m_HealthPrefab, transform.position, Quaternion.identity);
             }
+        }
+        if (m_Boss) {
+            SceneManager.LoadScene("GameWin");
         }
         Destroy(gameObject);
     }
@@ -75,6 +79,7 @@ public class EnemyHealth : MonoBehaviour
             else if (m_Single)
                 m_FloatingHealthbar.UpdateHealthbar(m_Health, m_EnemyStats.m_MaxHealthSingle);
             else if (m_Boss)
+                //m_Health -= 39;
                 m_FloatingHealthbar.UpdateHealthbar(m_Health, m_EnemyStats.m_MaxHealthBoss);
             m_Animator.SetTrigger("Injure");
         }
