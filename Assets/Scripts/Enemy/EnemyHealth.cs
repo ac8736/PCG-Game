@@ -48,6 +48,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
+        
         if (!m_Boss) {
             GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
             if (Random.Range(0, 17) != 0)
