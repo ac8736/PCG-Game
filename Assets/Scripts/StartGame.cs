@@ -17,7 +17,7 @@ public class StartGame : MonoBehaviour
         GlobalVars.clearedFloors = 0;
         GlobalVars.floor = 0;
         m_PlayerStat.m_Gold = 0;
-        m_PlayerStat.m_MaxHealth = 6;
+        m_PlayerStat.m_MaxHealth = 5;
         m_PlayerStat.m_Speed = 0;
         m_PlayerStat.m_AttackSpeed = 0;
         m_PlayerStat.m_AmmoCount = 10;
