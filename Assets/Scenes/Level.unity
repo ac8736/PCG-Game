@@ -2076,7 +2076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -257}
+  m_AnchoredPosition: {x: 0, y: -145}
   m_SizeDelta: {x: 877.1766, y: 137.6548}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319191815
@@ -2099,8 +2099,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Death is after you. But to escape, it seems you may need to die to face
-    him.
+  m_text: "Death is after you. \nBut to escape, it seems you may \nneed to die to
+    face him."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 52720d26831a341fcbafd04bc93cb306, type: 2}
   m_sharedMaterial: {fileID: 3138536908336881580, guid: 52720d26831a341fcbafd04bc93cb306, type: 2}

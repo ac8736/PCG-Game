@@ -4855,13 +4855,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2890132846844228636, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890132846844228636, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2890132846844228636, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 834758357}
+      objectReference: {fileID: 101053165}
     - target: {fileID: 2890132846844228636, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
@@ -4872,7 +4876,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2890132846844228636, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UIController, Assembly-CSharp
+      value: AudioManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2890132846844228636, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -4887,9 +4891,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 834758357}
     - target: {fileID: 3327761260431418496, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327761260431418496, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 834758357}
+      objectReference: {fileID: 101053165}
+    - target: {fileID: 3327761260431418496, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SFXVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 3327761260431418496, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3440820509756263533, guid: 0967bc0dcc2f54f82987ced7928ebcb7, type: 3}
       propertyPath: m_fontAsset
       value: 
