@@ -26,6 +26,7 @@ public class DeathGameManager : MonoBehaviour
 
         if (m_PlayerController.m_Health <= 0)
         {
+            GlobalVars.changeSongMain = true;
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -34,6 +35,7 @@ public class DeathGameManager : MonoBehaviour
     {
         m_CalledCoroutine = true;
         yield return new WaitForSeconds(2.5f);
+        GlobalVars.changeSongMain = true;
         SceneManager.LoadScene("GameWin");
     }
 }

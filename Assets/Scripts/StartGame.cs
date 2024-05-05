@@ -14,6 +14,7 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     public void PlayGame()
     {
+        publicvar.totalCoins = 0;
         GlobalVars.clearedFloors = 0;
         GlobalVars.floor = 0;
         m_PlayerStat.m_Gold = 0;

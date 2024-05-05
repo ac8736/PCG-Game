@@ -58,6 +58,7 @@ public class EnemyHealth : MonoBehaviour
     public void Die()
     {
         m_AudioManager.PlaySFX(m_AudioManager.enemyDeath);
+        publicvar.enemiesKilled += 1;
         if (!m_Boss) {
             GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
             if (Random.Range(0, 17) != 0)

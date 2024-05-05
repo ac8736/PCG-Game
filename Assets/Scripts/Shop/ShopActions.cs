@@ -124,6 +124,7 @@ public class ShopActions : MonoBehaviour
     {
         if (m_Gold >= 100)
         {
+            GlobalVars.changeSong = true;
             m_PlayerStats.m_Gold -= 100;
             m_PlayerStats.m_AmmoCount = m_CurrentMaxAmmo;
             m_PlayerStats.m_Gold = m_Gold;
@@ -135,6 +136,7 @@ public class ShopActions : MonoBehaviour
 
     public void Continue()
     {
+        GlobalVars.changeSong = true;
         m_PlayerStats.m_AmmoCount = m_CurrentMaxAmmo;
         m_PlayerStats.m_Gold = m_Gold;
         m_PlayerStats.m_Speed = m_CurrentMovementSpeed;

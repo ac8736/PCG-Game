@@ -14,6 +14,7 @@ public class EscapedDeath : MonoBehaviour
         if (timeLeft < 0)
         {
             SceneManager.LoadScene("Level");
+            GlobalVars.changeSongMain = true;
         }
     }
 } 

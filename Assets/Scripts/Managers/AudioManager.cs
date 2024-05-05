@@ -62,14 +62,19 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    // private void Update()
-    // {
-    //     level = GlobalVars.floor;
-    //     Debug.Log("ATA" + level + GlobalVars.floor);
-       
-    //     musicSource.clip = normalbgm[level];
-    //     musicSource.Play();
-    // }
+    private void Update()
+    {
+        if (GlobalVars.changeSong == true){
+            GlobalVars.changeSong = false;
+            musicSource.clip = deathbgm;
+            musicSource.Play();
+        }
+        else if (GlobalVars.changeSongMain == true){
+            GlobalVars.changeSongMain = false;
+            musicSource.clip = normalbgm[level];
+            musicSource.Play();
+        }
+    }
     
 
     public void PlaySFX(AudioClip clip)

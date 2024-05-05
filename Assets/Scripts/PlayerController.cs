@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
 
     public void GainGold(int amt)
     {
+        publicvar.totalCoins += amt;
         m_PlayerStats.m_Gold += amt;
         m_AudioManager.PlaySFX(m_AudioManager.coinPickup);
     }

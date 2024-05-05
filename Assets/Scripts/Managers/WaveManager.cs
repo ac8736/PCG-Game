@@ -38,6 +38,7 @@ public class WaveManager : MonoBehaviour
 
         if (m_Player.m_Health <= 0)
         {
+            GlobalVars.changeSongMain = true;
             SceneManager.LoadScene("GameOver");
         }
 
@@ -56,6 +57,7 @@ public class WaveManager : MonoBehaviour
 
         if (m_Timer <= 0)
         {
+            GlobalVars.changeSongMain = true;
             SceneManager.LoadScene("GameOver");
         }
     }
@@ -93,6 +95,7 @@ public class WaveManager : MonoBehaviour
         m_FadeInOut.FadeIn();
         yield return new WaitForSeconds(1.0f);
         SceneManager.LoadScene("Level");
+        GlobalVars.changeSongMain = true;
     }
 
     public void RemoveFromList(GameObject enemy)
