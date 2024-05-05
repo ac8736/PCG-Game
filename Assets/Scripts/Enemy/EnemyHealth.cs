@@ -47,6 +47,11 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
+    public int GetHealth() 
+    {
+        return m_Health;
+    }
+
     public void Die()
     {
 
@@ -61,9 +66,9 @@ public class EnemyHealth : MonoBehaviour
                 Instantiate(m_HealthPrefab, transform.position, Quaternion.identity);
             }
         }
-        if (m_Boss) {
-            SceneManager.LoadScene("GameWin");
-        }
+        // if (m_Boss) {
+        //     SceneManager.LoadScene("GameWin");
+        // }
         Destroy(gameObject);
     }
 
