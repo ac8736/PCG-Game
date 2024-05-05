@@ -30,12 +30,14 @@ public class ShopActions : MonoBehaviour
 
     void Start()
     {
+        m_PlayerStats.m_Gold += 100;
         m_Gold = m_PlayerStats.m_Gold;
         //m_Gold = 100;
         m_OwnedCoinsText.text = "Current Owned: " + m_Gold;
 
         m_CurrentMaxAmmo = m_PlayerStats.m_AmmoCount;
         m_CurrentMovementSpeed = m_PlayerStats.m_Speed;
+        m_CurrentAttackSpeed = m_PlayerStats.m_AttackSpeed;
 
         m_MaxAmmoUpgradeCostText.text = "x" + m_MaxAmmoUpgradeCost;
         m_MovementSpeedUpgradeCostText.text = "x" + m_MovementSpeedUpgradeCost;
