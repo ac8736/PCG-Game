@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (m_Health == m_PlayerStats.m_MaxHealth) { return false; }
         m_Health += 1;
+        m_AudioManager.PlaySFX(m_AudioManager.coinPickup);
         return true;
     }
 
