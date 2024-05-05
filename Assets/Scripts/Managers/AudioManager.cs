@@ -29,6 +29,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip doorClose;
 
     public AudioClip success;
+    public AudioClip enemyDeath;
 
     // public int GlobalVars.floor globalVars;
 

@@ -21,9 +21,12 @@ public class EnemyHealth : MonoBehaviour
     private int m_Health;
     private bool m_IsDead = false;
 
+    private AudioManager m_AudioManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        m_AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
         if (m_Spin)
             m_Health = m_EnemyStats.m_MaxHealthSpin;
         else if (m_Chase)
@@ -54,7 +57,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void Die()
     {
-
+        m_AudioManager.PlaySFX(m_AudioManager.enemyDeath);
         if (!m_Boss) {
             GetComponent<EnemyRoomHandler>().RemoveFromRoomList();
             if (Random.Range(0, 17) != 0)

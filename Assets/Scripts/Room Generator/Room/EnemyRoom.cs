@@ -39,7 +39,6 @@ public class EnemyRoom : MonoBehaviour
                 if (m_CanDestroy)
                 {
                     m_ClearTextAnimation.SetTrigger("Clear");
-                    m_AudioManager.PlaySFX(m_AudioManager.success);
                     ClearEnemyBullets();
                     Destroy(this);
                 }
@@ -49,6 +48,7 @@ public class EnemyRoom : MonoBehaviour
 
     public void ClearEnemyBullets()
     {
+        m_AudioManager.PlaySFX(m_AudioManager.success);
         foreach (var bullet in m_EnemyBullets)
         {
             Destroy(bullet);
