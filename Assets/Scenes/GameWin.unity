@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySingle
       objectReference: {fileID: 0}
+    - target: {fileID: 1191523532584451688, guid: abb3398e8e42bd04689c0933171c80b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1618163173987142346, guid: abb3398e8e42bd04689c0933171c80b1, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1047,6 +1051,10 @@ PrefabInstance:
     - target: {fileID: 1727778863733140990, guid: 96c5a6ad6fec59947b324e8325902f9a, type: 3}
       propertyPath: m_Name
       value: EnemyChase
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727778863733140990, guid: 96c5a6ad6fec59947b324e8325902f9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5056624657862761039, guid: 96c5a6ad6fec59947b324e8325902f9a, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2929,6 +2937,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6254808145346264300, guid: 51f7616b248d09f4e97647286cc042cb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7917694426810696635, guid: 51f7616b248d09f4e97647286cc042cb, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.7
@@ -3228,6 +3240,10 @@ PrefabInstance:
     - target: {fileID: 8871160716061553430, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871160716061553430, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4337814601869194540, guid: 9426898abdddecd41a11200ba8d76810, type: 3}
