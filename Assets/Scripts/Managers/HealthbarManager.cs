@@ -10,23 +10,13 @@ public class HealthbarManager : MonoBehaviour
 
     void Update()
     {
-        if (m_Player.m_Health == 6)
+        if (m_Player.m_Health == 5)
         {
             m_Hearts[0].SetActive(true);
             m_Hearts[1].SetActive(true);
             m_Hearts[2].SetActive(true);
             m_Hearts[3].SetActive(true);
             m_Hearts[4].SetActive(true);
-            m_Hearts[5].SetActive(true);
-        }
-        else if (m_Player.m_Health == 5)
-        {
-            m_Hearts[0].SetActive(true);
-            m_Hearts[1].SetActive(true);
-            m_Hearts[2].SetActive(true);
-            m_Hearts[3].SetActive(true);
-            m_Hearts[4].SetActive(true);
-            m_Hearts[5].SetActive(false);
         }
         else if (m_Player.m_Health == 4)
         {
@@ -35,7 +25,6 @@ public class HealthbarManager : MonoBehaviour
             m_Hearts[2].SetActive(true);
             m_Hearts[3].SetActive(true);
             m_Hearts[4].SetActive(false);
-            m_Hearts[5].SetActive(false);
         }
         else if (m_Player.m_Health == 3)
         {
@@ -44,7 +33,6 @@ public class HealthbarManager : MonoBehaviour
             m_Hearts[2].SetActive(true);
             m_Hearts[3].SetActive(false);
             m_Hearts[4].SetActive(false);
-            m_Hearts[5].SetActive(false);
         }
         else if (m_Player.m_Health == 2)
         {
@@ -53,7 +41,6 @@ public class HealthbarManager : MonoBehaviour
             m_Hearts[2].SetActive(false);
             m_Hearts[3].SetActive(false);
             m_Hearts[4].SetActive(false);
-            m_Hearts[5].SetActive(false);
         }
         else if (m_Player.m_Health == 1)
         {
@@ -62,7 +49,6 @@ public class HealthbarManager : MonoBehaviour
             m_Hearts[2].SetActive(false);
             m_Hearts[3].SetActive(false);
             m_Hearts[4].SetActive(false);
-            m_Hearts[5].SetActive(false);
         }
         else if (m_Player.m_Health == 0)
         {
@@ -71,7 +57,6 @@ public class HealthbarManager : MonoBehaviour
             m_Hearts[2].SetActive(false);
             m_Hearts[3].SetActive(false);
             m_Hearts[4].SetActive(false);
-            m_Hearts[5].SetActive(false);
         }
     }
 }
